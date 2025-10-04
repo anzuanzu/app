@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrequencyHealing - Privacy Policy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #10b981;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 50 Q 25 25, 50 50 T 100 50" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="2"/></svg>');
+            opacity: 0.3;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            max-width: 600px;
+            justify-content: flex-end;
+            z-index: 10;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Content */
+        main {
+            padding: 60px 0;
+        }
+
+        .privacy-content {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 0.95em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-size: 2em;
+            margin: 40px 0 20px 0;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin: 30px 0 15px 0;
+            color: var(--accent-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .highlight-box {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        .info-card {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        strong {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .language-switcher {
+                position: relative;
+                top: 0;
+                right: 0;
+                justify-content: center;
+                margin-bottom: 20px;
+                padding: 0 10px;
+            }
+
+            .lang-btn {
+                font-size: 0.75em;
+                padding: 5px 10px;
+            }
+
+            .privacy-content {
+                padding: 25px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Icon */
+        .icon {
+            display: inline-block;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="zh-TW">繁體中文</button>
+                <button class="lang-btn" data-lang="zh-CN">简体中文</button>
+                <button class="lang-btn" data-lang="ja">日本語</button>
+                <button class="lang-btn" data-lang="ko">한국어</button>
+                <button class="lang-btn" data-lang="es">Español</button>
+                <button class="lang-btn" data-lang="de">Deutsch</button>
+                <button class="lang-btn" data-lang="fr">Français</button>
+            </div>
+            <h1>🔒 FrequencyHealing</h1>
+            <p id="subtitle"></p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="privacy-content" id="content">
+            <!-- Content will be loaded by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>FrequencyHealing iOS App</p>
+            <p style="margin-top: 10px; font-size: 0.9em;" id="footer-text"></p>
+        </div>
+    </footer>
+
+    <script>
+        const content = {
+            en: {
+                subtitle: "Privacy Policy",
+                lastUpdated: "Last Updated: October 2025",
+                footer: "© 2025 FrequencyHealing. All rights reserved.",
+                sections: {
+                    intro: {
+                        title: "Privacy Commitment",
+                        text: "FrequencyHealing is committed to protecting your privacy. This Privacy Policy explains our approach to data collection and privacy protection."
+                    },
+                    highlight: {
+                        title: "✨ Key Privacy Features",
+                        points: [
+                            "NO personal data collection",
+                            "NO user accounts required",
+                            "NO internet connection needed",
+                            "NO data transmission to external servers",
+                            "ALL data stored locally on your device",
+                            "Complete user privacy protection"
+                        ]
+                    },
+                    dataCollection: {
+                        title: "Information We Collect",
+                        subtitle: "We Do NOT Collect Any Personal Information",
+                        text: "FrequencyHealing does NOT collect, store, or transmit any personal information, including but not limited to:",
+                        list: [
+                            "Name, email address, or phone number",
+                            "Location data or GPS information",
+                            "Device identifiers or advertising IDs",
+                            "Usage data or analytics",
+                            "Health data or biometric information",
+                            "Any other personally identifiable information"
+                        ]
+                    },
+                    localData: {
+                        title: "Local Data Storage",
+                        subtitle: "All Data Stored on Your Device",
+                        text: "All user settings and preferences are stored locally on your device only:",
+                        list: [
+                            "Frequency preferences and favorites",
+                            "Audio quality settings",
+                            "Usage duration records",
+                            "Medical screening responses (if provided)",
+                            "App configuration settings"
+                        ],
+                        note: "This data never leaves your device and is completely under your control. Deleting the app will remove all stored data."
+                    },
+                    thirdParty: {
+                        title: "Third-Party Services",
+                        text: "FrequencyHealing does NOT integrate with any third-party services, including:",
+                        list: [
+                            "NO analytics services (Google Analytics, etc.)",
+                            "NO advertising networks",
+                            "NO social media platforms",
+                            "NO cloud storage services",
+                            "NO crash reporting services"
+                        ]
+                    },
+                    permissions: {
+                        title: "App Permissions",
+                        subtitle: "Minimal Permissions Required",
+                        text: "FrequencyHealing only requests the following essential permission:",
+                        list: [
+                            "<strong>Audio Playback Permission:</strong> Required to play frequency audio. This permission does NOT access your microphone or record audio."
+                        ]
+                    },
+                    children: {
+                        title: "Children's Privacy",
+                        text: "FrequencyHealing does not knowingly collect any information from children. The app is designed for general audiences and does not require any personal information from users of any age."
+                    },
+                    security: {
+                        title: "Data Security",
+                        text: "Since we do not collect or transmit any personal data, there is no risk of data breaches or unauthorized access to your personal information. All data remains securely stored on your device."
+                    },
+                    changes: {
+                        title: "Changes to Privacy Policy",
+                        text: "We may update this Privacy Policy from time to time. Any changes will be posted within the app and on this page. Continued use of the app after changes constitutes acceptance of the updated policy."
+                    },
+                    contact: {
+                        title: "Contact Us",
+                        text: "If you have any questions about this Privacy Policy, please contact us at:",
+                        email: "Email: support@frequencyhealing.app"
+                    },
+                    summary: {
+                        title: "Privacy Summary",
+                        text: "In simple terms:",
+                        points: [
+                            "We don't collect any personal data",
+                            "We don't track your usage",
+                            "We don't share anything with anyone",
+                            "Everything stays on your device",
+                            "Your privacy is 100% protected"
+                        ]
+                    }
+                }
+            },
+            'zh-TW': {
+                subtitle: "隱私權政策",
+                lastUpdated: "最後更新：2025 年 10 月",
+                footer: "© 2025 FrequencyHealing. 版權所有。",
+                sections: {
+                    intro: {
+                        title: "隱私保護承諾",
+                        text: "FrequencyHealing 致力於保護您的隱私。本隱私權政策說明我們的資料收集方式和隱私保護措施。"
+                    },
+                    highlight: {
+                        title: "✨ 隱私保護重點",
+                        points: [
+                            "不收集任何個人資料",
+                            "不需要註冊帳號",
+                            "不需要網路連線",
+                            "不傳輸資料到外部伺服器",
+                            "所有資料儲存在本機裝置",
+                            "完全保護使用者隱私"
+                        ]
+                    },
+                    dataCollection: {
+                        title: "資料收集",
+                        subtitle: "我們不收集任何個人資訊",
+                        text: "FrequencyHealing 不會收集、儲存或傳輸任何個人資訊，包括但不限於：",
+                        list: [
+                            "姓名、電子郵件或電話號碼",
+                            "位置資料或 GPS 資訊",
+                            "裝置識別碼或廣告 ID",
+                            "使用資料或分析數據",
+                            "健康資料或生物識別資訊",
+                            "任何其他可識別個人身份的資訊"
+                        ]
+                    },
+                    localData: {
+                        title: "本機資料儲存",
+                        subtitle: "所有資料儲存在您的裝置上",
+                        text: "所有使用者設定和偏好僅儲存在您的裝置上：",
+                        list: [
+                            "頻率偏好和收藏",
+                            "音質設定",
+                            "使用時長記錄",
+                            "醫療篩檢回應（如有提供）",
+                            "應用程式配置設定"
+                        ],
+                        note: "這些資料永遠不會離開您的裝置，完全由您控制。刪除應用程式將移除所有儲存的資料。"
+                    },
+                    thirdParty: {
+                        title: "第三方服務",
+                        text: "FrequencyHealing 不整合任何第三方服務，包括：",
+                        list: [
+                            "無分析服務（Google Analytics 等）",
+                            "無廣告網路",
+                            "無社群媒體平台",
+                            "無雲端儲存服務",
+                            "無當機回報服務"
+                        ]
+                    },
+                    permissions: {
+                        title: "應用程式權限",
+                        subtitle: "最低權限要求",
+                        text: "FrequencyHealing 僅要求以下必要權限：",
+                        list: [
+                            "<strong>音頻播放權限：</strong>播放頻率音頻所需。此權限不會存取您的麥克風或錄製音頻。"
+                        ]
+                    },
+                    children: {
+                        title: "兒童隱私",
+                        text: "FrequencyHealing 不會故意收集兒童的任何資訊。本應用程式適用於一般大眾，不需要任何年齡層使用者提供個人資訊。"
+                    },
+                    security: {
+                        title: "資料安全",
+                        text: "由於我們不收集或傳輸任何個人資料，因此不存在資料外洩或未經授權存取個人資訊的風險。所有資料都安全地儲存在您的裝置上。"
+                    },
+                    changes: {
+                        title: "隱私權政策變更",
+                        text: "我們可能會不時更新本隱私權政策。任何變更將在應用程式內和本頁面上發布。在變更後繼續使用應用程式即表示接受更新後的政策。"
+                    },
+                    contact: {
+                        title: "聯絡我們",
+                        text: "如果您對本隱私權政策有任何疑問，請聯絡我們：",
+                        email: "電子郵件：support@frequencyhealing.app"
+                    },
+                    summary: {
+                        title: "隱私摘要",
+                        text: "簡單來說：",
+                        points: [
+                            "我們不收集任何個人資料",
+                            "我們不追蹤您的使用情況",
+                            "我們不與任何人分享任何資訊",
+                            "所有資料都保留在您的裝置上",
+                            "您的隱私受到 100% 保護"
+                        ]
+                    }
+                }
+            },
+            'zh-CN': {
+                subtitle: "隐私政策",
+                lastUpdated: "最后更新：2025 年 10 月",
+                footer: "© 2025 FrequencyHealing. 版权所有。",
+                sections: {
+                    intro: {
+                        title: "隐私保护承诺",
+                        text: "FrequencyHealing 致力于保护您的隐私。本隐私政策说明我们的数据收集方式和隐私保护措施。"
+                    },
+                    highlight: {
+                        title: "✨ 隐私保护重点",
+                        points: [
+                            "不收集任何个人资料",
+                            "不需要注册账号",
+                            "不需要网络连接",
+                            "不传输数据到外部服务器",
+                            "所有数据存储在本地设备",
+                            "完全保护用户隐私"
+                        ]
+                    },
+                    dataCollection: {
+                        title: "数据收集",
+                        subtitle: "我们不收集任何个人信息",
+                        text: "FrequencyHealing 不会收集、存储或传输任何个人信息，包括但不限于：",
+                        list: [
+                            "姓名、电子邮件或电话号码",
+                            "位置数据或 GPS 信息",
+                            "设备标识符或广告 ID",
+                            "使用数据或分析数据",
+                            "健康数据或生物识别信息",
+                            "任何其他可识别个人身份的信息"
+                        ]
+                    },
+                    localData: {
+                        title: "本地数据存储",
+                        subtitle: "所有数据存储在您的设备上",
+                        text: "所有用户设置和偏好仅存储在您的设备上：",
+                        list: [
+                            "频率偏好和收藏",
+                            "音质设置",
+                            "使用时长记录",
+                            "医疗筛检响应（如有提供）",
+                            "应用程序配置设置"
+                        ],
+                        note: "这些数据永远不会离开您的设备，完全由您控制。删除应用程序将移除所有存储的数据。"
+                    },
+                    thirdParty: {
+                        title: "第三方服务",
+                        text: "FrequencyHealing 不整合任何第三方服务，包括：",
+                        list: [
+                            "无分析服务（Google Analytics 等）",
+                            "无广告网络",
+                            "无社交媒体平台",
+                            "无云存储服务",
+                            "无崩溃报告服务"
+                        ]
+                    },
+                    permissions: {
+                        title: "应用程序权限",
+                        subtitle: "最低权限要求",
+                        text: "FrequencyHealing 仅要求以下必要权限：",
+                        list: [
+                            "<strong>音频播放权限：</strong>播放频率音频所需。此权限不会访问您的麦克风或录制音频。"
+                        ]
+                    },
+                    children: {
+                        title: "儿童隐私",
+                        text: "FrequencyHealing 不会故意收集儿童的任何信息。本应用程序适用于一般大众，不需要任何年龄层用户提供个人信息。"
+                    },
+                    security: {
+                        title: "数据安全",
+                        text: "由于我们不收集或传输任何个人数据，因此不存在数据泄露或未经授权访问个人信息的风险。所有数据都安全地存储在您的设备上。"
+                    },
+                    changes: {
+                        title: "隐私政策变更",
+                        text: "我们可能会不时更新本隐私政策。任何变更将在应用程序内和本页面上发布。在变更后继续使用应用程序即表示接受更新后的政策。"
+                    },
+                    contact: {
+                        title: "联系我们",
+                        text: "如果您对本隐私政策有任何疑问，请联系我们：",
+                        email: "电子邮件：support@frequencyhealing.app"
+                    },
+                    summary: {
+                        title: "隐私摘要",
+                        text: "简单来说：",
+                        points: [
+                            "我们不收集任何个人数据",
+                            "我们不追踪您的使用情况",
+                            "我们不与任何人分享任何信息",
+                            "所有数据都保留在您的设备上",
+                            "您的隐私受到 100% 保护"
+                        ]
+                    }
+                }
+            },
+            ja: {
+                subtitle: "プライバシーポリシー",
+                lastUpdated: "最終更新：2025年10月",
+                footer: "© 2025 FrequencyHealing. All rights reserved.",
+                sections: {
+                    intro: {
+                        title: "プライバシー保護のお約束",
+                        text: "FrequencyHealingはお客様のプライバシー保護に取り組んでいます。このプライバシーポリシーは、当社のデータ収集方法とプライバシー保護対策について説明します。"
+                    },
+                    highlight: {
+                        title: "✨ プライバシー保護の重要ポイント",
+                        points: [
+                            "個人データは一切収集しません",
+                            "ユーザーアカウント登録は不要",
+                            "インターネット接続は不要",
+                            "外部サーバーへのデータ送信なし",
+                            "すべてのデータはデバイスにローカル保存",
+                            "ユーザープライバシーの完全保護"
+                        ]
+                    },
+                    dataCollection: {
+                        title: "情報収集",
+                        subtitle: "個人情報は一切収集しません",
+                        text: "FrequencyHealingは、以下を含む個人情報を収集、保存、送信しません：",
+                        list: [
+                            "氏名、メールアドレス、電話番号",
+                            "位置情報やGPS情報",
+                            "デバイス識別子や広告ID",
+                            "使用データや分析データ",
+                            "健康データや生体認証情報",
+                            "その他の個人を特定できる情報"
+                        ]
+                    },
+                    localData: {
+                        title: "ローカルデータ保存",
+                        subtitle: "すべてのデータはお客様のデバイスに保存",
+                        text: "すべてのユーザー設定と環境設定はお客様のデバイスにのみ保存されます：",
+                        list: [
+                            "周波数の設定とお気に入り",
+                            "音質設定",
+                            "使用時間記録",
+                            "医療スクリーニングの回答（提供された場合）",
+                            "アプリケーション設定"
+                        ],
+                        note: "このデータはデバイスから送信されることはなく、完全にお客様の管理下にあります。アプリを削除すると、すべての保存データが削除されます。"
+                    },
+                    thirdParty: {
+                        title: "サードパーティサービス",
+                        text: "FrequencyHealingは、以下を含むサードパーティサービスと統合していません：",
+                        list: [
+                            "分析サービスなし（Google Analyticsなど）",
+                            "広告ネットワークなし",
+                            "ソーシャルメディアプラットフォームなし",
+                            "クラウドストレージサービスなし",
+                            "クラッシュレポートサービスなし"
+                        ]
+                    },
+                    permissions: {
+                        title: "アプリの権限",
+                        subtitle: "最小限の権限のみ要求",
+                        text: "FrequencyHealingは以下の必須権限のみを要求します：",
+                        list: [
+                            "<strong>オーディオ再生権限：</strong>周波数オーディオの再生に必要です。この権限はマイクへのアクセスやオーディオの録音は行いません。"
+                        ]
+                    },
+                    children: {
+                        title: "子供のプライバシー",
+                        text: "FrequencyHealingは故意に子供から情報を収集することはありません。このアプリは一般的なユーザー向けに設計されており、いかなる年齢のユーザーからも個人情報を必要としません。"
+                    },
+                    security: {
+                        title: "データセキュリティ",
+                        text: "個人データを収集または送信しないため、データ漏洩や個人情報への不正アクセスのリスクはありません。すべてのデータはデバイスに安全に保存されます。"
+                    },
+                    changes: {
+                        title: "プライバシーポリシーの変更",
+                        text: "このプライバシーポリシーは随時更新される場合があります。変更はアプリ内およびこのページに掲載されます。変更後もアプリを継続して使用することは、更新されたポリシーへの同意を意味します。"
+                    },
+                    contact: {
+                        title: "お問い合わせ",
+                        text: "このプライバシーポリシーについてご質問がある場合は、以下までお問い合わせください：",
+                        email: "メール：support@frequencyhealing.app"
+                    },
+                    summary: {
+                        title: "プライバシーの概要",
+                        text: "簡単に言うと：",
+                        points: [
+                            "個人データは一切収集しません",
+                            "使用状況を追跡しません",
+                            "誰とも情報を共有しません",
+                            "すべてがデバイスに残ります",
+                            "プライバシーは100%保護されます"
+                        ]
+                    }
+                }
+            },
+            ko: {
+                subtitle: "개인정보 보호정책",
+                lastUpdated: "최종 업데이트: 2025년 10월",
+                footer: "© 2025 FrequencyHealing. All rights reserved.",
+                sections: {
+                    intro: {
+                        title: "개인정보 보호 약속",
+                        text: "FrequencyHealing은 귀하의 개인정보 보호에 최선을 다하고 있습니다. 본 개인정보 보호정책은 당사의 데이터 수집 방식과 개인정보 보호 조치를 설명합니다."
+                    },
+                    highlight: {
+                        title: "✨ 개인정보 보호 핵심 사항",
+                        points: [
+                            "개인 데이터를 일체 수집하지 않음",
+                            "사용자 계정 등록 불필요",
+                            "인터넷 연결 불필요",
+                            "외부 서버로 데이터 전송 없음",
+                            "모든 데이터는 기기에 로컬 저장",
+                            "사용자 개인정보 완전 보호"
+                        ]
+                    },
+                    dataCollection: {
+                        title: "정보 수집",
+                        subtitle: "개인정보를 일체 수집하지 않습니다",
+                        text: "FrequencyHealing은 다음을 포함한 개인정보를 수집, 저장 또는 전송하지 않습니다:",
+                        list: [
+                            "이름, 이메일 주소 또는 전화번호",
+                            "위치 데이터 또는 GPS 정보",
+                            "기기 식별자 또는 광고 ID",
+                            "사용 데이터 또는 분석 데이터",
+                            "건강 데이터 또는 생체 인식 정보",
+                            "기타 개인 식별 가능한 정보"
+                        ]
+                    },
+                    localData: {
+                        title: "로컬 데이터 저장",
+                        subtitle: "모든 데이터는 기기에 저장",
+                        text: "모든 사용자 설정 및 환경설정은 기기에만 저장됩니다:",
+                        list: [
+                            "주파수 선호도 및 즐겨찾기",
+                            "음질 설정",
+                            "사용 시간 기록",
+                            "의료 검진 응답(제공된 경우)",
+                            "앱 구성 설정"
+                        ],
+                        note: "이 데이터는 기기를 떠나지 않으며 완전히 귀하의 통제 하에 있습니다. 앱을 삭제하면 모든 저장된 데이터가 제거됩니다."
+                    },
+                    thirdParty: {
+                        title: "제3자 서비스",
+                        text: "FrequencyHealing은 다음을 포함한 제3자 서비스와 통합하지 않습니다:",
+                        list: [
+                            "분석 서비스 없음(Google Analytics 등)",
+                            "광고 네트워크 없음",
+                            "소셜 미디어 플랫폼 없음",
+                            "클라우드 저장소 서비스 없음",
+                            "충돌 보고 서비스 없음"
+                        ]
+                    },
+                    permissions: {
+                        title: "앱 권한",
+                        subtitle: "최소 권한만 요청",
+                        text: "FrequencyHealing은 다음의 필수 권한만 요청합니다:",
+                        list: [
+                            "<strong>오디오 재생 권한:</strong> 주파수 오디오 재생에 필요합니다. 이 권한은 마이크에 접근하거나 오디오를 녹음하지 않습니다."
+                        ]
+                    },
+                    children: {
+                        title: "어린이 개인정보",
+                        text: "FrequencyHealing은 고의로 어린이로부터 정보를 수집하지 않습니다. 이 앱은 일반 사용자를 위해 설계되었으며 어떤 연령의 사용자로부터도 개인정보를 요구하지 않습니다."
+                    },
+                    security: {
+                        title: "데이터 보안",
+                        text: "개인 데이터를 수집하거나 전송하지 않으므로 데이터 유출이나 개인정보 무단 접근의 위험이 없습니다. 모든 데이터는 기기에 안전하게 저장됩니다."
+                    },
+                    changes: {
+                        title: "개인정보 보호정책 변경",
+                        text: "본 개인정보 보호정책은 수시로 업데이트될 수 있습니다. 변경 사항은 앱 내 및 본 페이지에 게시됩니다. 변경 후 앱을 계속 사용하는 것은 업데이트된 정책에 대한 동의를 의미합니다."
+                    },
+                    contact: {
+                        title: "문의하기",
+                        text: "본 개인정보 보호정책에 대해 질문이 있으시면 다음으로 문의하십시오:",
+                        email: "이메일: support@frequencyhealing.app"
+                    },
+                    summary: {
+                        title: "개인정보 보호 요약",
+                        text: "간단히 말하면:",
+                        points: [
+                            "개인 데이터를 일체 수집하지 않습니다",
+                            "사용 현황을 추적하지 않습니다",
+                            "누구와도 정보를 공유하지 않습니다",
+                            "모든 것이 기기에 남아있습니다",
+                            "개인정보는 100% 보호됩니다"
+                        ]
+                    }
+                }
+            },
+            es: {
+                subtitle: "Política de Privacidad",
+                lastUpdated: "Última actualización: Octubre 2025",
+                footer: "© 2025 FrequencyHealing. Todos los derechos reservados.",
+                sections: {
+                    intro: {
+                        title: "Compromiso con la Privacidad",
+                        text: "FrequencyHealing está comprometido con la protección de su privacidad. Esta Política de Privacidad explica nuestro enfoque sobre la recopilación de datos y la protección de la privacidad."
+                    },
+                    highlight: {
+                        title: "✨ Características Clave de Privacidad",
+                        points: [
+                            "NO recopilamos datos personales",
+                            "NO se requiere cuenta de usuario",
+                            "NO se necesita conexión a Internet",
+                            "NO hay transmisión de datos a servidores externos",
+                            "TODOS los datos se almacenan localmente en su dispositivo",
+                            "Protección completa de la privacidad del usuario"
+                        ]
+                    },
+                    dataCollection: {
+                        title: "Información que Recopilamos",
+                        subtitle: "NO Recopilamos Ninguna Información Personal",
+                        text: "FrequencyHealing NO recopila, almacena ni transmite ninguna información personal, incluyendo pero no limitado a:",
+                        list: [
+                            "Nombre, dirección de correo electrónico o número de teléfono",
+                            "Datos de ubicación o información GPS",
+                            "Identificadores de dispositivo o ID de publicidad",
+                            "Datos de uso o análisis",
+                            "Datos de salud o información biométrica",
+                            "Cualquier otra información de identificación personal"
+                        ]
+                    },
+                    localData: {
+                        title: "Almacenamiento Local de Datos",
+                        subtitle: "Todos los Datos Almacenados en Su Dispositivo",
+                        text: "Todas las configuraciones y preferencias del usuario se almacenan localmente solo en su dispositivo:",
+                        list: [
+                            "Preferencias de frecuencia y favoritos",
+                            "Configuración de calidad de audio",
+                            "Registros de duración de uso",
+                            "Respuestas de detección médica (si se proporcionan)",
+                            "Configuraciones de la aplicación"
+                        ],
+                        note: "Estos datos nunca salen de su dispositivo y están completamente bajo su control. Eliminar la aplicación eliminará todos los datos almacenados."
+                    },
+                    thirdParty: {
+                        title: "Servicios de Terceros",
+                        text: "FrequencyHealing NO se integra con ningún servicio de terceros, incluyendo:",
+                        list: [
+                            "NO hay servicios de análisis (Google Analytics, etc.)",
+                            "NO hay redes publicitarias",
+                            "NO hay plataformas de redes sociales",
+                            "NO hay servicios de almacenamiento en la nube",
+                            "NO hay servicios de informes de fallos"
+                        ]
+                    },
+                    permissions: {
+                        title: "Permisos de la Aplicación",
+                        subtitle: "Permisos Mínimos Requeridos",
+                        text: "FrequencyHealing solo solicita el siguiente permiso esencial:",
+                        list: [
+                            "<strong>Permiso de Reproducción de Audio:</strong> Requerido para reproducir audio de frecuencia. Este permiso NO accede a su micrófono ni graba audio."
+                        ]
+                    },
+                    children: {
+                        title: "Privacidad de los Niños",
+                        text: "FrequencyHealing no recopila información de niños a sabiendas. La aplicación está diseñada para audiencias generales y no requiere información personal de usuarios de ninguna edad."
+                    },
+                    security: {
+                        title: "Seguridad de los Datos",
+                        text: "Dado que no recopilamos ni transmitimos ningún dato personal, no existe riesgo de violaciones de datos o acceso no autorizado a su información personal. Todos los datos permanecen almacenados de forma segura en su dispositivo."
+                    },
+                    changes: {
+                        title: "Cambios en la Política de Privacidad",
+                        text: "Podemos actualizar esta Política de Privacidad de vez en cuando. Cualquier cambio se publicará dentro de la aplicación y en esta página. El uso continuado de la aplicación después de los cambios constituye la aceptación de la política actualizada."
+                    },
+                    contact: {
+                        title: "Contáctenos",
+                        text: "Si tiene alguna pregunta sobre esta Política de Privacidad, contáctenos en:",
+                        email: "Correo electrónico: support@frequencyhealing.app"
+                    },
+                    summary: {
+                        title: "Resumen de Privacidad",
+                        text: "En términos simples:",
+                        points: [
+                            "No recopilamos ningún dato personal",
+                            "No rastreamos su uso",
+                            "No compartimos nada con nadie",
+                            "Todo permanece en su dispositivo",
+                            "Su privacidad está 100% protegida"
+                        ]
+                    }
+                }
+            },
+            de: {
+                subtitle: "Datenschutzrichtlinie",
+                lastUpdated: "Letzte Aktualisierung: Oktober 2025",
+                footer: "© 2025 FrequencyHealing. Alle Rechte vorbehalten.",
+                sections: {
+                    intro: {
+                        title: "Datenschutzverpflichtung",
+                        text: "FrequencyHealing verpflichtet sich zum Schutz Ihrer Privatsphäre. Diese Datenschutzrichtlinie erläutert unseren Ansatz zur Datenerfassung und zum Datenschutz."
+                    },
+                    highlight: {
+                        title: "✨ Wichtige Datenschutzfunktionen",
+                        points: [
+                            "KEINE Erfassung personenbezogener Daten",
+                            "KEINE Benutzerkonten erforderlich",
+                            "KEINE Internetverbindung erforderlich",
+                            "KEINE Datenübertragung an externe Server",
+                            "ALLE Daten werden lokal auf Ihrem Gerät gespeichert",
+                            "Vollständiger Schutz der Privatsphäre"
+                        ]
+                    },
+                    dataCollection: {
+                        title: "Erfasste Informationen",
+                        subtitle: "Wir Erfassen KEINE Persönlichen Informationen",
+                        text: "FrequencyHealing erfasst, speichert oder überträgt keine persönlichen Informationen, einschließlich aber nicht beschränkt auf:",
+                        list: [
+                            "Name, E-Mail-Adresse oder Telefonnummer",
+                            "Standortdaten oder GPS-Informationen",
+                            "Gerätekennungen oder Werbe-IDs",
+                            "Nutzungsdaten oder Analysen",
+                            "Gesundheitsdaten oder biometrische Informationen",
+                            "Jegliche andere persönlich identifizierbare Informationen"
+                        ]
+                    },
+                    localData: {
+                        title: "Lokale Datenspeicherung",
+                        subtitle: "Alle Daten Werden auf Ihrem Gerät Gespeichert",
+                        text: "Alle Benutzereinstellungen und Präferenzen werden nur lokal auf Ihrem Gerät gespeichert:",
+                        list: [
+                            "Frequenzeinstellungen und Favoriten",
+                            "Audioqualitätseinstellungen",
+                            "Nutzungsdauer-Aufzeichnungen",
+                            "Medizinische Screening-Antworten (falls bereitgestellt)",
+                            "App-Konfigurationseinstellungen"
+                        ],
+                        note: "Diese Daten verlassen niemals Ihr Gerät und stehen vollständig unter Ihrer Kontrolle. Das Löschen der App entfernt alle gespeicherten Daten."
+                    },
+                    thirdParty: {
+                        title: "Drittanbieterdienste",
+                        text: "FrequencyHealing integriert sich mit keinen Drittanbieterdiensten, einschließlich:",
+                        list: [
+                            "KEINE Analysedienste (Google Analytics usw.)",
+                            "KEINE Werbenetzwerke",
+                            "KEINE Social-Media-Plattformen",
+                            "KEINE Cloud-Speicherdienste",
+                            "KEINE Absturzbericht-Dienste"
+                        ]
+                    },
+                    permissions: {
+                        title: "App-Berechtigungen",
+                        subtitle: "Minimale Erforderliche Berechtigungen",
+                        text: "FrequencyHealing fordert nur die folgende wesentliche Berechtigung an:",
+                        list: [
+                            "<strong>Audiowiedergabe-Berechtigung:</strong> Erforderlich zur Wiedergabe von Frequenzaudio. Diese Berechtigung greift NICHT auf Ihr Mikrofon zu und nimmt kein Audio auf."
+                        ]
+                    },
+                    children: {
+                        title: "Datenschutz für Kinder",
+                        text: "FrequencyHealing erfasst wissentlich keine Informationen von Kindern. Die App ist für allgemeine Zielgruppen konzipiert und erfordert keine persönlichen Informationen von Benutzern jeden Alters."
+                    },
+                    security: {
+                        title: "Datensicherheit",
+                        text: "Da wir keine personenbezogenen Daten erfassen oder übertragen, besteht kein Risiko von Datenschutzverletzungen oder unbefugtem Zugriff auf Ihre persönlichen Informationen. Alle Daten bleiben sicher auf Ihrem Gerät gespeichert."
+                    },
+                    changes: {
+                        title: "Änderungen der Datenschutzrichtlinie",
+                        text: "Wir können diese Datenschutzrichtlinie von Zeit zu Zeit aktualisieren. Alle Änderungen werden in der App und auf dieser Seite veröffentlicht. Die fortgesetzte Nutzung der App nach Änderungen stellt die Zustimmung zur aktualisierten Richtlinie dar."
+                    },
+                    contact: {
+                        title: "Kontaktieren Sie Uns",
+                        text: "Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, kontaktieren Sie uns bitte unter:",
+                        email: "E-Mail: support@frequencyhealing.app"
+                    },
+                    summary: {
+                        title: "Datenschutzzusammenfassung",
+                        text: "Einfach ausgedrückt:",
+                        points: [
+                            "Wir erfassen keine persönlichen Daten",
+                            "Wir verfolgen Ihre Nutzung nicht",
+                            "Wir teilen nichts mit niemandem",
+                            "Alles bleibt auf Ihrem Gerät",
+                            "Ihre Privatsphäre ist zu 100% geschützt"
+                        ]
+                    }
+                }
+            },
+            fr: {
+                subtitle: "Politique de Confidentialité",
+                lastUpdated: "Dernière mise à jour : Octobre 2025",
+                footer: "© 2025 FrequencyHealing. Tous droits réservés.",
+                sections: {
+                    intro: {
+                        title: "Engagement en Matière de Confidentialité",
+                        text: "FrequencyHealing s'engage à protéger votre vie privée. Cette Politique de Confidentialité explique notre approche de la collecte de données et de la protection de la vie privée."
+                    },
+                    highlight: {
+                        title: "✨ Caractéristiques Clés de Confidentialité",
+                        points: [
+                            "AUCUNE collecte de données personnelles",
+                            "AUCUN compte utilisateur requis",
+                            "AUCUNE connexion Internet nécessaire",
+                            "AUCUNE transmission de données vers des serveurs externes",
+                            "TOUTES les données sont stockées localement sur votre appareil",
+                            "Protection complète de la confidentialité de l'utilisateur"
+                        ]
+                    },
+                    dataCollection: {
+                        title: "Informations que Nous Collectons",
+                        subtitle: "Nous NE Collectons AUCUNE Information Personnelle",
+                        text: "FrequencyHealing NE collecte, ne stocke ni ne transmet aucune information personnelle, y compris mais sans s'y limiter :",
+                        list: [
+                            "Nom, adresse e-mail ou numéro de téléphone",
+                            "Données de localisation ou informations GPS",
+                            "Identifiants d'appareil ou ID publicitaires",
+                            "Données d'utilisation ou analyses",
+                            "Données de santé ou informations biométriques",
+                            "Toute autre information personnellement identifiable"
+                        ]
+                    },
+                    localData: {
+                        title: "Stockage Local des Données",
+                        subtitle: "Toutes les Données Stockées sur Votre Appareil",
+                        text: "Tous les paramètres et préférences de l'utilisateur sont stockés localement uniquement sur votre appareil :",
+                        list: [
+                            "Préférences de fréquence et favoris",
+                            "Paramètres de qualité audio",
+                            "Enregistrements de durée d'utilisation",
+                            "Réponses de dépistage médical (si fournies)",
+                            "Paramètres de configuration de l'application"
+                        ],
+                        note: "Ces données ne quittent jamais votre appareil et sont entièrement sous votre contrôle. La suppression de l'application supprimera toutes les données stockées."
+                    },
+                    thirdParty: {
+                        title: "Services Tiers",
+                        text: "FrequencyHealing ne s'intègre avec aucun service tiers, y compris :",
+                        list: [
+                            "AUCUN service d'analyse (Google Analytics, etc.)",
+                            "AUCUN réseau publicitaire",
+                            "AUCUNE plateforme de médias sociaux",
+                            "AUCUN service de stockage cloud",
+                            "AUCUN service de rapport de plantage"
+                        ]
+                    },
+                    permissions: {
+                        title: "Autorisations de l'Application",
+                        subtitle: "Autorisations Minimales Requises",
+                        text: "FrequencyHealing ne demande que l'autorisation essentielle suivante :",
+                        list: [
+                            "<strong>Autorisation de Lecture Audio :</strong> Requise pour lire l'audio de fréquence. Cette autorisation N'accède PAS à votre microphone et n'enregistre pas d'audio."
+                        ]
+                    },
+                    children: {
+                        title: "Confidentialité des Enfants",
+                        text: "FrequencyHealing ne collecte sciemment aucune information auprès d'enfants. L'application est conçue pour un public général et ne nécessite aucune information personnelle des utilisateurs de tout âge."
+                    },
+                    security: {
+                        title: "Sécurité des Données",
+                        text: "Étant donné que nous ne collectons ni ne transmettons aucune donnée personnelle, il n'y a aucun risque de violation de données ou d'accès non autorisé à vos informations personnelles. Toutes les données restent stockées en toute sécurité sur votre appareil."
+                    },
+                    changes: {
+                        title: "Modifications de la Politique de Confidentialité",
+                        text: "Nous pouvons mettre à jour cette Politique de Confidentialité de temps à autre. Toutes les modifications seront publiées dans l'application et sur cette page. L'utilisation continue de l'application après les modifications constitue l'acceptation de la politique mise à jour."
+                    },
+                    contact: {
+                        title: "Nous Contacter",
+                        text: "Si vous avez des questions concernant cette Politique de Confidentialité, veuillez nous contacter à :",
+                        email: "E-mail : support@frequencyhealing.app"
+                    },
+                    summary: {
+                        title: "Résumé de Confidentialité",
+                        text: "En termes simples :",
+                        points: [
+                            "Nous ne collectons aucune donnée personnelle",
+                            "Nous ne suivons pas votre utilisation",
+                            "Nous ne partageons rien avec personne",
+                            "Tout reste sur votre appareil",
+                            "Votre vie privée est protégée à 100%"
+                        ]
+                    }
+                }
+            }
+        };
+
+        let currentLang = 'en';
+
+        function renderContent(lang) {
+            const data = content[lang];
+            if (!data) return;
+
+            // Update subtitle
+            document.getElementById('subtitle').textContent = data.subtitle;
+
+            // Update footer
+            document.getElementById('footer-text').textContent = data.footer;
+
+            // Render content
+            const contentDiv = document.getElementById('content');
+            const s = data.sections;
+
+            contentDiv.innerHTML = `
+                <div class="last-updated">${data.lastUpdated}</div>
+
+                <h2><span class="icon">🔒</span> ${s.intro.title}</h2>
+                <p>${s.intro.text}</p>
+
+                <div class="highlight-box">
+                    <h3>${s.highlight.title}</h3>
+                    <ul>
+                        ${s.highlight.points.map(point => `<li>${point}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <h2><span class="icon">📊</span> ${s.dataCollection.title}</h2>
+                <h3>${s.dataCollection.subtitle}</h3>
+                <p>${s.dataCollection.text}</p>
+                <ul>
+                    ${s.dataCollection.list.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+
+                <h2><span class="icon">💾</span> ${s.localData.title}</h2>
+                <h3>${s.localData.subtitle}</h3>
+                <p>${s.localData.text}</p>
+                <ul>
+                    ${s.localData.list.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+                <div class="info-card">
+                    <p><strong>${s.localData.note}</strong></p>
+                </div>
+
+                <h2><span class="icon">🔌</span> ${s.thirdParty.title}</h2>
+                <p>${s.thirdParty.text}</p>
+                <ul>
+                    ${s.thirdParty.list.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+
+                <h2><span class="icon">🔐</span> ${s.permissions.title}</h2>
+                <h3>${s.permissions.subtitle}</h3>
+                <p>${s.permissions.text}</p>
+                <ul>
+                    ${s.permissions.list.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+
+                <h2><span class="icon">👶</span> ${s.children.title}</h2>
+                <p>${s.children.text}</p>
+
+                <h2><span class="icon">🛡️</span> ${s.security.title}</h2>
+                <p>${s.security.text}</p>
+
+                <h2><span class="icon">📝</span> ${s.changes.title}</h2>
+                <p>${s.changes.text}</p>
+
+                <h2><span class="icon">📧</span> ${s.contact.title}</h2>
+                <p>${s.contact.text}</p>
+                <p><strong>${s.contact.email}</strong></p>
+
+                <div class="highlight-box">
+                    <h3>${s.summary.title}</h3>
+                    <p>${s.summary.text}</p>
+                    <ul>
+                        ${s.summary.points.map(point => `<li>${point}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+
+            // Render content
+            renderContent(lang);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set up language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    switchLanguage(btn.dataset.lang);
+                });
+            });
+
+            // Load default language (English)
+            switchLanguage('en');
+        });
+    </script>
+</body>
+</html>
