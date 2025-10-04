@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrequencyHealing - Technical Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 50 Q 25 25, 50 50 T 100 50" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="2"/></svg>');
+            opacity: 0.3;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            max-width: 600px;
+            justify-content: flex-end;
+            z-index: 10;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            font-weight: bold;
+        }
+
+
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        section h3 {
+            font-size: 1.8em;
+            margin: 30px 0 15px;
+            color: var(--secondary-color);
+        }
+
+        section h4 {
+            font-size: 1.3em;
+            margin: 20px 0 10px;
+            color: var(--accent-color);
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+        }
+
+        .frequency-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        /* Table */
+        .tech-table {
+            width: 100%;
+            margin: 30px 0;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tech-table th,
+        .tech-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tech-table th {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .tech-table tr:hover {
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #0a0f1e;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .code-block code {
+            color: #7dd3fc;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        /* Research Section */
+        .research-item {
+            background: var(--card-bg);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .citation {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .warning-box h4 {
+            color: #ef4444;
+            margin-top: 0;
+        }
+
+        /* Icon */
+        .icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 8px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .language-switcher {
+                position: relative;
+                top: 0;
+                right: 0;
+                justify-content: center;
+                margin-bottom: 20px;
+                padding: 0 10px;
+            }
+
+            .lang-btn {
+                font-size: 0.75em;
+                padding: 5px 10px;
+            }
+
+            section h2 {
+                font-size: 2em;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Waveform Animation */
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.5); }
+        }
+
+        .waveform {
+            display: inline-flex;
+            gap: 3px;
+            align-items: center;
+            height: 20px;
+        }
+
+        .waveform span {
+            width: 3px;
+            height: 100%;
+            background: var(--primary-color);
+            animation: wave 1s ease-in-out infinite;
+        }
+
+        .waveform span:nth-child(1) { animation-delay: 0s; }
+        .waveform span:nth-child(2) { animation-delay: 0.1s; }
+        .waveform span:nth-child(3) { animation-delay: 0.2s; }
+        .waveform span:nth-child(4) { animation-delay: 0.3s; }
+        .waveform span:nth-child(5) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="zh-TW">繁體中文</button>
+                <button class="lang-btn" data-lang="zh-CN">简体中文</button>
+                <button class="lang-btn" data-lang="ja">日本語</button>
+                <button class="lang-btn" data-lang="ko">한국어</button>
+                <button class="lang-btn" data-lang="es">Español</button>
+                <button class="lang-btn" data-lang="de">Deutsch</button>
+                <button class="lang-btn" data-lang="fr">Français</button>
+            </div>
+            <h1>🧠 FrequencyHealing</h1>
+            <p id="subtitle"></p>
+        </div>
+    </header>
+
+    <main class="container" id="main-content">
+        <!-- Content will be loaded by JavaScript -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>FrequencyHealing iOS App - Technical Documentation</p>
+            <p style="margin-top: 10px;" id="footer-version"></p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                <span class="waveform">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.85em; color: var(--text-secondary);" id="footer-disclaimer"></p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"></script>
+    <script>
+        // 完整的多語言內容
+        const content = {
+            en: {
+                subtitle: "Scientific Brainwave Frequency Technology Documentation",
+                footer: {
+                    version: "Version 1.0.0 | Based on Neuroscience Research | Educational & Wellness Purpose",
+                    disclaimer: "This documentation is for technical reference only. Consult healthcare professionals before use.<br>MIT 40Hz technology is based on published research, but this app is not affiliated with MIT."
+                },
+                sections: {
+                    overview: {
+                        title: "📋 Application Overview",
+                        intro: "FrequencyHealing is a brainwave frequency audio application based on neuroscience research, featuring MIT 40Hz Gamma frequency research results for scientifically-backed sound frequency experiences.",
+                        cards: [
+                            { title: "🎵 10 Brainwave Frequencies", desc: "Covers 5 brainwave types: Delta, Theta, Alpha, Beta, Gamma, ranging from 0.5 Hz to 100 Hz." },
+                            { title: "📱 10 Audio Sessions", desc: "Professionally designed audio sessions for sleep, focus, relaxation and more." },
+                            { title: "🔬 MIT Research", desc: "Features MIT 40Hz Gamma frequency research published in Nature (2016)." }
+                        ]
+                    },
+                    frequencies: {
+                        title: "🌊 Frequency Technical Specifications",
+                        delta: {
+                            title: "Delta Waves (0.5-4 Hz) - Deep Recovery",
+                            freq1: { hz: "1.5 Hz", name: "Deep Sleep", type: "Pure tone (no binaural)", duration: "60 minutes", use: "Sleep quality optimization, body recovery", research: "Dang-Vu et al., 2008" },
+                            freq2: { hz: "2.5 Hz", name: "Body Repair", type: "Pure tone", duration: "40 minutes", use: "Tissue repair, hormone regulation", research: "Tassi & Muzet, 2000" }
+                        },
+                        theta: {
+                            title: "Theta Waves (4-7 Hz) - Creativity & Learning",
+                            freq1: { hz: "5.5 Hz", name: "Creative Flow", type: "Pure tone", duration: "30 minutes", use: "Creative thinking, problem solving", research: "Fink & Benedek, 2014" },
+                            freq2: { hz: "6.0 Hz", name: "Memory Consolidation", type: "Pure tone", duration: "20 minutes", use: "Memory enhancement, learning acceleration", research: "Hasselmo, 2005" }
+                        },
+                        alpha: {
+                            title: "Alpha Waves (8-13 Hz) - Relaxed Focus",
+                            freq1: { hz: "10.0 Hz", name: "Light Meditation", type: "Pure tone", duration: "20 minutes", use: "Stress reduction, mental clarity", research: "Cahn & Polich, 2006" },
+                            freq2: { hz: "11.0 Hz", name: "Study Focus", type: "Pure tone", duration: "45 minutes", use: "Enhanced focus, sustained attention", research: "Klimesch, 1999" }
+                        },
+                        beta: {
+                            title: "Beta Waves (14-30 Hz) - Active Thinking",
+                            freq1: { hz: "16.0 Hz", name: "Alert Thinking", type: "Pure tone", duration: "30 minutes", use: "Clear thinking, decision making", research: "Beauchene et al., 2017", contraindication: "Anxiety disorders" },
+                            freq2: { hz: "18.0 Hz", name: "Problem Solving", type: "Pure tone", duration: "25 minutes", use: "Logical reasoning, complex problem solving", contraindication: "Epilepsy, Anxiety" }
+                        },
+                        gamma: {
+                            title: "Gamma Waves (30-100 Hz) - Higher Cognition",
+                            freq1: { hz: "40.0 Hz", name: "⭐ MIT 40Hz Gamma", type: "Pure tone + special 40Hz pulsed stimulation", binaural: "40.0 Hz (special processing)", duration: "60 minutes", special: "Uses pure 40Hz tone with neuronal synchronization simulation", research: "Iaccarino et al., 2016 (MIT Nature Research)", contraindication: "Epilepsy, Photosensitivity" },
+                            freq2: { hz: "45.0 Hz", name: "Consciousness Integration", type: "Pure tone", duration: "15 minutes", use: "Heightened awareness, peak performance", contraindication: "Epilepsy, Seizure disorders" }
+                        },
+                        special: {
+                            title: "Special Frequencies",
+                            freq1: { hz: "432 Hz", name: "Natural Tuning", type: "Harmonic frequency with overtones", processing: "playNaturalTuning(baseFreq: 432)", harmonics: "1.0, 2.0, 3.0, 4.0, 5.0 (decreasing amplitude)", basis: "Mathematical frequency based on A=432Hz tuning" },
+                            freq2: { hz: "528 Hz", name: "Solfeggio Frequency", type: "Pure tone", processing: "playPureTone(frequency: 528.0)", basis: "Solfeggio scale frequency", use: "Emotional balance, relaxation" }
+                        }
+                    },
+                    audio: {
+                        title: "🎛️ Audio Processing Technology",
+                        engine: "Audio Engine Architecture",
+                        engineTable: [
+                            { component: "Audio Engine", spec: "AVAudioEngine with custom nodes", desc: "Apple native high-performance audio processing" },
+                            { component: "Audio Format", spec: "32-bit Float PCM, Stereo", desc: "High-precision floating-point processing" },
+                            { component: "Buffer Size", spec: "1 second for smooth looping", desc: "Ensures smooth loop playback" },
+                            { component: "Sample Rate", spec: "22050 Hz - 96000 Hz", desc: "Variable sample rate support" }
+                        ],
+                        methods: "Frequency Generation Methods",
+                        qualityTitle: "Quality Settings",
+                        qualityTable: [
+                            { level: "Low", rate: "22050 Hz", buffer: "512", use: "Power saving" },
+                            { level: "Medium", rate: "44100 Hz", buffer: "1024", use: "Standard quality" },
+                            { level: "High", rate: "48000 Hz", buffer: "1024", use: "High quality audio" },
+                            { level: "Ultra", rate: "96000 Hz", buffer: "2048", use: "Professional grade" }
+                        ],
+                        safetyTitle: "Safety Limits",
+                        safetyList: [
+                            "Frequency Range: 0.1 Hz - 20,000 Hz",
+                            "Maximum Volume: 80% (prevent hearing damage)",
+                            "Fade In/Out: Automatic processing to prevent audio artifacts",
+                            "Buffer Safety: All audio buffers include edge fading"
+                        ]
+                    },
+                    research: {
+                        title: "🔬 Scientific Research Foundation",
+                        mitTitle: "⭐ MIT 40Hz Gamma Research (Highlight)",
+                        mitContent: "Groundbreaking research published by MIT's Picower Institute showing that 40Hz gamma stimulation may be associated with:",
+                        mitList: [
+                            "Reduction of amyloid and tau proteins (Alzheimer's markers)",
+                            "Prevention of neuronal death",
+                            "Reduction of synapse loss",
+                            "Maintenance of learning and memory"
+                        ],
+                        mitCitation: "Iaccarino, H. F., et al. (2016). Gamma frequency entrainment attenuates amyloid load and modifies microglia. Nature, 540(7632), 230-235.",
+                        followupTitle: "MIT Follow-up Studies (2019-2024)",
+                        followupContent: "Multiple follow-up studies validated and expanded 40Hz stimulation effects:",
+                        followupList: [
+                            "Combined audio-visual stimulation enhances efficacy (Nature, 2019)",
+                            "Glymphatic system clearance mechanism (Nature, 2024)",
+                            "Human clinical trial safety validation (PLOS ONE, 2022)",
+                            "Phase III clinical trials ongoing (Cognito Therapeutics)"
+                        ],
+                        otherTitle: "Other Brainwave Research"
+                    },
+                    safety: {
+                        title: "⚕️ Safety Mechanisms & Contraindications",
+                        screeningTitle: "Medical Contraindication Screening",
+                        screeningTable: [
+                            { condition: "Epilepsy", frequency: "Blocks 12-20Hz (except preset 16Hz, 18Hz)", reason: "May trigger seizures" },
+                            { condition: "Pregnancy", frequency: "Blocks all frequencies", reason: "Safety precaution" },
+                            { condition: "Pacemaker", frequency: "Blocks all frequencies", reason: "Electromagnetic interference risk" },
+                            { condition: "Photosensitivity", frequency: "Blocks MIT 40Hz Gamma", reason: "Visual stimulation sensitivity" },
+                            { condition: "Severe Mental Illness", frequency: "Blocks all frequencies", reason: "Requires medical supervision" },
+                            { condition: "Migraines", frequency: "Blocks all frequencies", reason: "Trigger risk" },
+                            { condition: "Hearing Issues", frequency: "Blocks all frequencies", reason: "Hearing protection" }
+                        ],
+                        warningTitle: "⚠️ Important Safety Reminder",
+                        warningList: [
+                            "This app is for educational and wellness purposes only",
+                            "Not intended to diagnose, treat, cure or prevent any disease",
+                            "Consult healthcare professionals before use",
+                            "Stop immediately if any discomfort occurs"
+                        ],
+                        techTitle: "Technical Safety Settings",
+                        audioSafety: "Audio Safety",
+                        audioList: ["Maximum volume: 80%", "Automatic fade in/out", "Buffer edge fading"],
+                        freqSafety: "Frequency Safety",
+                        freqList: ["Range: 0.1-20,000 Hz", "Binaural beat difference ≤ 40Hz", "Medical screening 100% effective"]
+                    }
+                }
+            },
+            'zh-TW': {
+                subtitle: "科學實證腦波頻率技術文件",
+                footer: {
+                    version: "版本 1.0.0 | 基於神經科學研究 | 教育與健康目的",
+                    disclaimer: "本文件僅供技術參考。使用前請諮詢醫療專業人員。<br>MIT 40Hz 技術基於已發表研究，但本應用程式與 MIT 無關聯。"
+                },
+                sections: {
+                    overview: {
+                        title: "📋 應用程式概述",
+                        intro: "FrequencyHealing 是一款基於神經科學研究的腦波頻率音頻應用程式,採用 MIT 40Hz Gamma 頻率研究成果，提供科學實證的聲音頻率體驗。",
+                        cards: [
+                            { title: "🎵 10 種腦波頻率", desc: "涵蓋 Delta、Theta、Alpha、Beta、Gamma 五大腦波類型，頻率範圍從 0.5 Hz 到 100 Hz。" },
+                            { title: "📱 10 種音頻課程", desc: "專業設計的音頻課程，針對睡眠、專注、放鬆等不同需求。" },
+                            { title: "🔬 MIT 研究支持", desc: "採用發表於 Nature (2016) 的 MIT 40Hz Gamma 頻率研究成果。" }
+                        ]
+                    },
+                    frequencies: {
+                        title: "🌊 頻率技術規格",
+                        delta: {
+                            title: "Delta 波段 (0.5-4 Hz) - 深度恢復",
+                            freq1: { hz: "1.5 Hz", name: "深度睡眠", type: "純音頻（無雙耳節拍）", duration: "60 分鐘", use: "睡眠品質優化、身體恢復", research: "Dang-Vu et al., 2008" },
+                            freq2: { hz: "2.5 Hz", name: "身體修復", type: "純音頻", duration: "40 分鐘", use: "組織修復、荷爾蒙調節", research: "Tassi & Muzet, 2000" }
+                        },
+                        theta: {
+                            title: "Theta 波段 (4-7 Hz) - 創造與學習",
+                            freq1: { hz: "5.5 Hz", name: "創意流動", type: "純音頻", duration: "30 分鐘", use: "創意思考、問題解決", research: "Fink & Benedek, 2014" },
+                            freq2: { hz: "6.0 Hz", name: "記憶鞏固", type: "純音頻", duration: "20 分鐘", use: "記憶增強、學習加速", research: "Hasselmo, 2005" }
+                        },
+                        alpha: {
+                            title: "Alpha 波段 (8-13 Hz) - 放鬆專注",
+                            freq1: { hz: "10.0 Hz", name: "輕度冥想", type: "純音頻", duration: "20 分鐘", use: "壓力減輕、思緒清晰", research: "Cahn & Polich, 2006" },
+                            freq2: { hz: "11.0 Hz", name: "學習專注", type: "純音頻", duration: "45 分鐘", use: "增強專注、持續注意力", research: "Klimesch, 1999" }
+                        },
+                        beta: {
+                            title: "Beta 波段 (14-30 Hz) - 主動思考",
+                            freq1: { hz: "16.0 Hz", name: "警覺思考", type: "純音頻", duration: "30 分鐘", use: "清晰思考、決策制定", research: "Beauchene et al., 2017", contraindication: "焦慮症" },
+                            freq2: { hz: "18.0 Hz", name: "解決問題", type: "純音頻", duration: "25 分鐘", use: "邏輯推理、複雜問題解決", contraindication: "癲癇、焦慮症" }
+                        },
+                        gamma: {
+                            title: "Gamma 波段 (30-100 Hz) - 高階認知",
+                            freq1: { hz: "40.0 Hz", name: "⭐ MIT 40Hz Gamma", type: "純音頻 + 特殊 40Hz 脈衝刺激", binaural: "40.0 Hz（特殊處理）", duration: "60 分鐘", special: "使用純 40Hz 音頻配合神經元同步模擬", research: "Iaccarino et al., 2016 (MIT Nature 研究)", contraindication: "癲癇、光敏感" },
+                            freq2: { hz: "45.0 Hz", name: "意識整合", type: "純音頻", duration: "15 分鐘", use: "高度覺察、巔峰表現", contraindication: "癲癇、癲癇發作疾病" }
+                        },
+                        special: {
+                            title: "特殊頻率",
+                            freq1: { hz: "432 Hz", name: "自然調音", type: "諧波頻率（含泛音）", processing: "playNaturalTuning(baseFreq: 432)", harmonics: "1.0, 2.0, 3.0, 4.0, 5.0（遞減振幅）", basis: "基於 A=432Hz 調音的數學頻率" },
+                            freq2: { hz: "528 Hz", name: "Solfeggio 頻率", type: "純音頻", processing: "playPureTone(frequency: 528.0)", basis: "Solfeggio 音階頻率", use: "情緒平衡、放鬆" }
+                        }
+                    },
+                    audio: {
+                        title: "🎛️ 音頻處理技術",
+                        engine: "音頻引擎架構",
+                        engineTable: [
+                            { component: "音頻引擎", spec: "AVAudioEngine with custom nodes", desc: "Apple 原生高效能音頻處理" },
+                            { component: "音頻格式", spec: "32-bit Float PCM, Stereo", desc: "高精度浮點數處理" },
+                            { component: "緩衝大小", spec: "1 second for smooth looping", desc: "確保平滑循環播放" },
+                            { component: "採樣率", spec: "22050 Hz - 96000 Hz", desc: "可變採樣率支援" }
+                        ],
+                        methods: "頻率生成方法",
+                        qualityTitle: "音質設定",
+                        qualityTable: [
+                            { level: "低", rate: "22050 Hz", buffer: "512", use: "節省電量" },
+                            { level: "中", rate: "44100 Hz", buffer: "1024", use: "標準品質" },
+                            { level: "高", rate: "48000 Hz", buffer: "1024", use: "高品質音頻" },
+                            { level: "超高", rate: "96000 Hz", buffer: "2048", use: "專業級品質" }
+                        ],
+                        safetyTitle: "安全限制",
+                        safetyList: [
+                            "頻率範圍：0.1 Hz - 20,000 Hz",
+                            "最大音量：80%（防止聽力損傷）",
+                            "淡入淡出：自動處理防止音頻瑕疵",
+                            "緩衝安全：所有音頻緩衝包含邊緣淡化"
+                        ]
+                    },
+                    research: {
+                        title: "🔬 科學研究基礎",
+                        mitTitle: "⭐ MIT 40Hz Gamma 研究（重點）",
+                        mitContent: "MIT Picower 研究所發表的突破性研究，顯示 40Hz gamma 刺激可能與以下相關：",
+                        mitList: [
+                            "減少澱粉樣蛋白和 tau 蛋白（阿茲海默症標記物）",
+                            "防止神經元死亡",
+                            "減少突觸損失",
+                            "維持學習和記憶"
+                        ],
+                        mitCitation: "Iaccarino, H. F., et al. (2016). Gamma frequency entrainment attenuates amyloid load and modifies microglia. Nature, 540(7632), 230-235.",
+                        followupTitle: "MIT 後續研究 (2019-2024)",
+                        followupContent: "多項後續研究驗證並擴展了 40Hz 刺激的效果：",
+                        followupList: [
+                            "光聲結合刺激提升療效（Nature, 2019）",
+                            "類淋巴系統清除機制（Nature, 2024）",
+                            "人體臨床試驗安全性驗證（PLOS ONE, 2022）",
+                            "第三期臨床試驗進行中（Cognito Therapeutics）"
+                        ],
+                        otherTitle: "其他腦波研究"
+                    },
+                    safety: {
+                        title: "⚕️ 安全機制與禁忌症",
+                        screeningTitle: "醫療禁忌症篩檢",
+                        screeningTable: [
+                            { condition: "癲癇", frequency: "阻擋 12-20Hz（預設 16Hz, 18Hz 除外）", reason: "可能觸發癲癇發作" },
+                            { condition: "懷孕", frequency: "阻擋所有頻率", reason: "安全考量" },
+                            { condition: "心律調節器", frequency: "阻擋所有頻率", reason: "電磁干擾風險" },
+                            { condition: "光敏感", frequency: "阻擋 MIT 40Hz Gamma", reason: "視覺刺激敏感" },
+                            { condition: "嚴重精神疾病", frequency: "阻擋所有頻率", reason: "需醫療監督" },
+                            { condition: "偏頭痛", frequency: "阻擋所有頻率", reason: "觸發風險" },
+                            { condition: "聽力問題", frequency: "阻擋所有頻率", reason: "聽力保護" }
+                        ],
+                        warningTitle: "⚠️ 重要安全提醒",
+                        warningList: [
+                            "本應用程式僅供教育和健康目的使用",
+                            "不用於診斷、治療、治癒或預防任何疾病",
+                            "使用前請諮詢醫療專業人員",
+                            "如有任何不適，請立即停止使用"
+                        ],
+                        techTitle: "技術安全設定",
+                        audioSafety: "音頻安全",
+                        audioList: ["最大音量：80%", "自動淡入淡出", "緩衝邊緣淡化"],
+                        freqSafety: "頻率安全",
+                        freqList: ["範圍：0.1-20,000 Hz", "雙耳節拍差異 ≤ 40Hz", "醫療篩檢 100% 有效"]
+                    }
+                }
+            },
+            'zh-CN': {
+                subtitle: "科学实证脑波频率技术文档",
+                footer: {
+                    version: "版本 1.0.0 | 基于神经科学研究 | 教育与健康目的",
+                    disclaimer: "本文档仅供技术参考。使用前请咨询医疗专业人员。<br>MIT 40Hz 技术基于已发表研究，但本应用程序与 MIT 无关联。"
+                },
+                sections: {
+                    overview: {
+                        title: "📋 应用程序概述",
+                        intro: "FrequencyHealing 是一款基于神经科学研究的脑波频率音频应用程序，采用 MIT 40Hz Gamma 频率研究成果，提供科学实证的声音频率体验。",
+                        cards: [
+                            { title: "🎵 10 种脑波频率", desc: "涵盖 Delta、Theta、Alpha、Beta、Gamma 五大脑波类型，频率范围从 0.5 Hz 到 100 Hz。" },
+                            { title: "📱 10 种音频课程", desc: "专业设计的音频课程，针对睡眠、专注、放松等不同需求。" },
+                            { title: "🔬 MIT 研究支持", desc: "采用发表于 Nature (2016) 的 MIT 40Hz Gamma 频率研究成果。" }
+                        ]
+                    },
+                    frequencies: {
+                        title: "🌊 频率技术规格",
+                        delta: {
+                            title: "Delta 波段 (0.5-4 Hz) - 深度恢复",
+                            freq1: { hz: "1.5 Hz", name: "深度睡眠", type: "纯音频（无双耳节拍）", duration: "60 分钟", use: "睡眠质量优化、身体恢复", research: "Dang-Vu et al., 2008" },
+                            freq2: { hz: "2.5 Hz", name: "身体修复", type: "纯音频", duration: "40 分钟", use: "组织修复、荷尔蒙调节", research: "Tassi & Muzet, 2000" }
+                        },
+                        theta: {
+                            title: "Theta 波段 (4-7 Hz) - 创造与学习",
+                            freq1: { hz: "5.5 Hz", name: "创意流动", type: "纯音频", duration: "30 分钟", use: "创意思考、问题解决", research: "Fink & Benedek, 2014" },
+                            freq2: { hz: "6.0 Hz", name: "记忆巩固", type: "纯音频", duration: "20 分钟", use: "记忆增强、学习加速", research: "Hasselmo, 2005" }
+                        },
+                        alpha: {
+                            title: "Alpha 波段 (8-13 Hz) - 放松专注",
+                            freq1: { hz: "10.0 Hz", name: "轻度冥想", type: "纯音频", duration: "20 分钟", use: "压力减轻、思绪清晰", research: "Cahn & Polich, 2006" },
+                            freq2: { hz: "11.0 Hz", name: "学习专注", type: "纯音频", duration: "45 分钟", use: "增强专注、持续注意力", research: "Klimesch, 1999" }
+                        },
+                        beta: {
+                            title: "Beta 波段 (14-30 Hz) - 主动思考",
+                            freq1: { hz: "16.0 Hz", name: "警觉思考", type: "纯音频", duration: "30 分钟", use: "清晰思考、决策制定", research: "Beauchene et al., 2017", contraindication: "焦虑症" },
+                            freq2: { hz: "18.0 Hz", name: "解决问题", type: "纯音频", duration: "25 分钟", use: "逻辑推理、复杂问题解决", contraindication: "癫痫、焦虑症" }
+                        },
+                        gamma: {
+                            title: "Gamma 波段 (30-100 Hz) - 高阶认知",
+                            freq1: { hz: "40.0 Hz", name: "⭐ MIT 40Hz Gamma", type: "纯音频 + 特殊 40Hz 脉冲刺激", binaural: "40.0 Hz（特殊处理）", duration: "60 分钟", special: "使用纯 40Hz 音频配合神经元同步模拟", research: "Iaccarino et al., 2016 (MIT Nature 研究)", contraindication: "癫痫、光敏感" },
+                            freq2: { hz: "45.0 Hz", name: "意识整合", type: "纯音频", duration: "15 分钟", use: "高度觉察、巅峰表现", contraindication: "癫痫、癫痫发作疾病" }
+                        },
+                        special: {
+                            title: "特殊频率",
+                            freq1: { hz: "432 Hz", name: "自然调音", type: "谐波频率（含泛音）", processing: "playNaturalTuning(baseFreq: 432)", harmonics: "1.0, 2.0, 3.0, 4.0, 5.0（递减振幅）", basis: "基于 A=432Hz 调音的数学频率" },
+                            freq2: { hz: "528 Hz", name: "Solfeggio 频率", type: "纯音频", processing: "playPureTone(frequency: 528.0)", basis: "Solfeggio 音阶频率", use: "情绪平衡、放松" }
+                        }
+                    },
+                    audio: {
+                        title: "🎛️ 音频处理技术",
+                        engine: "音频引擎架构",
+                        engineTable: [
+                            { component: "音频引擎", spec: "AVAudioEngine with custom nodes", desc: "Apple 原生高效能音频处理" },
+                            { component: "音频格式", spec: "32-bit Float PCM, Stereo", desc: "高精度浮点数处理" },
+                            { component: "缓冲大小", spec: "1 second for smooth looping", desc: "确保平滑循环播放" },
+                            { component: "采样率", spec: "22050 Hz - 96000 Hz", desc: "可变采样率支持" }
+                        ],
+                        methods: "频率生成方法",
+                        qualityTitle: "音质设定",
+                        qualityTable: [
+                            { level: "低", rate: "22050 Hz", buffer: "512", use: "节省电量" },
+                            { level: "中", rate: "44100 Hz", buffer: "1024", use: "标准质量" },
+                            { level: "高", rate: "48000 Hz", buffer: "1024", use: "高质量音频" },
+                            { level: "超高", rate: "96000 Hz", buffer: "2048", use: "专业级质量" }
+                        ],
+                        safetyTitle: "安全限制",
+                        safetyList: [
+                            "频率范围：0.1 Hz - 20,000 Hz",
+                            "最大音量：80%（防止听力损伤）",
+                            "淡入淡出：自动处理防止音频瑕疵",
+                            "缓冲安全：所有音频缓冲包含边缘淡化"
+                        ]
+                    },
+                    research: {
+                        title: "🔬 科学研究基础",
+                        mitTitle: "⭐ MIT 40Hz Gamma 研究（重点）",
+                        mitContent: "MIT Picower 研究所发表的突破性研究，显示 40Hz gamma 刺激可能与以下相关：",
+                        mitList: [
+                            "减少淀粉样蛋白和 tau 蛋白（阿尔茨海默症标记物）",
+                            "防止神经元死亡",
+                            "减少突触损失",
+                            "维持学习和记忆"
+                        ],
+                        mitCitation: "Iaccarino, H. F., et al. (2016). Gamma frequency entrainment attenuates amyloid load and modifies microglia. Nature, 540(7632), 230-235.",
+                        followupTitle: "MIT 后续研究 (2019-2024)",
+                        followupContent: "多项后续研究验证并扩展了 40Hz 刺激的效果：",
+                        followupList: [
+                            "光声结合刺激提升疗效（Nature, 2019）",
+                            "类淋巴系统清除机制（Nature, 2024）",
+                            "人体临床试验安全性验证（PLOS ONE, 2022）",
+                            "第三期临床试验进行中（Cognito Therapeutics）"
+                        ],
+                        otherTitle: "其他脑波研究"
+                    },
+                    safety: {
+                        title: "⚕️ 安全机制与禁忌症",
+                        screeningTitle: "医疗禁忌症筛检",
+                        screeningTable: [
+                            { condition: "癫痫", frequency: "阻挡 12-20Hz（预设 16Hz, 18Hz 除外）", reason: "可能触发癫痫发作" },
+                            { condition: "怀孕", frequency: "阻挡所有频率", reason: "安全考量" },
+                            { condition: "心律调节器", frequency: "阻挡所有频率", reason: "电磁干扰风险" },
+                            { condition: "光敏感", frequency: "阻挡 MIT 40Hz Gamma", reason: "视觉刺激敏感" },
+                            { condition: "严重精神疾病", frequency: "阻挡所有频率", reason: "需医疗监督" },
+                            { condition: "偏头痛", frequency: "阻挡所有频率", reason: "触发风险" },
+                            { condition: "听力问题", frequency: "阻挡所有频率", reason: "听力保护" }
+                        ],
+                        warningTitle: "⚠️ 重要安全提醒",
+                        warningList: [
+                            "本应用程序仅供教育和健康目的使用",
+                            "不用于诊断、治疗、治愈或预防任何疾病",
+                            "使用前请咨询医疗专业人员",
+                            "如有任何不适，请立即停止使用"
+                        ],
+                        techTitle: "技术安全设定",
+                        audioSafety: "音频安全",
+                        audioList: ["最大音量：80%", "自动淡入淡出", "缓冲边缘淡化"],
+                        freqSafety: "频率安全",
+                        freqList: ["范围：0.1-20,000 Hz", "双耳节拍差异 ≤ 40Hz", "医疗筛检 100% 有效"]
+                    }
+                }
+            },
+            ja: {
+                subtitle: "科学的根拠に基づく脳波周波数技術ドキュメント",
+                footer: {
+                    version: "バージョン 1.0.0 | 神経科学研究に基づく | 教育とウェルネスの目的",
+                    disclaimer: "このドキュメントは技術的な参考のみを目的としています。使用前に医療専門家にご相談ください。<br>MIT 40Hz技術は公表された研究に基づいていますが、このアプリはMITと提携していません。"
+                },
+                sections: {
+                    overview: {
+                        title: "📋 アプリケーション概要",
+                        intro: "FrequencyHealingは、神経科学研究に基づいた脳波周波数オーディオアプリケーションで、MIT 40Hz ガンマ周波数の研究成果を採用し、科学的に裏付けられた音周波数体験を提供します。",
+                        cards: [
+                            { title: "🎵 10種類の脳波周波数", desc: "デルタ、シータ、アルファ、ベータ、ガンマの5つの脳波タイプをカバーし、周波数範囲は0.5 Hzから100 Hzです。" },
+                            { title: "📱 10種類のオーディオセッション", desc: "睡眠、集中、リラックスなど、さまざまなニーズに対応したプロフェッショナルに設計されたオーディオセッション。" },
+                            { title: "🔬 MIT研究サポート", desc: "Nature (2016)に発表されたMIT 40Hz ガンマ周波数研究成果を採用。" }
+                        ]
+                    },
+                    frequencies: {
+                        title: "🌊 周波数技術仕様",
+                        delta: {
+                            title: "デルタ波 (0.5-4 Hz) - 深い回復",
+                            freq1: { hz: "1.5 Hz", name: "深い睡眠", type: "純音（バイノーラルビートなし）", duration: "60分", use: "睡眠質の最適化、体の回復", research: "Dang-Vu et al., 2008" },
+                            freq2: { hz: "2.5 Hz", name: "体の修復", type: "純音", duration: "40分", use: "組織修復、ホルモン調節", research: "Tassi & Muzet, 2000" }
+                        },
+                        theta: {
+                            title: "シータ波 (4-7 Hz) - 創造性と学習",
+                            freq1: { hz: "5.5 Hz", name: "クリエイティブフロー", type: "純音", duration: "30分", use: "創造的思考、問題解決", research: "Fink & Benedek, 2014" },
+                            freq2: { hz: "6.0 Hz", name: "記憶の定着", type: "純音", duration: "20分", use: "記憶強化、学習加速", research: "Hasselmo, 2005" }
+                        },
+                        alpha: {
+                            title: "アルファ波 (8-13 Hz) - リラックスした集中",
+                            freq1: { hz: "10.0 Hz", name: "軽い瞑想", type: "純音", duration: "20分", use: "ストレス軽減、精神的明晰さ", research: "Cahn & Polich, 2006" },
+                            freq2: { hz: "11.0 Hz", name: "学習集中", type: "純音", duration: "45分", use: "集中力強化、持続的注意", research: "Klimesch, 1999" }
+                        },
+                        beta: {
+                            title: "ベータ波 (14-30 Hz) - 活発な思考",
+                            freq1: { hz: "16.0 Hz", name: "警戒思考", type: "純音", duration: "30分", use: "明確な思考、意思決定", research: "Beauchene et al., 2017", contraindication: "不安障害" },
+                            freq2: { hz: "18.0 Hz", name: "問題解決", type: "純音", duration: "25分", use: "論理的推論、複雑な問題解決", contraindication: "てんかん、不安" }
+                        },
+                        gamma: {
+                            title: "ガンマ波 (30-100 Hz) - 高次認知",
+                            freq1: { hz: "40.0 Hz", name: "⭐ MIT 40Hz ガンマ", type: "純音 + 特殊40Hzパルス刺激", binaural: "40.0 Hz（特殊処理）", duration: "60分", special: "ニューロン同期シミュレーションを伴う純40Hz音を使用", research: "Iaccarino et al., 2016 (MIT Nature研究)", contraindication: "てんかん、光過敏症" },
+                            freq2: { hz: "45.0 Hz", name: "意識統合", type: "純音", duration: "15分", use: "高い意識、ピークパフォーマンス", contraindication: "てんかん、発作性疾患" }
+                        },
+                        special: {
+                            title: "特殊周波数",
+                            freq1: { hz: "432 Hz", name: "自然調律", type: "倍音を含む調和周波数", processing: "playNaturalTuning(baseFreq: 432)", harmonics: "1.0, 2.0, 3.0, 4.0, 5.0（振幅減少）", basis: "A=432Hz調律に基づく数学的周波数" },
+                            freq2: { hz: "528 Hz", name: "ソルフェジオ周波数", type: "純音", processing: "playPureTone(frequency: 528.0)", basis: "ソルフェジオ音階周波数", use: "感情のバランス、リラクゼーション" }
+                        }
+                    },
+                    audio: {
+                        title: "🎛️ オーディオ処理技術",
+                        engine: "オーディオエンジンアーキテクチャ",
+                        engineTable: [
+                            { component: "オーディオエンジン", spec: "カスタムノード付きAVAudioEngine", desc: "Appleネイティブの高性能オーディオ処理" },
+                            { component: "オーディオフォーマット", spec: "32ビット浮動小数点PCM、ステレオ", desc: "高精度浮動小数点処理" },
+                            { component: "バッファサイズ", spec: "スムーズなループのため1秒", desc: "スムーズなループ再生を保証" },
+                            { component: "サンプリングレート", spec: "22050 Hz - 96000 Hz", desc: "可変サンプリングレートサポート" }
+                        ],
+                        methods: "周波数生成方法",
+                        qualityTitle: "品質設定",
+                        qualityTable: [
+                            { level: "低", rate: "22050 Hz", buffer: "512", use: "省電力" },
+                            { level: "中", rate: "44100 Hz", buffer: "1024", use: "標準品質" },
+                            { level: "高", rate: "48000 Hz", buffer: "1024", use: "高品質オーディオ" },
+                            { level: "超高", rate: "96000 Hz", buffer: "2048", use: "プロフェッショナルグレード" }
+                        ],
+                        safetyTitle: "安全制限",
+                        safetyList: [
+                            "周波数範囲：0.1 Hz - 20,000 Hz",
+                            "最大音量：80%（聴覚損傷を防ぐ）",
+                            "フェードイン/アウト：オーディオアーティファクトを防ぐ自動処理",
+                            "バッファ安全性：すべてのオーディオバッファにエッジフェーディングを含む"
+                        ]
+                    },
+                    research: {
+                        title: "🔬 科学研究基盤",
+                        mitTitle: "⭐ MIT 40Hz ガンマ研究（ハイライト）",
+                        mitContent: "MITのピコワー研究所が発表した画期的な研究で、40Hz ガンマ刺激が以下と関連している可能性を示しています：",
+                        mitList: [
+                            "アミロイドおよびタウタンパク質の減少（アルツハイマー病マーカー）",
+                            "ニューロン死の予防",
+                            "シナプス損失の減少",
+                            "学習と記憶の維持"
+                        ],
+                        mitCitation: "Iaccarino, H. F., et al. (2016). Gamma frequency entrainment attenuates amyloid load and modifies microglia. Nature, 540(7632), 230-235.",
+                        followupTitle: "MITフォローアップ研究 (2019-2024)",
+                        followupContent: "複数のフォローアップ研究が40Hz刺激の効果を検証および拡大しています：",
+                        followupList: [
+                            "光と音の組み合わせ刺激が効果を向上（Nature, 2019）",
+                            "グリンパティックシステムのクリアランスメカニズム（Nature, 2024）",
+                            "ヒト臨床試験の安全性検証（PLOS ONE, 2022）",
+                            "第III相臨床試験進行中（Cognito Therapeutics）"
+                        ],
+                        otherTitle: "その他の脳波研究"
+                    },
+                    safety: {
+                        title: "⚕️ 安全機能と禁忌",
+                        screeningTitle: "医療禁忌スクリーニング",
+                        screeningTable: [
+                            { condition: "てんかん", frequency: "12-20Hzをブロック（プリセット16Hz、18Hzを除く）", reason: "発作を引き起こす可能性" },
+                            { condition: "妊娠", frequency: "すべての周波数をブロック", reason: "安全上の予防措置" },
+                            { condition: "ペースメーカー", frequency: "すべての周波数をブロック", reason: "電磁干渉リスク" },
+                            { condition: "光過敏症", frequency: "MIT 40Hz ガンマをブロック", reason: "視覚刺激感受性" },
+                            { condition: "重度の精神疾患", frequency: "すべての周波数をブロック", reason: "医療監督が必要" },
+                            { condition: "偏頭痛", frequency: "すべての周波数をブロック", reason: "トリガーリスク" },
+                            { condition: "聴覚問題", frequency: "すべての周波数をブロック", reason: "聴覚保護" }
+                        ],
+                        warningTitle: "⚠️ 重要な安全リマインダー",
+                        warningList: [
+                            "このアプリは教育とウェルネスの目的のみです",
+                            "病気の診断、治療、治癒、予防を意図したものではありません",
+                            "使用前に医療専門家にご相談ください",
+                            "不快感がある場合は直ちに使用を中止してください"
+                        ],
+                        techTitle: "技術的安全設定",
+                        audioSafety: "オーディオ安全性",
+                        audioList: ["最大音量：80%", "自動フェードイン/アウト", "バッファエッジフェーディング"],
+                        freqSafety: "周波数安全性",
+                        freqList: ["範囲：0.1-20,000 Hz", "バイノーラルビート差 ≤ 40Hz", "医療スクリーニング100%有効"]
+                    }
+                }
+            },
+            ko: {
+                subtitle: "과학적 근거 기반 뇌파 주파수 기술 문서",
+                footer: {
+                    version: "버전 1.0.0 | 신경과학 연구 기반 | 교육 및 웰니스 목적",
+                    disclaimer: "이 문서는 기술 참고용입니다. 사용 전 의료 전문가와 상담하십시오.<br>MIT 40Hz 기술은 발표된 연구를 기반으로 하지만 이 앱은 MIT와 제휴하지 않습니다."
+                },
+                sections: {
+                    overview: {
+                        title: "📋 애플리케이션 개요",
+                        intro: "FrequencyHealing은 신경과학 연구를 기반으로 한 뇌파 주파수 오디오 애플리케이션으로, MIT 40Hz 감마 주파수 연구 결과를 채택하여 과학적으로 입증된 음 주파수 경험을 제공합니다.",
+                        cards: [
+                            { title: "🎵 10가지 뇌파 주파수", desc: "델타, 세타, 알파, 베타, 감마 5가지 뇌파 유형을 포함하며, 주파수 범위는 0.5 Hz에서 100 Hz입니다." },
+                            { title: "📱 10가지 오디오 세션", desc: "수면, 집중, 이완 등 다양한 요구에 대응하는 전문적으로 설계된 오디오 세션." },
+                            { title: "🔬 MIT 연구 지원", desc: "Nature (2016)에 발표된 MIT 40Hz 감마 주파수 연구 결과 채택." }
+                        ]
+                    },
+                    frequencies: {
+                        title: "🌊 주파수 기술 사양",
+                        delta: {
+                            title: "델타파 (0.5-4 Hz) - 깊은 회복",
+                            freq1: { hz: "1.5 Hz", name: "깊은 수면", type: "순수 톤(바이노럴 비트 없음)", duration: "60분", use: "수면 질 최적화, 신체 회복", research: "Dang-Vu et al., 2008" },
+                            freq2: { hz: "2.5 Hz", name: "신체 복구", type: "순수 톤", duration: "40분", use: "조직 복구, 호르몬 조절", research: "Tassi & Muzet, 2000" }
+                        },
+                        theta: {
+                            title: "세타파 (4-7 Hz) - 창의성과 학습",
+                            freq1: { hz: "5.5 Hz", name: "창의적 흐름", type: "순수 톤", duration: "30분", use: "창의적 사고, 문제 해결", research: "Fink & Benedek, 2014" },
+                            freq2: { hz: "6.0 Hz", name: "기억 강화", type: "순수 톤", duration: "20분", use: "기억력 향상, 학습 가속", research: "Hasselmo, 2005" }
+                        },
+                        alpha: {
+                            title: "알파파 (8-13 Hz) - 편안한 집중",
+                            freq1: { hz: "10.0 Hz", name: "가벼운 명상", type: "순수 톤", duration: "20분", use: "스트레스 감소, 정신적 명료함", research: "Cahn & Polich, 2006" },
+                            freq2: { hz: "11.0 Hz", name: "학습 집중", type: "순수 톤", duration: "45분", use: "집중력 향상, 지속적인 주의력", research: "Klimesch, 1999" }
+                        },
+                        beta: {
+                            title: "베타파 (14-30 Hz) - 활발한 사고",
+                            freq1: { hz: "16.0 Hz", name: "경계 사고", type: "순수 톤", duration: "30분", use: "명확한 사고, 의사 결정", research: "Beauchene et al., 2017", contraindication: "불안 장애" },
+                            freq2: { hz: "18.0 Hz", name: "문제 해결", type: "순수 톤", duration: "25분", use: "논리적 추론, 복잡한 문제 해결", contraindication: "간질, 불안" }
+                        },
+                        gamma: {
+                            title: "감마파 (30-100 Hz) - 고차 인지",
+                            freq1: { hz: "40.0 Hz", name: "⭐ MIT 40Hz 감마", type: "순수 톤 + 특수 40Hz 펄스 자극", binaural: "40.0 Hz(특수 처리)", duration: "60분", special: "뉴런 동기화 시뮬레이션과 함께 순수 40Hz 톤 사용", research: "Iaccarino et al., 2016 (MIT Nature 연구)", contraindication: "간질, 광과민성" },
+                            freq2: { hz: "45.0 Hz", name: "의식 통합", type: "순수 톤", duration: "15분", use: "높은 인식, 최고 성능", contraindication: "간질, 발작 장애" }
+                        },
+                        special: {
+                            title: "특수 주파수",
+                            freq1: { hz: "432 Hz", name: "자연 튜닝", type: "배음을 포함한 조화 주파수", processing: "playNaturalTuning(baseFreq: 432)", harmonics: "1.0, 2.0, 3.0, 4.0, 5.0(진폭 감소)", basis: "A=432Hz 튜닝을 기반으로 한 수학적 주파수" },
+                            freq2: { hz: "528 Hz", name: "솔페지오 주파수", type: "순수 톤", processing: "playPureTone(frequency: 528.0)", basis: "솔페지오 음계 주파수", use: "감정 균형, 이완" }
+                        }
+                    },
+                    audio: {
+                        title: "🎛️ 오디오 처리 기술",
+                        engine: "오디오 엔진 아키텍처",
+                        engineTable: [
+                            { component: "오디오 엔진", spec: "맞춤형 노드가 있는 AVAudioEngine", desc: "Apple 네이티브 고성능 오디오 처리" },
+                            { component: "오디오 형식", spec: "32비트 부동 소수점 PCM, 스테레오", desc: "고정밀 부동 소수점 처리" },
+                            { component: "버퍼 크기", spec: "부드러운 루핑을 위한 1초", desc: "부드러운 루프 재생 보장" },
+                            { component: "샘플링 레이트", spec: "22050 Hz - 96000 Hz", desc: "가변 샘플링 레이트 지원" }
+                        ],
+                        methods: "주파수 생성 방법",
+                        qualityTitle: "품질 설정",
+                        qualityTable: [
+                            { level: "낮음", rate: "22050 Hz", buffer: "512", use: "전력 절약" },
+                            { level: "중간", rate: "44100 Hz", buffer: "1024", use: "표준 품질" },
+                            { level: "높음", rate: "48000 Hz", buffer: "1024", use: "고품질 오디오" },
+                            { level: "초고", rate: "96000 Hz", buffer: "2048", use: "전문가 급" }
+                        ],
+                        safetyTitle: "안전 제한",
+                        safetyList: [
+                            "주파수 범위: 0.1 Hz - 20,000 Hz",
+                            "최대 볼륨: 80%(청력 손상 방지)",
+                            "페이드 인/아웃: 오디오 아티팩트 방지를 위한 자동 처리",
+                            "버퍼 안전성: 모든 오디오 버퍼에 에지 페이딩 포함"
+                        ]
+                    },
+                    research: {
+                        title: "🔬 과학 연구 기반",
+                        mitTitle: "⭐ MIT 40Hz 감마 연구(하이라이트)",
+                        mitContent: "MIT 피코워 연구소가 발표한 획기적인 연구로, 40Hz 감마 자극이 다음과 관련될 수 있음을 보여줍니다:",
+                        mitList: [
+                            "아밀로이드 및 타우 단백질 감소(알츠하이머병 마커)",
+                            "뉴런 사망 예방",
+                            "시냅스 손실 감소",
+                            "학습 및 기억 유지"
+                        ],
+                        mitCitation: "Iaccarino, H. F., et al. (2016). Gamma frequency entrainment attenuates amyloid load and modifies microglia. Nature, 540(7632), 230-235.",
+                        followupTitle: "MIT 후속 연구 (2019-2024)",
+                        followupContent: "여러 후속 연구가 40Hz 자극의 효과를 검증하고 확장했습니다:",
+                        followupList: [
+                            "빛과 소리 결합 자극이 효과 향상(Nature, 2019)",
+                            "림프계 청소 메커니즘(Nature, 2024)",
+                            "인간 임상 시험 안전성 검증(PLOS ONE, 2022)",
+                            "3상 임상 시험 진행 중(Cognito Therapeutics)"
+                        ],
+                        otherTitle: "기타 뇌파 연구"
+                    },
+                    safety: {
+                        title: "⚕️ 안전 메커니즘 및 금기 사항",
+                        screeningTitle: "의료 금기 사항 선별",
+                        screeningTable: [
+                            { condition: "간질", frequency: "12-20Hz 차단(사전 설정 16Hz, 18Hz 제외)", reason: "발작을 유발할 수 있음" },
+                            { condition: "임신", frequency: "모든 주파수 차단", reason: "안전 예방 조치" },
+                            { condition: "심박 조율기", frequency: "모든 주파수 차단", reason: "전자기 간섭 위험" },
+                            { condition: "광과민성", frequency: "MIT 40Hz 감마 차단", reason: "시각 자극 민감성" },
+                            { condition: "중증 정신 질환", frequency: "모든 주파수 차단", reason: "의료 감독 필요" },
+                            { condition: "편두통", frequency: "모든 주파수 차단", reason: "트리거 위험" },
+                            { condition: "청력 문제", frequency: "모든 주파수 차단", reason: "청력 보호" }
+                        ],
+                        warningTitle: "⚠️ 중요한 안전 알림",
+                        warningList: [
+                            "이 앱은 교육 및 웰니스 목적으로만 사용됩니다",
+                            "질병의 진단, 치료, 치유 또는 예방을 목적으로 하지 않습니다",
+                            "사용 전 의료 전문가와 상담하십시오",
+                            "불편함이 발생하면 즉시 사용을 중단하십시오"
+                        ],
+                        techTitle: "기술 안전 설정",
+                        audioSafety: "오디오 안전",
+                        audioList: ["최대 볼륨: 80%", "자동 페이드 인/아웃", "버퍼 에지 페이딩"],
+                        freqSafety: "주파수 안전",
+                        freqList: ["범위: 0.1-20,000 Hz", "바이노럴 비트 차이 ≤ 40Hz", "의료 선별 100% 효과적"]
+                    }
+                }
+            },
+            es: {
+                subtitle: "Documentación Técnica de Frecuencias Cerebrales Basada en Ciencia",
+                footer: {
+                    version: "Versión 1.0.0 | Basado en Investigación Neurocientífica | Propósito Educativo y de Bienestar",
+                    disclaimer: "Esta documentación es solo para referencia técnica. Consulte a profesionales de la salud antes de usar.<br>La tecnología MIT 40Hz se basa en investigaciones publicadas, pero esta aplicación no está afiliada con MIT."
+                },
+                sections: {
+                    overview: {
+                        title: "📋 Descripción de la Aplicación",
+                        intro: "FrequencyHealing es una aplicación de audio de frecuencias cerebrales basada en investigación neurocientífica, que presenta los resultados de la investigación de frecuencia Gamma de 40Hz del MIT para experiencias de frecuencias sonoras científicamente respaldadas.",
+                        cards: [
+                            { title: "🎵 10 Frecuencias Cerebrales", desc: "Cubre 5 tipos de ondas cerebrales: Delta, Theta, Alpha, Beta, Gamma, con un rango de frecuencia de 0.5 Hz a 100 Hz." },
+                            { title: "📱 10 Sesiones de Audio", desc: "Sesiones de audio diseñadas profesionalmente para sueño, enfoque, relajación y más." },
+                            { title: "🔬 Investigación del MIT", desc: "Presenta la investigación de frecuencia Gamma de 40Hz del MIT publicada en Nature (2016)." }
+                        ]
+                    },
+                    frequencies: {
+                        title: "🌊 Especificaciones Técnicas de Frecuencias",
+                        delta: {
+                            title: "Ondas Delta (0.5-4 Hz) - Recuperación Profunda",
+                            freq1: { hz: "1.5 Hz", name: "Sueño Profundo", type: "Tono puro (sin binaural)", duration: "60 minutos", use: "Optimización de la calidad del sueño, recuperación corporal", research: "Dang-Vu et al., 2008" },
+                            freq2: { hz: "2.5 Hz", name: "Reparación Corporal", type: "Tono puro", duration: "40 minutos", use: "Reparación de tejidos, regulación hormonal", research: "Tassi & Muzet, 2000" }
+                        },
+                        theta: {
+                            title: "Ondas Theta (4-7 Hz) - Creatividad y Aprendizaje",
+                            freq1: { hz: "5.5 Hz", name: "Flujo Creativo", type: "Tono puro", duration: "30 minutos", use: "Pensamiento creativo, resolución de problemas", research: "Fink & Benedek, 2014" },
+                            freq2: { hz: "6.0 Hz", name: "Consolidación de Memoria", type: "Tono puro", duration: "20 minutos", use: "Mejora de la memoria, aceleración del aprendizaje", research: "Hasselmo, 2005" }
+                        },
+                        alpha: {
+                            title: "Ondas Alpha (8-13 Hz) - Enfoque Relajado",
+                            freq1: { hz: "10.0 Hz", name: "Meditación Ligera", type: "Tono puro", duration: "20 minutos", use: "Reducción del estrés, claridad mental", research: "Cahn & Polich, 2006" },
+                            freq2: { hz: "11.0 Hz", name: "Enfoque de Estudio", type: "Tono puro", duration: "45 minutos", use: "Enfoque mejorado, atención sostenida", research: "Klimesch, 1999" }
+                        },
+                        beta: {
+                            title: "Ondas Beta (14-30 Hz) - Pensamiento Activo",
+                            freq1: { hz: "16.0 Hz", name: "Pensamiento Alerta", type: "Tono puro", duration: "30 minutos", use: "Pensamiento claro, toma de decisiones", research: "Beauchene et al., 2017", contraindication: "Trastornos de ansiedad" },
+                            freq2: { hz: "18.0 Hz", name: "Resolución de Problemas", type: "Tono puro", duration: "25 minutos", use: "Razonamiento lógico, resolución de problemas complejos", contraindication: "Epilepsia, Ansiedad" }
+                        },
+                        gamma: {
+                            title: "Ondas Gamma (30-100 Hz) - Cognición Superior",
+                            freq1: { hz: "40.0 Hz", name: "⭐ MIT 40Hz Gamma", type: "Tono puro + estimulación pulsada especial de 40Hz", binaural: "40.0 Hz (procesamiento especial)", duration: "60 minutos", special: "Utiliza tono puro de 40Hz con simulación de sincronización neuronal", research: "Iaccarino et al., 2016 (Investigación MIT Nature)", contraindication: "Epilepsia, Fotosensibilidad" },
+                            freq2: { hz: "45.0 Hz", name: "Integración de Conciencia", type: "Tono puro", duration: "15 minutos", use: "Conciencia elevada, rendimiento máximo", contraindication: "Epilepsia, Trastornos convulsivos" }
+                        },
+                        special: {
+                            title: "Frecuencias Especiales",
+                            freq1: { hz: "432 Hz", name: "Afinación Natural", type: "Frecuencia armónica con armónicos", processing: "playNaturalTuning(baseFreq: 432)", harmonics: "1.0, 2.0, 3.0, 4.0, 5.0 (amplitud decreciente)", basis: "Frecuencia matemática basada en afinación A=432Hz" },
+                            freq2: { hz: "528 Hz", name: "Frecuencia Solfeggio", type: "Tono puro", processing: "playPureTone(frequency: 528.0)", basis: "Frecuencia de escala Solfeggio", use: "Equilibrio emocional, relajación" }
+                        }
+                    },
+                    audio: {
+                        title: "🎛️ Tecnología de Procesamiento de Audio",
+                        engine: "Arquitectura del Motor de Audio",
+                        engineTable: [
+                            { component: "Motor de Audio", spec: "AVAudioEngine con nodos personalizados", desc: "Procesamiento de audio nativo de Apple de alto rendimiento" },
+                            { component: "Formato de Audio", spec: "PCM de punto flotante de 32 bits, Estéreo", desc: "Procesamiento de punto flotante de alta precisión" },
+                            { component: "Tamaño de Búfer", spec: "1 segundo para bucle suave", desc: "Garantiza reproducción de bucle suave" },
+                            { component: "Tasa de Muestreo", spec: "22050 Hz - 96000 Hz", desc: "Soporte de tasa de muestreo variable" }
+                        ],
+                        methods: "Métodos de Generación de Frecuencias",
+                        qualityTitle: "Configuración de Calidad",
+                        qualityTable: [
+                            { level: "Baja", rate: "22050 Hz", buffer: "512", use: "Ahorro de energía" },
+                            { level: "Media", rate: "44100 Hz", buffer: "1024", use: "Calidad estándar" },
+                            { level: "Alta", rate: "48000 Hz", buffer: "1024", use: "Audio de alta calidad" },
+                            { level: "Ultra", rate: "96000 Hz", buffer: "2048", use: "Grado profesional" }
+                        ],
+                        safetyTitle: "Límites de Seguridad",
+                        safetyList: [
+                            "Rango de Frecuencia: 0.1 Hz - 20,000 Hz",
+                            "Volumen Máximo: 80% (prevenir daño auditivo)",
+                            "Fundido de Entrada/Salida: Procesamiento automático para prevenir artefactos de audio",
+                            "Seguridad del Búfer: Todos los búferes de audio incluyen desvanecimiento de borde"
+                        ]
+                    },
+                    research: {
+                        title: "🔬 Fundamento de Investigación Científica",
+                        mitTitle: "⭐ Investigación MIT 40Hz Gamma (Destacado)",
+                        mitContent: "Investigación innovadora publicada por el Instituto Picower del MIT que muestra que la estimulación gamma de 40Hz puede estar asociada con:",
+                        mitList: [
+                            "Reducción de proteínas amiloides y tau (marcadores de Alzheimer)",
+                            "Prevención de muerte neuronal",
+                            "Reducción de pérdida sináptica",
+                            "Mantenimiento del aprendizaje y la memoria"
+                        ],
+                        mitCitation: "Iaccarino, H. F., et al. (2016). Gamma frequency entrainment attenuates amyloid load and modifies microglia. Nature, 540(7632), 230-235.",
+                        followupTitle: "Estudios de Seguimiento del MIT (2019-2024)",
+                        followupContent: "Múltiples estudios de seguimiento validaron y ampliaron los efectos de la estimulación de 40Hz:",
+                        followupList: [
+                            "La estimulación audiovisual combinada mejora la eficacia (Nature, 2019)",
+                            "Mecanismo de eliminación del sistema glinfático (Nature, 2024)",
+                            "Validación de seguridad en ensayos clínicos humanos (PLOS ONE, 2022)",
+                            "Ensayos clínicos de fase III en curso (Cognito Therapeutics)"
+                        ],
+                        otherTitle: "Otra Investigación de Ondas Cerebrales"
+                    },
+                    safety: {
+                        title: "⚕️ Mecanismos de Seguridad y Contraindicaciones",
+                        screeningTitle: "Detección de Contraindicaciones Médicas",
+                        screeningTable: [
+                            { condition: "Epilepsia", frequency: "Bloquea 12-20Hz (excepto preestablecidos 16Hz, 18Hz)", reason: "Puede desencadenar convulsiones" },
+                            { condition: "Embarazo", frequency: "Bloquea todas las frecuencias", reason: "Precaución de seguridad" },
+                            { condition: "Marcapasos", frequency: "Bloquea todas las frecuencias", reason: "Riesgo de interferencia electromagnética" },
+                            { condition: "Fotosensibilidad", frequency: "Bloquea MIT 40Hz Gamma", reason: "Sensibilidad a estimulación visual" },
+                            { condition: "Enfermedad Mental Severa", frequency: "Bloquea todas las frecuencias", reason: "Requiere supervisión médica" },
+                            { condition: "Migrañas", frequency: "Bloquea todas las frecuencias", reason: "Riesgo de desencadenamiento" },
+                            { condition: "Problemas Auditivos", frequency: "Bloquea todas las frecuencias", reason: "Protección auditiva" }
+                        ],
+                        warningTitle: "⚠️ Recordatorio Importante de Seguridad",
+                        warningList: [
+                            "Esta aplicación es solo para fines educativos y de bienestar",
+                            "No está destinada a diagnosticar, tratar, curar o prevenir ninguna enfermedad",
+                            "Consulte a profesionales de la salud antes de usar",
+                            "Detenga inmediatamente si ocurre alguna molestia"
+                        ],
+                        techTitle: "Configuraciones de Seguridad Técnica",
+                        audioSafety: "Seguridad de Audio",
+                        audioList: ["Volumen máximo: 80%", "Fundido automático de entrada/salida", "Desvanecimiento de borde del búfer"],
+                        freqSafety: "Seguridad de Frecuencia",
+                        freqList: ["Rango: 0.1-20,000 Hz", "Diferencia de ritmo binaural ≤ 40Hz", "Detección médica 100% efectiva"]
+                    }
+                }
+            },
+            de: {
+                subtitle: "Wissenschaftlich fundierte Gehirnwellen-Frequenz-Technologie-Dokumentation",
+                footer: {
+                    version: "Version 1.0.0 | Basierend auf neurowissenschaftlicher Forschung | Bildungs- und Wellnesszweck",
+                    disclaimer: "Diese Dokumentation dient nur als technische Referenz. Konsultieren Sie Gesundheitsfachkräfte vor der Verwendung.<br>Die MIT 40Hz-Technologie basiert auf veröffentlichter Forschung, aber diese App ist nicht mit MIT verbunden."
+                },
+                sections: {
+                    overview: {
+                        title: "📋 Anwendungsübersicht",
+                        intro: "FrequencyHealing ist eine Gehirnwellen-Frequenz-Audio-Anwendung basierend auf neurowissenschaftlicher Forschung, mit MIT 40Hz Gamma-Frequenz-Forschungsergebnissen für wissenschaftlich fundierte Klangfrequenz-Erlebnisse.",
+                        cards: [
+                            { title: "🎵 10 Gehirnwellenfrequenzen", desc: "Umfasst 5 Gehirnwellentypen: Delta, Theta, Alpha, Beta, Gamma, mit einem Frequenzbereich von 0,5 Hz bis 100 Hz." },
+                            { title: "📱 10 Audio-Sitzungen", desc: "Professionell gestaltete Audio-Sitzungen für Schlaf, Fokus, Entspannung und mehr." },
+                            { title: "🔬 MIT-Forschung", desc: "Beinhaltet MIT 40Hz Gamma-Frequenz-Forschung veröffentlicht in Nature (2016)." }
+                        ]
+                    },
+                    frequencies: {
+                        title: "🌊 Frequenz-Technische Spezifikationen",
+                        delta: {
+                            title: "Delta-Wellen (0,5-4 Hz) - Tiefe Erholung",
+                            freq1: { hz: "1,5 Hz", name: "Tiefer Schlaf", type: "Reiner Ton (kein Binaural)", duration: "60 Minuten", use: "Optimierung der Schlafqualität, körperliche Erholung", research: "Dang-Vu et al., 2008" },
+                            freq2: { hz: "2,5 Hz", name: "Körperreparatur", type: "Reiner Ton", duration: "40 Minuten", use: "Gewebereparatur, Hormonregulierung", research: "Tassi & Muzet, 2000" }
+                        },
+                        theta: {
+                            title: "Theta-Wellen (4-7 Hz) - Kreativität & Lernen",
+                            freq1: { hz: "5,5 Hz", name: "Kreativer Fluss", type: "Reiner Ton", duration: "30 Minuten", use: "Kreatives Denken, Problemlösung", research: "Fink & Benedek, 2014" },
+                            freq2: { hz: "6,0 Hz", name: "Gedächtniskonsolidierung", type: "Reiner Ton", duration: "20 Minuten", use: "Gedächtnisverbesserung, Lernbeschleunigung", research: "Hasselmo, 2005" }
+                        },
+                        alpha: {
+                            title: "Alpha-Wellen (8-13 Hz) - Entspannter Fokus",
+                            freq1: { hz: "10,0 Hz", name: "Leichte Meditation", type: "Reiner Ton", duration: "20 Minuten", use: "Stressreduktion, geistige Klarheit", research: "Cahn & Polich, 2006" },
+                            freq2: { hz: "11,0 Hz", name: "Studienfokus", type: "Reiner Ton", duration: "45 Minuten", use: "Verbesserter Fokus, anhaltende Aufmerksamkeit", research: "Klimesch, 1999" }
+                        },
+                        beta: {
+                            title: "Beta-Wellen (14-30 Hz) - Aktives Denken",
+                            freq1: { hz: "16,0 Hz", name: "Waches Denken", type: "Reiner Ton", duration: "30 Minuten", use: "Klares Denken, Entscheidungsfindung", research: "Beauchene et al., 2017", contraindication: "Angststörungen" },
+                            freq2: { hz: "18,0 Hz", name: "Problemlösung", type: "Reiner Ton", duration: "25 Minuten", use: "Logisches Denken, komplexe Problemlösung", contraindication: "Epilepsie, Angst" }
+                        },
+                        gamma: {
+                            title: "Gamma-Wellen (30-100 Hz) - Höhere Kognition",
+                            freq1: { hz: "40,0 Hz", name: "⭐ MIT 40Hz Gamma", type: "Reiner Ton + spezielle 40Hz-Impulsstimulation", binaural: "40,0 Hz (Spezialverarbeitung)", duration: "60 Minuten", special: "Verwendet reinen 40Hz-Ton mit neuronaler Synchronisationssimulation", research: "Iaccarino et al., 2016 (MIT Nature-Forschung)", contraindication: "Epilepsie, Photosensibilität" },
+                            freq2: { hz: "45,0 Hz", name: "Bewusstseinsintegration", type: "Reiner Ton", duration: "15 Minuten", use: "Erhöhtes Bewusstsein, Höchstleistung", contraindication: "Epilepsie, Anfallsleiden" }
+                        },
+                        special: {
+                            title: "Spezielle Frequenzen",
+                            freq1: { hz: "432 Hz", name: "Natürliche Stimmung", type: "Harmonische Frequenz mit Obertönen", processing: "playNaturalTuning(baseFreq: 432)", harmonics: "1,0, 2,0, 3,0, 4,0, 5,0 (abnehmende Amplitude)", basis: "Mathematische Frequenz basierend auf A=432Hz-Stimmung" },
+                            freq2: { hz: "528 Hz", name: "Solfeggio-Frequenz", type: "Reiner Ton", processing: "playPureTone(frequency: 528.0)", basis: "Solfeggio-Tonleiterfrequenz", use: "Emotionale Balance, Entspannung" }
+                        }
+                    },
+                    audio: {
+                        title: "🎛️ Audioverarbeitungstechnologie",
+                        engine: "Audio-Engine-Architektur",
+                        engineTable: [
+                            { component: "Audio-Engine", spec: "AVAudioEngine mit benutzerdefinierten Knoten", desc: "Apple native Hochleistungs-Audioverarbeitung" },
+                            { component: "Audioformat", spec: "32-Bit-Fließkomma-PCM, Stereo", desc: "Hochpräzise Fließkommaverarbeitung" },
+                            { component: "Puffergröße", spec: "1 Sekunde für sanftes Looping", desc: "Gewährleistet sanfte Loop-Wiedergabe" },
+                            { component: "Abtastrate", spec: "22050 Hz - 96000 Hz", desc: "Variable Abtastratenunterstützung" }
+                        ],
+                        methods: "Frequenzgenerierungsmethoden",
+                        qualityTitle: "Qualitätseinstellungen",
+                        qualityTable: [
+                            { level: "Niedrig", rate: "22050 Hz", buffer: "512", use: "Energieeinsparung" },
+                            { level: "Mittel", rate: "44100 Hz", buffer: "1024", use: "Standardqualität" },
+                            { level: "Hoch", rate: "48000 Hz", buffer: "1024", use: "Hochqualitätsaudio" },
+                            { level: "Ultra", rate: "96000 Hz", buffer: "2048", use: "Professionelle Qualität" }
+                        ],
+                        safetyTitle: "Sicherheitsgrenzen",
+                        safetyList: [
+                            "Frequenzbereich: 0,1 Hz - 20.000 Hz",
+                            "Maximale Lautstärke: 80% (Gehörschutz)",
+                            "Ein-/Ausblenden: Automatische Verarbeitung zur Vermeidung von Audio-Artefakten",
+                            "Puffersicherheit: Alle Audio-Puffer enthalten Kantenausblendung"
+                        ]
+                    },
+                    research: {
+                        title: "🔬 Wissenschaftliche Forschungsgrundlage",
+                        mitTitle: "⭐ MIT 40Hz Gamma-Forschung (Highlight)",
+                        mitContent: "Bahnbrechende Forschung des MIT Picower Institute zeigt, dass 40Hz-Gamma-Stimulation assoziiert sein könnte mit:",
+                        mitList: [
+                            "Reduzierung von Amyloid- und Tau-Proteinen (Alzheimer-Marker)",
+                            "Verhinderung des neuronalen Todes",
+                            "Reduzierung des synaptischen Verlusts",
+                            "Aufrechterhaltung von Lernen und Gedächtnis"
+                        ],
+                        mitCitation: "Iaccarino, H. F., et al. (2016). Gamma frequency entrainment attenuates amyloid load and modifies microglia. Nature, 540(7632), 230-235.",
+                        followupTitle: "MIT-Folgestudien (2019-2024)",
+                        followupContent: "Mehrere Folgestudien validierten und erweiterten die Effekte der 40Hz-Stimulation:",
+                        followupList: [
+                            "Kombinierte audiovisuelle Stimulation verbessert die Wirksamkeit (Nature, 2019)",
+                            "Glymphatisches System-Clearance-Mechanismus (Nature, 2024)",
+                            "Sicherheitsvalidierung in klinischen Studien am Menschen (PLOS ONE, 2022)",
+                            "Phase-III-Studien laufen (Cognito Therapeutics)"
+                        ],
+                        otherTitle: "Weitere Gehirnwellen-Forschung"
+                    },
+                    safety: {
+                        title: "⚕️ Sicherheitsmechanismen & Kontraindikationen",
+                        screeningTitle: "Medizinische Kontraindikations-Screening",
+                        screeningTable: [
+                            { condition: "Epilepsie", frequency: "Blockiert 12-20Hz (außer voreingestellte 16Hz, 18Hz)", reason: "Kann Anfälle auslösen" },
+                            { condition: "Schwangerschaft", frequency: "Blockiert alle Frequenzen", reason: "Sicherheitsvorkehrung" },
+                            { condition: "Herzschrittmacher", frequency: "Blockiert alle Frequenzen", reason: "Elektromagnetisches Interferenzrisiko" },
+                            { condition: "Photosensibilität", frequency: "Blockiert MIT 40Hz Gamma", reason: "Visuelle Stimulationsempfindlichkeit" },
+                            { condition: "Schwere psychische Erkrankung", frequency: "Blockiert alle Frequenzen", reason: "Erfordert medizinische Überwachung" },
+                            { condition: "Migräne", frequency: "Blockiert alle Frequenzen", reason: "Auslöserisiko" },
+                            { condition: "Hörprobleme", frequency: "Blockiert alle Frequenzen", reason: "Gehörschutz" }
+                        ],
+                        warningTitle: "⚠️ Wichtige Sicherheitserinnerung",
+                        warningList: [
+                            "Diese App ist nur für Bildungs- und Wellnesszwecke",
+                            "Nicht zur Diagnose, Behandlung, Heilung oder Vorbeugung von Krankheiten bestimmt",
+                            "Konsultieren Sie Gesundheitsfachkräfte vor der Verwendung",
+                            "Stoppen Sie sofort bei Beschwerden"
+                        ],
+                        techTitle: "Technische Sicherheitseinstellungen",
+                        audioSafety: "Audiosicherheit",
+                        audioList: ["Maximale Lautstärke: 80%", "Automatisches Ein-/Ausblenden", "Puffer-Kantenausblendung"],
+                        freqSafety: "Frequenzsicherheit",
+                        freqList: ["Bereich: 0,1-20.000 Hz", "Binaurale Beat-Differenz ≤ 40Hz", "Medizinisches Screening 100% effektiv"]
+                    }
+                }
+            },
+            fr: {
+                subtitle: "Documentation Technique des Fréquences Cérébrales Basée sur la Science",
+                footer: {
+                    version: "Version 1.0.0 | Basé sur la recherche en neurosciences | But éducatif et de bien-être",
+                    disclaimer: "Cette documentation est uniquement à titre de référence technique. Consultez des professionnels de la santé avant utilisation.<br>La technologie MIT 40Hz est basée sur des recherches publiées, mais cette application n'est pas affiliée au MIT."
+                },
+                sections: {
+                    overview: {
+                        title: "📋 Aperçu de l'Application",
+                        intro: "FrequencyHealing est une application audio de fréquences cérébrales basée sur la recherche en neurosciences, présentant les résultats de la recherche sur la fréquence Gamma de 40Hz du MIT pour des expériences de fréquences sonores scientifiquement fondées.",
+                        cards: [
+                            { title: "🎵 10 Fréquences Cérébrales", desc: "Couvre 5 types d'ondes cérébrales : Delta, Theta, Alpha, Beta, Gamma, avec une gamme de fréquences de 0,5 Hz à 100 Hz." },
+                            { title: "📱 10 Sessions Audio", desc: "Sessions audio conçues professionnellement pour le sommeil, la concentration, la relaxation et plus." },
+                            { title: "🔬 Recherche du MIT", desc: "Présente la recherche sur la fréquence Gamma de 40Hz du MIT publiée dans Nature (2016)." }
+                        ]
+                    },
+                    frequencies: {
+                        title: "🌊 Spécifications Techniques des Fréquences",
+                        delta: {
+                            title: "Ondes Delta (0,5-4 Hz) - Récupération Profonde",
+                            freq1: { hz: "1,5 Hz", name: "Sommeil Profond", type: "Ton pur (pas de binaural)", duration: "60 minutes", use: "Optimisation de la qualité du sommeil, récupération corporelle", research: "Dang-Vu et al., 2008" },
+                            freq2: { hz: "2,5 Hz", name: "Réparation Corporelle", type: "Ton pur", duration: "40 minutes", use: "Réparation tissulaire, régulation hormonale", research: "Tassi & Muzet, 2000" }
+                        },
+                        theta: {
+                            title: "Ondes Theta (4-7 Hz) - Créativité & Apprentissage",
+                            freq1: { hz: "5,5 Hz", name: "Flux Créatif", type: "Ton pur", duration: "30 minutes", use: "Pensée créative, résolution de problèmes", research: "Fink & Benedek, 2014" },
+                            freq2: { hz: "6,0 Hz", name: "Consolidation de la Mémoire", type: "Ton pur", duration: "20 minutes", use: "Amélioration de la mémoire, accélération de l'apprentissage", research: "Hasselmo, 2005" }
+                        },
+                        alpha: {
+                            title: "Ondes Alpha (8-13 Hz) - Concentration Détendue",
+                            freq1: { hz: "10,0 Hz", name: "Méditation Légère", type: "Ton pur", duration: "20 minutes", use: "Réduction du stress, clarté mentale", research: "Cahn & Polich, 2006" },
+                            freq2: { hz: "11,0 Hz", name: "Concentration d'Étude", type: "Ton pur", duration: "45 minutes", use: "Concentration améliorée, attention soutenue", research: "Klimesch, 1999" }
+                        },
+                        beta: {
+                            title: "Ondes Beta (14-30 Hz) - Pensée Active",
+                            freq1: { hz: "16,0 Hz", name: "Pensée Alerte", type: "Ton pur", duration: "30 minutes", use: "Pensée claire, prise de décision", research: "Beauchene et al., 2017", contraindication: "Troubles anxieux" },
+                            freq2: { hz: "18,0 Hz", name: "Résolution de Problèmes", type: "Ton pur", duration: "25 minutes", use: "Raisonnement logique, résolution de problèmes complexes", contraindication: "Épilepsie, Anxiété" }
+                        },
+                        gamma: {
+                            title: "Ondes Gamma (30-100 Hz) - Cognition Supérieure",
+                            freq1: { hz: "40,0 Hz", name: "⭐ MIT 40Hz Gamma", type: "Ton pur + stimulation pulsée spéciale de 40Hz", binaural: "40,0 Hz (traitement spécial)", duration: "60 minutes", special: "Utilise un ton pur de 40Hz avec simulation de synchronisation neuronale", research: "Iaccarino et al., 2016 (Recherche MIT Nature)", contraindication: "Épilepsie, Photosensibilité" },
+                            freq2: { hz: "45,0 Hz", name: "Intégration de la Conscience", type: "Ton pur", duration: "15 minutes", use: "Conscience élevée, performance maximale", contraindication: "Épilepsie, Troubles convulsifs" }
+                        },
+                        special: {
+                            title: "Fréquences Spéciales",
+                            freq1: { hz: "432 Hz", name: "Accordage Naturel", type: "Fréquence harmonique avec harmoniques", processing: "playNaturalTuning(baseFreq: 432)", harmonics: "1,0, 2,0, 3,0, 4,0, 5,0 (amplitude décroissante)", basis: "Fréquence mathématique basée sur l'accordage A=432Hz" },
+                            freq2: { hz: "528 Hz", name: "Fréquence Solfège", type: "Ton pur", processing: "playPureTone(frequency: 528.0)", basis: "Fréquence de l'échelle Solfège", use: "Équilibre émotionnel, relaxation" }
+                        }
+                    },
+                    audio: {
+                        title: "🎛️ Technologie de Traitement Audio",
+                        engine: "Architecture du Moteur Audio",
+                        engineTable: [
+                            { component: "Moteur Audio", spec: "AVAudioEngine avec nœuds personnalisés", desc: "Traitement audio haute performance natif d'Apple" },
+                            { component: "Format Audio", spec: "PCM virgule flottante 32 bits, Stéréo", desc: "Traitement en virgule flottante haute précision" },
+                            { component: "Taille du Tampon", spec: "1 seconde pour boucle fluide", desc: "Garantit une lecture en boucle fluide" },
+                            { component: "Taux d'Échantillonnage", spec: "22050 Hz - 96000 Hz", desc: "Support de taux d'échantillonnage variable" }
+                        ],
+                        methods: "Méthodes de Génération de Fréquences",
+                        qualityTitle: "Paramètres de Qualité",
+                        qualityTable: [
+                            { level: "Faible", rate: "22050 Hz", buffer: "512", use: "Économie d'énergie" },
+                            { level: "Moyen", rate: "44100 Hz", buffer: "1024", use: "Qualité standard" },
+                            { level: "Élevé", rate: "48000 Hz", buffer: "1024", use: "Audio haute qualité" },
+                            { level: "Ultra", rate: "96000 Hz", buffer: "2048", use: "Qualité professionnelle" }
+                        ],
+                        safetyTitle: "Limites de Sécurité",
+                        safetyList: [
+                            "Plage de Fréquence : 0,1 Hz - 20 000 Hz",
+                            "Volume Maximum : 80% (prévenir les dommages auditifs)",
+                            "Fondu d'Entrée/Sortie : Traitement automatique pour prévenir les artefacts audio",
+                            "Sécurité du Tampon : Tous les tampons audio incluent un fondu de bord"
+                        ]
+                    },
+                    research: {
+                        title: "🔬 Fondement de la Recherche Scientifique",
+                        mitTitle: "⭐ Recherche MIT 40Hz Gamma (Point Fort)",
+                        mitContent: "Recherche révolutionnaire publiée par l'Institut Picower du MIT montrant que la stimulation gamma de 40Hz pourrait être associée à :",
+                        mitList: [
+                            "Réduction des protéines amyloïdes et tau (marqueurs d'Alzheimer)",
+                            "Prévention de la mort neuronale",
+                            "Réduction de la perte synaptique",
+                            "Maintien de l'apprentissage et de la mémoire"
+                        ],
+                        mitCitation: "Iaccarino, H. F., et al. (2016). Gamma frequency entrainment attenuates amyloid load and modifies microglia. Nature, 540(7632), 230-235.",
+                        followupTitle: "Études de Suivi du MIT (2019-2024)",
+                        followupContent: "Plusieurs études de suivi ont validé et étendu les effets de la stimulation de 40Hz :",
+                        followupList: [
+                            "La stimulation audiovisuelle combinée améliore l'efficacité (Nature, 2019)",
+                            "Mécanisme de clairance du système glymphatique (Nature, 2024)",
+                            "Validation de la sécurité dans les essais cliniques humains (PLOS ONE, 2022)",
+                            "Essais cliniques de phase III en cours (Cognito Therapeutics)"
+                        ],
+                        otherTitle: "Autre Recherche sur les Ondes Cérébrales"
+                    },
+                    safety: {
+                        title: "⚕️ Mécanismes de Sécurité & Contre-indications",
+                        screeningTitle: "Dépistage des Contre-indications Médicales",
+                        screeningTable: [
+                            { condition: "Épilepsie", frequency: "Bloque 12-20Hz (sauf préréglés 16Hz, 18Hz)", reason: "Peut déclencher des crises" },
+                            { condition: "Grossesse", frequency: "Bloque toutes les fréquences", reason: "Précaution de sécurité" },
+                            { condition: "Stimulateur Cardiaque", frequency: "Bloque toutes les fréquences", reason: "Risque d'interférence électromagnétique" },
+                            { condition: "Photosensibilité", frequency: "Bloque MIT 40Hz Gamma", reason: "Sensibilité à la stimulation visuelle" },
+                            { condition: "Maladie Mentale Sévère", frequency: "Bloque toutes les fréquences", reason: "Nécessite une surveillance médicale" },
+                            { condition: "Migraines", frequency: "Bloque toutes les fréquences", reason: "Risque de déclenchement" },
+                            { condition: "Problèmes Auditifs", frequency: "Bloque toutes les fréquences", reason: "Protection auditive" }
+                        ],
+                        warningTitle: "⚠️ Rappel de Sécurité Important",
+                        warningList: [
+                            "Cette application est uniquement à des fins éducatives et de bien-être",
+                            "Non destinée à diagnostiquer, traiter, guérir ou prévenir toute maladie",
+                            "Consultez des professionnels de la santé avant utilisation",
+                            "Arrêtez immédiatement en cas de gêne"
+                        ],
+                        techTitle: "Paramètres de Sécurité Technique",
+                        audioSafety: "Sécurité Audio",
+                        audioList: ["Volume maximum : 80%", "Fondu d'entrée/sortie automatique", "Fondu de bord du tampon"],
+                        freqSafety: "Sécurité des Fréquences",
+                        freqList: ["Plage : 0,1-20 000 Hz", "Différence de battement binaural ≤ 40Hz", "Dépistage médical 100% efficace"]
+                    }
+                }
+            }
+        };
+
+        let currentLang = 'en';
+
+        function renderContent(lang) {
+            const data = content[lang];
+            if (!data) return;
+
+            // Update subtitle
+            document.getElementById('subtitle').textContent = data.subtitle;
+
+            // Update footer
+            document.getElementById('footer-version').textContent = data.footer.version;
+            document.getElementById('footer-disclaimer').innerHTML = data.footer.disclaimer;
+
+            // Render main content based on language
+            const mainContent = document.getElementById('main-content');
+            const s = data.sections;
+            
+            mainContent.innerHTML = `
+                <!-- Overview Section -->
+                <section id="overview">
+                    <h2><span class="icon">📋</span> ${s.overview.title}</h2>
+                    <p>${s.overview.intro}</p>
+                    
+                    <div class="card-grid">
+                        ${s.overview.cards.map(card => `
+                            <div class="card">
+                                <h4>${card.title}</h4>
+                                <p>${card.desc}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </section>
+
+                <!-- Frequencies Section -->
+                <section id="frequencies">
+                    <h2><span class="icon">🌊</span> ${s.frequencies.title}</h2>
+                    
+                    <h3>${s.frequencies.delta.title}</h3>
+                    <div class="card-grid">
+                        ${renderFreqCard(s.frequencies.delta.freq1)}
+                        ${renderFreqCard(s.frequencies.delta.freq2)}
+                    </div>
+
+                    <h3>${s.frequencies.theta.title}</h3>
+                    <div class="card-grid">
+                        ${renderFreqCard(s.frequencies.theta.freq1)}
+                        ${renderFreqCard(s.frequencies.theta.freq2)}
+                    </div>
+
+                    <h3>${s.frequencies.alpha.title}</h3>
+                    <div class="card-grid">
+                        ${renderFreqCard(s.frequencies.alpha.freq1)}
+                        ${renderFreqCard(s.frequencies.alpha.freq2)}
+                    </div>
+
+                    <h3>${s.frequencies.beta.title}</h3>
+                    <div class="card-grid">
+                        ${renderFreqCard(s.frequencies.beta.freq1)}
+                        ${renderFreqCard(s.frequencies.beta.freq2)}
+                    </div>
+
+                    <h3>${s.frequencies.gamma.title}</h3>
+                    <div class="card-grid">
+                        ${renderFreqCard(s.frequencies.gamma.freq1)}
+                        ${renderFreqCard(s.frequencies.gamma.freq2)}
+                    </div>
+
+                    <h3>${s.frequencies.special.title}</h3>
+                    <div class="card-grid">
+                        ${renderFreqCard(s.frequencies.special.freq1)}
+                        ${renderFreqCard(s.frequencies.special.freq2)}
+                    </div>
+                </section>
+
+                <!-- Audio Section -->
+                <section id="audio">
+                    <h2><span class="icon">🎛️</span> ${s.audio.title}</h2>
+                    
+                    <h3>${s.audio.engine}</h3>
+                    <table class="tech-table">
+                        <thead>
+                            <tr>
+                                <th>${lang === 'en' ? 'Component' : lang === 'ja' ? 'コンポーネント' : lang === 'ko' ? '구성 요소' : lang === 'es' ? 'Componente' : lang === 'de' ? 'Komponente' : lang === 'fr' ? 'Composant' : '組件'}</th>
+                                <th>${lang === 'en' ? 'Specification' : lang === 'ja' ? '仕様' : lang === 'ko' ? '사양' : lang === 'es' ? 'Especificación' : lang === 'de' ? 'Spezifikation' : lang === 'fr' ? 'Spécification' : '規格'}</th>
+                                <th>${lang === 'en' ? 'Description' : lang === 'ja' ? '説明' : lang === 'ko' ? '설명' : lang === 'es' ? 'Descripción' : lang === 'de' ? 'Beschreibung' : lang === 'fr' ? 'Description' : '說明'}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${s.audio.engineTable.map(row => `
+                                <tr>
+                                    <td>${row.component}</td>
+                                    <td>${row.spec}</td>
+                                    <td>${row.desc}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+
+                    <h3>${s.audio.qualityTitle}</h3>
+                    <table class="tech-table">
+                        <thead>
+                            <tr>
+                                <th>${lang === 'en' ? 'Quality Level' : lang === 'ja' ? '品質レベル' : lang === 'ko' ? '품질 레벨' : lang === 'es' ? 'Nivel de Calidad' : lang === 'de' ? 'Qualitätsstufe' : lang === 'fr' ? 'Niveau de Qualité' : '品質級別'}</th>
+                                <th>${lang === 'en' ? 'Sample Rate' : lang === 'ja' ? 'サンプリングレート' : lang === 'ko' ? '샘플링 레이트' : lang === 'es' ? 'Tasa de Muestreo' : lang === 'de' ? 'Abtastrate' : lang === 'fr' ? 'Taux d\'Échantillonnage' : '採樣率'}</th>
+                                <th>${lang === 'en' ? 'Buffer' : lang === 'ja' ? 'バッファ' : lang === 'ko' ? '버퍼' : lang === 'es' ? 'Búfer' : lang === 'de' ? 'Puffer' : lang === 'fr' ? 'Tampon' : '緩衝'}</th>
+                                <th>${lang === 'en' ? 'Use Case' : lang === 'ja' ? '用途' : lang === 'ko' ? '사용 사례' : lang === 'es' ? 'Caso de Uso' : lang === 'de' ? 'Anwendungsfall' : lang === 'fr' ? 'Cas d\'Utilisation' : '用途'}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${s.audio.qualityTable.map(row => `
+                                <tr>
+                                    <td>${row.level}</td>
+                                    <td>${row.rate}</td>
+                                    <td>${row.buffer}</td>
+                                    <td>${row.use}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+
+                    <h3>${s.audio.safetyTitle}</h3>
+                    <div class="card">
+                        <ul style="margin-left: 20px;">
+                            ${s.audio.safetyList.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Research Section -->
+                <section id="research">
+                    <h2><span class="icon">🔬</span> ${s.research.title}</h2>
+                    
+                    <h3>${s.research.mitTitle}</h3>
+                    <div class="research-item">
+                        <h4>Iaccarino et al., 2016 - Nature</h4>
+                        <p>${s.research.mitContent}</p>
+                        <ul style="margin-left: 20px;">
+                            ${s.research.mitList.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                        <div class="citation">${s.research.mitCitation}</div>
+                    </div>
+
+                    <div class="research-item">
+                        <h4>${s.research.followupTitle}</h4>
+                        <p>${s.research.followupContent}</p>
+                        <ul style="margin-left: 20px;">
+                            ${s.research.followupList.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Safety Section -->
+                <section id="safety">
+                    <h2><span class="icon">⚕️</span> ${s.safety.title}</h2>
+                    
+                    <h3>${s.safety.screeningTitle}</h3>
+                    <table class="tech-table">
+                        <thead>
+                            <tr>
+                                <th>${lang === 'en' ? 'Medical Condition' : lang === 'ja' ? '医療状態' : lang === 'ko' ? '의학적 상태' : lang === 'es' ? 'Condición Médica' : lang === 'de' ? 'Medizinischer Zustand' : lang === 'fr' ? 'Condition Médicale' : '醫療狀況'}</th>
+                                <th>${lang === 'en' ? 'Restricted Frequency' : lang === 'ja' ? '制限周波数' : lang === 'ko' ? '제한 주파수' : lang === 'es' ? 'Frecuencia Restringida' : lang === 'de' ? 'Eingeschränkte Frequenz' : lang === 'fr' ? 'Fréquence Restreinte' : '限制頻率'}</th>
+                                <th>${lang === 'en' ? 'Reason' : lang === 'ja' ? '理由' : lang === 'ko' ? '이유' : lang === 'es' ? 'Razón' : lang === 'de' ? 'Grund' : lang === 'fr' ? 'Raison' : '原因'}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${s.safety.screeningTable.map(row => `
+                                <tr>
+                                    <td>${row.condition}</td>
+                                    <td>${row.frequency}</td>
+                                    <td>${row.reason}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+
+                    <div class="warning-box">
+                        <h4>${s.safety.warningTitle}</h4>
+                        <ul style="margin-left: 20px;">
+                            ${s.safety.warningList.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <h3>${s.safety.techTitle}</h3>
+                    <div class="card-grid">
+                        <div class="card">
+                            <h4>${s.safety.audioSafety}</h4>
+                            <ul style="margin-left: 20px;">
+                                ${s.safety.audioList.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h4>${s.safety.freqSafety}</h4>
+                            <ul style="margin-left: 20px;">
+                                ${s.safety.freqList.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        function renderFreqCard(freq) {
+            return `
+                <div class="card">
+                    <h4><span class="frequency-badge">${freq.hz}</span> ${freq.name}</h4>
+                    <p><strong>${currentLang === 'en' ? 'Type' : currentLang === 'ja' ? 'タイプ' : currentLang === 'ko' ? '유형' : currentLang === 'es' ? 'Tipo' : currentLang === 'de' ? 'Typ' : currentLang === 'fr' ? 'Type' : '類型'}:</strong> ${freq.type}</p>
+                    ${freq.duration ? `<p><strong>${currentLang === 'en' ? 'Duration' : currentLang === 'ja' ? '期間' : currentLang === 'ko' ? '기간' : currentLang === 'es' ? 'Duración' : currentLang === 'de' ? 'Dauer' : currentLang === 'fr' ? 'Durée' : '時長'}:</strong> ${freq.duration}</p>` : ''}
+                    ${freq.use ? `<p><strong>${currentLang === 'en' ? 'Application' : currentLang === 'ja' ? '用途' : currentLang === 'ko' ? '적용' : currentLang === 'es' ? 'Aplicación' : currentLang === 'de' ? 'Anwendung' : currentLang === 'fr' ? 'Application' : '應用'}:</strong> ${freq.use}</p>` : ''}
+                    ${freq.research ? `<p><strong>${currentLang === 'en' ? 'Research' : currentLang === 'ja' ? '研究' : currentLang === 'ko' ? '연구' : currentLang === 'es' ? 'Investigación' : currentLang === 'de' ? 'Forschung' : currentLang === 'fr' ? 'Recherche' : '研究'}:</strong> ${freq.research}</p>` : ''}
+                    ${freq.contraindication ? `<p><strong>${currentLang === 'en' ? 'Contraindication' : currentLang === 'ja' ? '禁忌' : currentLang === 'ko' ? '금기' : currentLang === 'es' ? 'Contraindicación' : currentLang === 'de' ? 'Kontraindikation' : currentLang === 'fr' ? 'Contre-indication' : '禁忌'}:</strong> ${freq.contraindication}</p>` : ''}
+                    ${freq.binaural ? `<p><strong>${currentLang === 'en' ? 'Binaural Beat' : currentLang === 'ja' ? 'バイノーラルビート' : currentLang === 'ko' ? '바이노럴 비트' : currentLang === 'es' ? 'Ritmo Binaural' : currentLang === 'de' ? 'Binauraler Beat' : currentLang === 'fr' ? 'Battement Binaural' : '雙耳節拍'}:</strong> ${freq.binaural}</p>` : ''}
+                    ${freq.special ? `<p><strong>${currentLang === 'en' ? 'Special Processing' : currentLang === 'ja' ? '特殊処理' : currentLang === 'ko' ? '특수 처리' : currentLang === 'es' ? 'Procesamiento Especial' : currentLang === 'de' ? 'Spezialverarbeitung' : currentLang === 'fr' ? 'Traitement Spécial' : '特殊處理'}:</strong> ${freq.special}</p>` : ''}
+                    ${freq.processing ? `<p><strong>${currentLang === 'en' ? 'Processing' : currentLang === 'ja' ? '処理' : currentLang === 'ko' ? '처리' : currentLang === 'es' ? 'Procesamiento' : currentLang === 'de' ? 'Verarbeitung' : currentLang === 'fr' ? 'Traitement' : '處理'}:</strong> ${freq.processing}</p>` : ''}
+                    ${freq.harmonics ? `<p><strong>${currentLang === 'en' ? 'Harmonics' : currentLang === 'ja' ? 'ハーモニクス' : currentLang === 'ko' ? '하모닉스' : currentLang === 'es' ? 'Armónicos' : currentLang === 'de' ? 'Harmonische' : currentLang === 'fr' ? 'Harmoniques' : '諧波'}:</strong> ${freq.harmonics}</p>` : ''}
+                    ${freq.basis ? `<p><strong>${currentLang === 'en' ? 'Basis' : currentLang === 'ja' ? '基礎' : currentLang === 'ko' ? '기초' : currentLang === 'es' ? 'Base' : currentLang === 'de' ? 'Basis' : currentLang === 'fr' ? 'Base' : '基礎'}:</strong> ${freq.basis}</p>` : ''}
+                </div>
+            `;
+        }
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+
+            // Render content
+            renderContent(lang);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set up language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    switchLanguage(btn.dataset.lang);
+                });
+            });
+
+            // Load default language (English)
+            switchLanguage('en');
+        });
+    </script>
+</body>
+</html>
