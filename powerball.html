@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Powerball Data Insight - Professional Powerball lottery analysis tool with AI-powered algorithms, number frequency statistics, pattern analysis, combination strategies, and winning rate backtesting. Only $2.99/month or $24.99/year!">
+    <meta name="keywords" content="Powerball,lottery,number analysis,prediction,data insight,smart picker,winning numbers,frequency analysis,pattern recognition,AI algorithms,lottery statistics">
+    <meta name="author" content="Powerball Data Insight">
+    <meta property="og:title" content="Powerball Data Insight - AI-Powered Lottery Analysis Tool">
+    <meta property="og:description" content="Five intelligent algorithms, number frequency statistics, pattern analysis, combination strategies, and winning rate backtesting">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://apps.apple.com/tw/app/powerball-data-insight/id6748024915">
+    <meta property="og:image" content="./ChatGPT Image 2025年7月1日 下午10_14_43.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Powerball Data Insight - AI-Powered Lottery Analysis Tool">
+    <meta name="twitter:description" content="Five intelligent algorithms, number frequency statistics, pattern analysis, combination strategies">
+    <title>Powerball Data Insight - AI-Powered Lottery Analysis Tool | iOS App</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #f5f7fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #c62828 0%, #8e0000 100%);
+            box-shadow: 0 4px 20px rgba(198, 40, 40, 0.3);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #fff;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 2em;
+        }
+
+        .app-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .download-btn {
+            background: white;
+            color: #c62828;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(198, 40, 40, 0.3);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .lucky-btn {
+            background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+            color: #8e0000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+            cursor: pointer;
+            border: none;
+            font-size: 1em;
+        }
+
+        .lucky-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .lucky-btn:active {
+            transform: scale(0.95);
+        }
+
+        .lucky-count {
+            background: #8e0000;
+            color: #ffd700;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        .visitor-counter {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .visitor-counter-icon {
+            font-size: 1.5em;
+        }
+
+        .visitor-counter-text {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .visitor-counter-number {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #c62828;
+        }
+
+        /* Coin rain effect */
+        .coin {
+            position: fixed;
+            font-size: 2em;
+            pointer-events: none;
+            z-index: 9999;
+            animation: coinFall 2s ease-in forwards, coinRotate 1s linear infinite;
+        }
+
+        @keyframes coinFall {
+            0% {
+                transform: translateY(0) translateX(0) scale(0);
+                opacity: 1;
+            }
+            10% {
+                transform: translateY(-100px) translateX(var(--x-offset)) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(var(--x-offset)) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        @keyframes coinRotate {
+            0% {
+                transform: rotateY(0deg);
+            }
+            50% {
+                transform: rotateY(180deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        @keyframes buttonShine {
+            0%, 100% {
+                box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 5px 30px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        .lucky-btn.shining {
+            animation: buttonShine 0.5s ease-in-out;
+        }
+
+        /* Star particle effect */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            animation: sparkleFloat 1s ease-out forwards;
+        }
+
+        @keyframes sparkleFloat {
+            0% {
+                transform: translate(0, 0) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--sparkle-x), var(--sparkle-y)) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #c62828 0%, #8e0000 100%);
+            text-align: center;
+            padding: 100px 20px 80px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero .highlight {
+            color: #ffcccb;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .download-btn {
+            font-size: 1.1em;
+            padding: 18px 45px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero-icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            margin: 0 auto 30px;
+            display: block;
+        }
+
+        .features {
+            background: white;
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: #c62828;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(198, 40, 40, 0.2);
+            border-color: #c62828;
+        }
+
+        .feature-icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            color: #c62828;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            background: #ef5350;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #555;
+            line-height: 1.9;
+            font-size: 1.05em;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .feature-card ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #666;
+        }
+
+        .feature-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #e53935;
+            font-weight: bold;
+        }
+
+        .algorithms {
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffebee 100%);
+            padding: 100px 20px;
+        }
+
+        .algorithm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .algorithm-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .algorithm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(198, 40, 40, 0.15);
+        }
+
+        .algorithm-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background: linear-gradient(135deg, #c62828 0%, #8e0000 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .algorithm-card h4 {
+            color: #c62828;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .algorithm-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        .pricing {
+            background: linear-gradient(135deg, #c62828 0%, #8e0000 100%);
+            padding: 100px 20px;
+            color: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: white;
+            color: #333;
+            padding: 45px 35px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.recommended {
+            transform: scale(1.05);
+            border: 3px solid #ffcccb;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffcccb;
+            color: #8e0000;
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 0.9em;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.08);
+        }
+
+        .pricing-card h3 {
+            color: #c62828;
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .price {
+            font-size: 3.5em;
+            font-weight: 800;
+            color: #8e0000;
+            margin: 25px 0;
+            line-height: 1;
+        }
+
+        .price span {
+            font-size: 0.35em;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .save-badge {
+            background: linear-gradient(135deg, #ef5350 0%, #e53935 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 1em;
+            font-weight: 700;
+            box-shadow: 0 3px 10px rgba(229, 57, 53, 0.3);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 35px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 14px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.05em;
+        }
+
+        .pricing-features li:before {
+            content: "✓ ";
+            color: #e53935;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .pricing-card .download-btn {
+            background: linear-gradient(135deg, #c62828 0%, #8e0000 100%);
+            color: white;
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 1.1em;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #8e0000 0%, #c62828 100%);
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .cta p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta .download-btn {
+            background: white;
+            color: #c62828;
+            font-size: 1.3em;
+            padding: 20px 50px;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 40px auto;
+            border-radius: 10px;
+            max-width: 900px;
+            color: #856404;
+        }
+
+        .warning h3 {
+            color: #ff6f00;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .warning p {
+            margin: 8px 0;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.2em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            .section-subtitle {
+                font-size: 1.05em;
+            }
+
+            h1 {
+                font-size: 1.4em;
+            }
+
+            .app-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .hero-icon {
+                width: 120px;
+                height: 120px;
+                border-radius: 25px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .lucky-btn, .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .visitor-counter {
+                bottom: 10px;
+                right: 10px;
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+
+            .pricing-card.recommended {
+                transform: scale(1);
+            }
+
+            .download-btn {
+                font-size: 0.95em;
+                padding: 10px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1><img src="ChatGPT Image 2025年7月1日 下午10_14_43.png" alt="Powerball Data Insight" class="app-icon"> Powerball Data Insight</h1>
+                <div class="header-actions">
+                    <button class="lucky-btn" onclick="addLuckyWish()">
+                        🍀 Win Jackpot
+                        <span class="lucky-count" id="luckyCount">0</span>
+                    </button>
+                    <a href="https://apps.apple.com/tw/app/powerball-data-insight/id6748024915" class="download-btn">Download Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="ChatGPT Image 2025年7月1日 下午10_14_43.png" alt="Powerball Data Insight App Icon" class="hero-icon">
+            <h2>Professional Powerball<br><span class="highlight">AI Analysis Tool</span></h2>
+            <p>Five AI Algorithms × Historical Data Analysis × Pattern Recognition × Winning Rate Backtesting<br>Let Data Guide Your Number Selection</p>
+            <a href="https://apps.apple.com/tw/app/powerball-data-insight/id6748024915" class="download-btn">Download Free App</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Core Features</h2>
+            <p class="section-subtitle">Professional analysis tools based on historical drawing data, providing comprehensive number selection insights</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <span class="feature-tag">Basic Feature</span>
+                    <h3>Number Frequency Analysis</h3>
+                    <p>Complete statistics on each number's appearance frequency, intelligently distinguishing hot and cold numbers with visual charts.</p>
+                    <ul>
+                        <li>Customizable period ranges (10/50/100/200 draws or all)</li>
+                        <li>Automatic classification of hot and cold numbers</li>
+                        <li>Complete frequency tables and percentage statistics</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🔍</span>
+                    <span class="feature-tag">Advanced Analysis</span>
+                    <h3>Pattern Recognition</h3>
+                    <p>Deep analysis of number position correlations, tracking patterns in consecutive drawing appearances.</p>
+                    <ul>
+                        <li>Analyze transition probabilities for each position</li>
+                        <li>Predict possible numbers for next draw</li>
+                        <li>Detailed probability percentages</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🎲</span>
+                    <span class="feature-tag">Pro Version</span>
+                    <h3>Pair Combination Strategy</h3>
+                    <p>Professional two-number combination analysis, statistics on most frequently appearing number pairs in history.</p>
+                    <ul>
+                        <li>Two-number combination frequency rankings</li>
+                        <li>Return on investment calculations</li>
+                        <li>High win-rate combination recommendations</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <span class="feature-tag">Pro Version</span>
+                    <h3>Triple Combination Strategy</h3>
+                    <p>Deep three-number combination strategy, identifying historically excellent triple combinations.</p>
+                    <ul>
+                        <li>Three-number combination deep analysis</li>
+                        <li>Success rate prediction and rankings</li>
+                        <li>Investment efficiency evaluation</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🧠</span>
+                    <span class="feature-tag">Pro Version · Core</span>
+                    <h3>Hybrid Strategy Analysis</h3>
+                    <p>Integrates five intelligent algorithms, providing the most comprehensive number prediction and analysis. Each algorithm provides 10 selected number sets with accuracy validation rankings.</p>
+                    <ul>
+                        <li>10 recommended number sets from each algorithm</li>
+                        <li>Auto-calculate accuracy rates and rankings</li>
+                        <li>Display confidence levels and win rate statistics</li>
+                        <li>Support single algorithm recalculation</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">📈</span>
+                    <span class="feature-tag">Pro Version · Exclusive</span>
+                    <h3>Winning Rate Backtesting</h3>
+                    <p>Use historical data for backtesting verification, evaluating actual performance of various strategies.</p>
+                    <ul>
+                        <li>Historical data winning rate backtesting</li>
+                        <li>Multi-strategy comparative analysis</li>
+                        <li>Return on investment calculations</li>
+                        <li>Detailed winning statistics charts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="algorithms">
+        <div class="container">
+            <h2 class="section-title">Five AI Algorithms</h2>
+            <p class="section-subtitle">Pro version "Hybrid Strategy" uses five different algorithms for comprehensive historical data analysis</p>
+
+            <div class="algorithm-grid">
+                <div class="algorithm-card">
+                    <div class="algorithm-number">1</div>
+                    <h4>Frequency Analysis</h4>
+                    <p>Statistics on number historical appearance frequency, prioritizing high-frequency numbers. Formula: Frequency = Number occurrences ÷ Total draws.</p>
+                </div>
+
+                <div class="algorithm-card">
+                    <div class="algorithm-number">2</div>
+                    <h4>Correlation Analysis</h4>
+                    <p>Analyze co-occurrence relationships between numbers, finding number pairs that frequently appear together. Uses co-occurrence matrix to calculate correlation strength.</p>
+                </div>
+
+                <div class="algorithm-card">
+                    <div class="algorithm-number">3</div>
+                    <h4>Pattern Recognition</h4>
+                    <p>Identifies odd-even and high-low distribution patterns. Combines numbers based on historical odd-even ratios.</p>
+                </div>
+
+                <div class="algorithm-card">
+                    <div class="algorithm-number">4</div>
+                    <h4>Hot-Cold Balance</h4>
+                    <p>Balance hot and cold numbers, combining hot, warm, and cold numbers in a 2:2:2 ratio.</p>
+                </div>
+
+                <div class="algorithm-card">
+                    <div class="algorithm-number">5</div>
+                    <h4>Trend Analysis</h4>
+                    <p>Analyze recent appearance trends of numbers, focusing on high-frequency numbers in recent periods to capture upward trends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Subscription Plans</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Unlock Pro features and enjoy complete data analysis services</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Monthly Plan</h3>
+                    <div class="price">$0.99<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Complete historical data analysis (unlimited draws)</li>
+                        <li>Number frequency statistics</li>
+                        <li>Pattern recognition analysis</li>
+                        <li>Pair combination strategy</li>
+                        <li>Triple combination strategy</li>
+                        <li>Hybrid strategy (five algorithms)</li>
+                        <li>Winning rate backtesting</li>
+                        <li>Ad-free clean experience</li>
+                        <li>Cancel anytime</li>
+                    </ul>
+                    <a href="https://apps.apple.com/tw/app/powerball-data-insight/id6748024915" class="download-btn">Choose Monthly Plan</a>
+                </div>
+
+                <div class="pricing-card recommended">
+                    <div class="recommended-badge">Best Value!</div>
+                    <h3>Annual Plan</h3>
+                    <div class="price">$9.99<span>/year</span></div>
+                    <span class="save-badge">Save $1.89 💰</span>
+                    <ul class="pricing-features">
+                        <li>Complete historical data analysis (unlimited draws)</li>
+                        <li>Number frequency statistics</li>
+                        <li>Pattern recognition analysis</li>
+                        <li>Pair combination strategy</li>
+                        <li>Triple combination strategy</li>
+                        <li>Hybrid strategy (five algorithms)</li>
+                        <li>Winning rate backtesting</li>
+                        <li>Ad-free clean experience</li>
+                        <li><strong>Only $0.83 per month on average</strong></li>
+                    </ul>
+                    <a href="https://apps.apple.com/tw/app/powerball-data-insight/id6748024915" class="download-btn">Choose Annual Plan</a>
+                </div>
+            </div>
+
+            <div class="warning">
+                <h3>⚠️ Free Version Features</h3>
+                <p>• Basic frequency analysis: Limited to last 30 draws</p>
+                <p>• Basic prediction: 3 uses per day limit</p>
+                <p>• Pattern analysis: Normal usage</p>
+                <p>• Upgrade to Pro to unlock all features and remove all usage restrictions</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Start Your Smart Lottery Journey</h2>
+            <p>Download Powerball Data Insight and let professional data analysis guide your number selection<br>Free download, experience basic features immediately</p>
+            <a href="https://apps.apple.com/tw/app/powerball-data-insight/id6748024915" class="download-btn">Download on App Store</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>⚠️ Important Disclaimer ⚠️</strong></p>
+            <p>This application only provides data analysis tools. All prediction results are based on historical statistics and accuracy cannot be guaranteed.</p>
+            <p>Lottery participation involves high risk and may result in financial loss. Please carefully assess your economic capacity.</p>
+            <p>Any betting decision should be based on personal judgment. This application assumes no responsibility for any betting losses.</p>
+            <p>Persons under 18 years old are prohibited from participating in any form of lottery betting. Please bet responsibly and moderately.</p>
+            <p style="margin-top: 20px;">&copy; 2025 Powerball Data Insight. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Visitor Counter -->
+    <div class="visitor-counter">
+        <span class="visitor-counter-icon">👥</span>
+        <div>
+            <div class="visitor-counter-text">Visitors</div>
+            <div class="visitor-counter-number" id="visitorCount">0</div>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
+        import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBNNSfsEUgv99APngTeChwUL8ePooNuP00",
+            authDomain: "app-f7fb5.firebaseapp.com",
+            databaseURL: "https://app-f7fb5-default-rtdb.firebaseio.com",
+            projectId: "app-f7fb5",
+            storageBucket: "app-f7fb5.firebasestorage.app",
+            messagingSenderId: "409421823433",
+            appId: "1:409421823433:web:824fbd394f04c6b81efc18",
+            measurementId: "G-4MPYFV458Z"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        // Create coin element
+        function createCoin(x, y) {
+            const coin = document.createElement('div');
+            coin.className = 'coin';
+            coin.textContent = '💰';
+
+            // Random offset
+            const xOffset = (Math.random() - 0.5) * 200;
+            coin.style.setProperty('--x-offset', `${xOffset}px`);
+
+            coin.style.left = x + 'px';
+            coin.style.top = y + 'px';
+
+            document.body.appendChild(coin);
+
+            // Remove element after 2 seconds
+            setTimeout(() => {
+                coin.remove();
+            }, 2000);
+        }
+
+        // Create star particle
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.textContent = '✨';
+            sparkle.style.fontSize = (Math.random() * 1 + 0.5) + 'em';
+
+            const sparkleX = (Math.random() - 0.5) * 100;
+            const sparkleY = (Math.random() - 0.5) * 100;
+            sparkle.style.setProperty('--sparkle-x', `${sparkleX}px`);
+            sparkle.style.setProperty('--sparkle-y', `${sparkleY}px`);
+
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+
+        // Coin rain effect
+        function showCoinRain(button) {
+            const rect = button.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            // Create 20 coins
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    createCoin(centerX, centerY);
+                }, i * 50);
+            }
+
+            // Create star particles
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    createSparkle(centerX, centerY);
+                }, i * 100);
+            }
+
+            // Button shine effect
+            button.classList.add('shining');
+            setTimeout(() => {
+                button.classList.remove('shining');
+            }, 500);
+        }
+
+        // Win Jackpot button function - using Firebase
+        window.addLuckyWish = function() {
+            const button = event.currentTarget;
+            const countElement = document.getElementById('luckyCount');
+            const luckyRef = ref(database, 'powerball_luckyWishCount');
+
+            // Show coin rain effect
+            showCoinRain(button);
+
+            runTransaction(luckyRef, (currentValue) => {
+                return (currentValue || 0) + 1;
+            }).then((result) => {
+                countElement.textContent = result.snapshot.val().toLocaleString();
+
+                // Animation effect
+                countElement.style.transform = 'scale(1.5)';
+                setTimeout(() => {
+                    countElement.style.transform = 'scale(1)';
+                }, 200);
+            }).catch((error) => {
+                console.error('Lucky wish update failed:', error);
+            });
+        };
+
+        // Visitor counter function - using Firebase
+        function updateVisitorCount() {
+            const visitorCountElement = document.getElementById('visitorCount');
+            const visitorRef = ref(database, 'powerball_visitorCount');
+
+            // Check if new visitor (using sessionStorage instead of localStorage)
+            const hasVisitedThisSession = sessionStorage.getItem('hasVisited_powerball');
+
+            if (!hasVisitedThisSession) {
+                // New visitor, increase count
+                runTransaction(visitorRef, (currentValue) => {
+                    return (currentValue || 0) + 1;
+                }).then((result) => {
+                    visitorCountElement.textContent = result.snapshot.val().toLocaleString();
+                    sessionStorage.setItem('hasVisited_powerball', 'true');
+                }).catch((error) => {
+                    console.error('Visitor count update failed:', error);
+                });
+            } else {
+                // Already visited this session, just display current count
+                onValue(visitorRef, (snapshot) => {
+                    const count = snapshot.val() || 0;
+                    visitorCountElement.textContent = count.toLocaleString();
+                }, { onlyOnce: true });
+            }
+
+            // Listen for visitor count changes (real-time update)
+            onValue(visitorRef, (snapshot) => {
+                const count = snapshot.val() || 0;
+                visitorCountElement.textContent = count.toLocaleString();
+            });
+        }
+
+        // Load lucky wish count - using Firebase
+        function loadLuckyCount() {
+            const countElement = document.getElementById('luckyCount');
+            const luckyRef = ref(database, 'powerball_luckyWishCount');
+
+            // Listen for lucky wish count changes (real-time update)
+            onValue(luckyRef, (snapshot) => {
+                const count = snapshot.val() || 0;
+                countElement.textContent = count.toLocaleString();
+            });
+        }
+
+        // Execute on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            updateVisitorCount();
+            loadLuckyCount();
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "Powerball Data Insight",
+        "operatingSystem": "iOS",
+        "applicationCategory": "UtilitiesApplication",
+        "offers": [
+            {
+                "@type": "Offer",
+                "price": "0.99",
+                "priceCurrency": "USD",
+                "name": "Monthly Plan",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "0.99",
+                    "priceCurrency": "USD",
+                    "referenceQuantity": {
+                        "@type": "QuantitativeValue",
+                        "value": "1",
+                        "unitCode": "MON"
+                    }
+                }
+            },
+            {
+                "@type": "Offer",
+                "price": "9.99",
+                "priceCurrency": "USD",
+                "name": "Annual Plan",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "9.99",
+                    "priceCurrency": "USD",
+                    "referenceQuantity": {
+                        "@type": "QuantitativeValue",
+                        "value": "1",
+                        "unitCode": "ANN"
+                    }
+                }
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "142"
+        },
+        "description": "Professional Powerball lottery analysis tool with AI-powered algorithms, number frequency statistics, pattern analysis, combination strategies, and winning rate backtesting",
+        "featureList": [
+            "Five AI algorithms analysis",
+            "Number frequency statistics",
+            "Pattern recognition analysis",
+            "Pair combination strategy",
+            "Triple combination strategy",
+            "Hybrid strategy analysis",
+            "Winning rate backtesting",
+            "Complete historical data support",
+            "Ad-free experience"
+        ]
+    }
+    </script>
+</body>
+</html>
