@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="威力彩軌跡分析 - 專業的威力彩號碼分析工具，提供五大智能算法、號碼頻率統計、號碼規律分析、混合策略、機器學習AI預測等專業功能。每月僅需30元，年費更優惠只要300元！">
+    <meta name="keywords" content="威力彩,威力彩選號,威力彩分析,彩券,選號幫手,智能選號,開獎號碼,號碼分析,威力彩預測,混合策略,機器學習,AI預測,頻率分析,規律分析">
+    <meta name="author" content="威力彩軌跡分析">
+    <meta property="og:title" content="威力彩軌跡分析 - 五大智能算法專業分析工具">
+    <meta property="og:description" content="五大智能算法、號碼頻率統計、規律分析、混合策略、機器學習AI預測等專業功能">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://apps.apple.com/tw/app/台灣威力彩選號幫手/id6747691052">
+    <meta property="og:image" content="./ChatGPT Image 2025年6月23日 下午07_09_03.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="威力彩軌跡分析 - 五大智能算法專業分析工具">
+    <meta name="twitter:description" content="五大智能算法、號碼頻率統計、規律分析、混合策略、機器學習AI預測">
+    <title>威力彩軌跡分析 - 五大智能算法專業分析工具 | iOS App</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "微軟正黑體", sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #f5f7fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #fff;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 2em;
+        }
+
+        .app-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .download-btn {
+            background: white;
+            color: #d97706;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .lucky-btn {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #78350f;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
+            cursor: pointer;
+            border: none;
+            font-size: 1em;
+        }
+
+        .lucky-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 20px rgba(251, 191, 36, 0.5);
+        }
+
+        .lucky-btn:active {
+            transform: scale(0.95);
+        }
+
+        .lucky-count {
+            background: #78350f;
+            color: #fbbf24;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        .visitor-counter {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .visitor-counter-icon {
+            font-size: 1.5em;
+        }
+
+        .visitor-counter-text {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .visitor-counter-number {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #f59e0b;
+        }
+
+        /* 錢幣雨特效 */
+        .coin {
+            position: fixed;
+            font-size: 2em;
+            pointer-events: none;
+            z-index: 9999;
+            animation: coinFall 2s ease-in forwards, coinRotate 1s linear infinite;
+        }
+
+        @keyframes coinFall {
+            0% {
+                transform: translateY(0) translateX(0) scale(0);
+                opacity: 1;
+            }
+            10% {
+                transform: translateY(-100px) translateX(var(--x-offset)) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(var(--x-offset)) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        @keyframes coinRotate {
+            0% {
+                transform: rotateY(0deg);
+            }
+            50% {
+                transform: rotateY(180deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        @keyframes buttonShine {
+            0%, 100% {
+                box-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
+            }
+            50% {
+                box-shadow: 0 5px 30px rgba(251, 191, 36, 0.8), 0 0 20px rgba(251, 191, 36, 0.6);
+            }
+        }
+
+        .lucky-btn.shining {
+            animation: buttonShine 0.5s ease-in-out;
+        }
+
+        /* 星星粒子特效 */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            animation: sparkleFloat 1s ease-out forwards;
+        }
+
+        @keyframes sparkleFloat {
+            0% {
+                transform: translate(0, 0) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--sparkle-x), var(--sparkle-y)) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            text-align: center;
+            padding: 100px 20px 80px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero .highlight {
+            color: #fef3c7;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .download-btn {
+            font-size: 1.1em;
+            padding: 18px 45px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero-icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            margin: 0 auto 30px;
+            display: block;
+        }
+
+        .features {
+            background: white;
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: #f59e0b;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+            border-color: #f59e0b;
+        }
+
+        .feature-icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            color: #f59e0b;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            background: #fbbf24;
+            color: #78350f;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #555;
+            line-height: 1.9;
+            font-size: 1.05em;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .feature-card ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #666;
+        }
+
+        .feature-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-weight: bold;
+        }
+
+        .algorithms {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            padding: 100px 20px;
+        }
+
+        .algorithm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .algorithm-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .algorithm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.15);
+        }
+
+        .algorithm-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .algorithm-card h4 {
+            color: #f59e0b;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .algorithm-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        .pricing {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            padding: 100px 20px;
+            color: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: white;
+            color: #333;
+            padding: 45px 35px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.recommended {
+            transform: scale(1.05);
+            border: 3px solid #fbbf24;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fbbf24;
+            color: #78350f;
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 0.9em;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.08);
+        }
+
+        .pricing-card h3 {
+            color: #f59e0b;
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .price {
+            font-size: 3.5em;
+            font-weight: 800;
+            color: #d97706;
+            margin: 25px 0;
+            line-height: 1;
+        }
+
+        .price span {
+            font-size: 0.35em;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .save-badge {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 1em;
+            font-weight: 700;
+            box-shadow: 0 3px 10px rgba(245, 158, 11, 0.3);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 35px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 14px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.05em;
+        }
+
+        .pricing-features li:before {
+            content: "✓ ";
+            color: #f59e0b;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .pricing-card .download-btn {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 1.1em;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .cta p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta .download-btn {
+            background: white;
+            color: #d97706;
+            font-size: 1.3em;
+            padding: 20px 50px;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 40px auto;
+            border-radius: 10px;
+            max-width: 900px;
+            color: #856404;
+        }
+
+        .warning h3 {
+            color: #ff6f00;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .warning p {
+            margin: 8px 0;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.2em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            .section-subtitle {
+                font-size: 1.05em;
+            }
+
+            h1 {
+                font-size: 1.4em;
+            }
+
+            .app-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .hero-icon {
+                width: 120px;
+                height: 120px;
+                border-radius: 25px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .lucky-btn, .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .visitor-counter {
+                bottom: 10px;
+                right: 10px;
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+
+            .pricing-card.recommended {
+                transform: scale(1);
+            }
+
+            .download-btn {
+                font-size: 0.95em;
+                padding: 10px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1><img src="ChatGPT Image 2025年6月23日 下午07_09_03.png" alt="威力彩軌跡分析" class="app-icon"> 威力彩軌跡分析</h1>
+                <div class="header-actions">
+                    <button class="lucky-btn" onclick="addLuckyWish()">
+                        🍀 我要中頭彩
+                        <span class="lucky-count" id="luckyCount">0</span>
+                    </button>
+                    <a href="https://apps.apple.com/tw/app/台灣威力彩選號幫手/id6747691052" class="download-btn">立即下載</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="ChatGPT Image 2025年6月23日 下午07_09_03.png" alt="威力彩軌跡分析 App Icon" class="hero-icon">
+            <h2>專業的威力彩<br><span class="highlight">智能分析工具</span></h2>
+            <p>五大智能算法 × 歷史數據分析 × 號碼規律追蹤 × 機器學習AI預測<br>讓數據成為您的選號助手</p>
+            <a href="https://apps.apple.com/tw/app/台灣威力彩選號幫手/id6747691052" class="download-btn">免費下載 App</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">核心功能</h2>
+            <p class="section-subtitle">基於歷史開獎數據的專業分析工具，為您提供全方位的選號參考</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <span class="feature-tag">基礎功能</span>
+                    <h3>號碼頻率分析</h3>
+                    <p>完整統計威力彩第一區及第二區每個號碼的出現頻率，智能區分熱門號碼與冷門號碼，提供可視化圖表展示。</p>
+                    <ul>
+                        <li>支援自訂期數範圍（10/50/100/200期或全部）</li>
+                        <li>第一區（1-38）及第二區（1-8）分別統計</li>
+                        <li>熱門號碼與冷門號碼自動分類</li>
+                        <li>完整頻率表格與百分比統計</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🔍</span>
+                    <span class="feature-tag">進階分析</span>
+                    <h3>號碼規律分析</h3>
+                    <p>深度分析號碼位置的關聯性模式，追蹤前後期號碼出現的規律性。</p>
+                    <ul>
+                        <li>分析各位置號碼的轉換機率</li>
+                        <li>預測下期各位置可能號碼</li>
+                        <li>提供詳細的機率百分比</li>
+                        <li>雙區號碼獨立分析</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🧠</span>
+                    <span class="feature-tag">專業版 · 核心</span>
+                    <h3>混合策略分析</h3>
+                    <p>整合五大智能算法，提供最全面的威力彩雙區號碼預測與分析。每個算法提供10組精選號碼，並進行準確率驗證排序。</p>
+                    <ul>
+                        <li>五大算法各提供10組推薦號碼</li>
+                        <li>自動計算各算法準確率並排名</li>
+                        <li>顯示信心度與中獎率統計</li>
+                        <li>支援單一算法重新計算</li>
+                        <li>第一區及第二區完整預測</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🤖</span>
+                    <span class="feature-tag">專業版 · AI</span>
+                    <h3>機器學習預測</h3>
+                    <p>使用先進的機器學習算法分析歷史數據，提供AI驅動的威力彩號碼預測。</p>
+                    <ul>
+                        <li>隨機森林算法號碼預測</li>
+                        <li>梯度提升算法號碼預測</li>
+                        <li>支持向量機算法號碼預測</li>
+                        <li>神經網絡算法號碼預測</li>
+                        <li>K最近鄰算法號碼預測</li>
+                        <li>綜合模型預測與準確率回測</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">📈</span>
+                    <span class="feature-tag">數據管理</span>
+                    <h3>完整數據支援</h3>
+                    <p>提供威力彩歷史開獎數據查詢與管理功能。</p>
+                    <ul>
+                        <li>完整歷史開獎記錄</li>
+                        <li>最新開獎號碼即時顯示</li>
+                        <li>數據緩存與自動更新</li>
+                        <li>第一區及第二區完整資料</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="algorithms">
+        <div class="container">
+            <h2 class="section-title">五大智能算法</h2>
+            <p class="section-subtitle">專業版「混合策略」採用五種不同演算法，全方位分析歷史數據</p>
+
+            <div class="algorithm-grid">
+                <div class="algorithm-card">
+                    <div class="algorithm-number">1</div>
+                    <h4>頻率分析</h4>
+                    <p>統計號碼歷史出現頻率，優先選擇高頻號碼。計算公式：頻率 = 號碼出現次數 ÷ 總期數。</p>
+                </div>
+
+                <div class="algorithm-card">
+                    <div class="algorithm-number">2</div>
+                    <h4>相關性分析</h4>
+                    <p>分析號碼間的共現關係，找出經常一起出現的號碼對。使用共現矩陣計算關聯強度。</p>
+                </div>
+
+                <div class="algorithm-card">
+                    <div class="algorithm-number">3</div>
+                    <h4>模式識別</h4>
+                    <p>識別奇偶數、大小數等分佈模式。根據歷史奇偶比例進行號碼組合。</p>
+                </div>
+
+                <div class="algorithm-card">
+                    <div class="algorithm-number">4</div>
+                    <h4>熱冷平衡</h4>
+                    <p>平衡熱門號碼和冷門號碼，按2:2:2比例組合熱號、溫號、冷號。</p>
+                </div>
+
+                <div class="algorithm-card">
+                    <div class="algorithm-number">5</div>
+                    <h4>趨勢分析</h4>
+                    <p>分析號碼在近期的出現趨勢，重點關注最近期內的高頻號碼，捕捉上升趨勢。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">訂閱方案</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">解鎖專業版功能，享受完整的數據分析服務</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>月付方案</h3>
+                    <div class="price">NT$ 30<span>/月</span></div>
+                    <ul class="pricing-features">
+                        <li>完整歷史數據分析（無期數限制）</li>
+                        <li>號碼頻率統計</li>
+                        <li>號碼規律分析</li>
+                        <li>混合策略（五大算法）</li>
+                        <li>機器學習AI預測</li>
+                        <li>五種ML模型完整預測</li>
+                        <li>無廣告純淨體驗</li>
+                        <li>隨時可取消訂閱</li>
+                    </ul>
+                    <a href="https://apps.apple.com/tw/app/台灣威力彩選號幫手/id6747691052" class="download-btn">選擇月付方案</a>
+                </div>
+
+                <div class="pricing-card recommended">
+                    <div class="recommended-badge">最超值！</div>
+                    <h3>年付方案</h3>
+                    <div class="price">NT$ 300<span>/年</span></div>
+                    <span class="save-badge">省下 NT$ 60 💰</span>
+                    <ul class="pricing-features">
+                        <li>完整歷史數據分析（無期數限制）</li>
+                        <li>號碼頻率統計</li>
+                        <li>號碼規律分析</li>
+                        <li>混合策略（五大算法）</li>
+                        <li>機器學習AI預測</li>
+                        <li>五種ML模型完整預測</li>
+                        <li>無廣告純淨體驗</li>
+                        <li><strong>平均每月僅需 25 元</strong></li>
+                    </ul>
+                    <a href="https://apps.apple.com/tw/app/台灣威力彩選號幫手/id6747691052" class="download-btn">選擇年付方案</a>
+                </div>
+            </div>
+
+            <div class="warning">
+                <h3>⚠️ 免費版功能說明</h3>
+                <p>• 基礎頻率分析：限制查看最近30期數據</p>
+                <p>• 基礎預測：每日3次使用限制</p>
+                <p>• 號碼規律分析：可正常使用</p>
+                <p>• 升級專業版後，即可解鎖所有功能並移除所有使用限制</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>開始您的智能選號之旅</h2>
+            <p>下載威力彩軌跡分析，讓專業的數據分析成為您的選號助手<br>免費下載，立即體驗基礎功能</p>
+            <a href="https://apps.apple.com/tw/app/台灣威力彩選號幫手/id6747691052" class="download-btn">前往 App Store 下載</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>⚠️ 重要聲明 ⚠️</strong></p>
+            <p>本應用程式僅提供數據分析工具，所有預測結果均基於歷史統計，無法保證準確性。</p>
+            <p>彩券投注具有高風險性，可能導致財務損失，請謹慎評估個人經濟能力。</p>
+            <p>任何投注決定應基於個人判斷，本應用不承擔任何投注損失責任。</p>
+            <p>未滿18歲禁止參與任何形式的彩券投注。請理性投注，適度娛樂。</p>
+            <p style="margin-top: 20px;">&copy; 2025 威力彩軌跡分析 版權所有</p>
+        </div>
+    </footer>
+
+    <!-- 訪客計數器 -->
+    <div class="visitor-counter">
+        <span class="visitor-counter-icon">👥</span>
+        <div>
+            <div class="visitor-counter-text">到訪人次</div>
+            <div class="visitor-counter-number" id="visitorCount">0</div>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
+        import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBNNSfsEUgv99APngTeChwUL8ePooNuP00",
+            authDomain: "app-f7fb5.firebaseapp.com",
+            databaseURL: "https://app-f7fb5-default-rtdb.firebaseio.com",
+            projectId: "app-f7fb5",
+            storageBucket: "app-f7fb5.firebasestorage.app",
+            messagingSenderId: "409421823433",
+            appId: "1:409421823433:web:78bb68834178b7291efc18",
+            measurementId: "G-JJWR9HZC5K"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        // 創建錢幣元素
+        function createCoin(x, y) {
+            const coin = document.createElement('div');
+            coin.className = 'coin';
+            coin.textContent = '💰';
+
+            // 隨機偏移量
+            const xOffset = (Math.random() - 0.5) * 200;
+            coin.style.setProperty('--x-offset', `${xOffset}px`);
+
+            coin.style.left = x + 'px';
+            coin.style.top = y + 'px';
+
+            document.body.appendChild(coin);
+
+            // 2秒後移除元素
+            setTimeout(() => {
+                coin.remove();
+            }, 2000);
+        }
+
+        // 創建星星粒子
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.textContent = '✨';
+            sparkle.style.fontSize = (Math.random() * 1 + 0.5) + 'em';
+
+            const sparkleX = (Math.random() - 0.5) * 100;
+            const sparkleY = (Math.random() - 0.5) * 100;
+            sparkle.style.setProperty('--sparkle-x', `${sparkleX}px`);
+            sparkle.style.setProperty('--sparkle-y', `${sparkleY}px`);
+
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+
+        // 錢幣雨效果
+        function showCoinRain(button) {
+            const rect = button.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            // 創建 20 個錢幣
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    createCoin(centerX, centerY);
+                }, i * 50);
+            }
+
+            // 創建星星粒子
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    createSparkle(centerX, centerY);
+                }, i * 100);
+            }
+
+            // 按鈕閃光效果
+            button.classList.add('shining');
+            setTimeout(() => {
+                button.classList.remove('shining');
+            }, 500);
+        }
+
+        // 我要中頭彩按鈕功能 - 使用 Firebase
+        window.addLuckyWish = function() {
+            const button = event.currentTarget;
+            const countElement = document.getElementById('luckyCount');
+            const luckyRef = ref(database, 'powerballLuckyWishCount');
+
+            // 顯示錢幣雨特效
+            showCoinRain(button);
+
+            runTransaction(luckyRef, (currentValue) => {
+                return (currentValue || 0) + 1;
+            }).then((result) => {
+                countElement.textContent = result.snapshot.val().toLocaleString();
+
+                // 動畫效果
+                countElement.style.transform = 'scale(1.5)';
+                setTimeout(() => {
+                    countElement.style.transform = 'scale(1)';
+                }, 200);
+            }).catch((error) => {
+                console.error('幸運許願更新失敗:', error);
+            });
+        };
+
+        // 訪客計數器功能 - 使用 Firebase
+        function updateVisitorCount() {
+            const visitorCountElement = document.getElementById('visitorCount');
+            const visitorRef = ref(database, 'powerballVisitorCount');
+
+            // 檢查是否是新訪客（使用 sessionStorage 而非 localStorage）
+            const hasVisitedThisSession = sessionStorage.getItem('powerballHasVisited');
+
+            if (!hasVisitedThisSession) {
+                // 新訪客，增加計數
+                runTransaction(visitorRef, (currentValue) => {
+                    return (currentValue || 0) + 1;
+                }).then((result) => {
+                    visitorCountElement.textContent = result.snapshot.val().toLocaleString();
+                    sessionStorage.setItem('powerballHasVisited', 'true');
+                }).catch((error) => {
+                    console.error('訪客計數更新失敗:', error);
+                });
+            } else {
+                // 已訪問過本次會話，只顯示當前計數
+                onValue(visitorRef, (snapshot) => {
+                    const count = snapshot.val() || 0;
+                    visitorCountElement.textContent = count.toLocaleString();
+                }, { onlyOnce: true });
+            }
+
+            // 監聽訪客計數變化（即時更新）
+            onValue(visitorRef, (snapshot) => {
+                const count = snapshot.val() || 0;
+                visitorCountElement.textContent = count.toLocaleString();
+            });
+        }
+
+        // 載入幸運許願次數 - 使用 Firebase
+        function loadLuckyCount() {
+            const countElement = document.getElementById('luckyCount');
+            const luckyRef = ref(database, 'powerballLuckyWishCount');
+
+            // 監聽幸運許願次數變化（即時更新）
+            onValue(luckyRef, (snapshot) => {
+                const count = snapshot.val() || 0;
+                countElement.textContent = count.toLocaleString();
+            });
+        }
+
+        // 頁面載入時執行
+        window.addEventListener('DOMContentLoaded', function() {
+            updateVisitorCount();
+            loadLuckyCount();
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "威力彩軌跡分析",
+        "operatingSystem": "iOS",
+        "applicationCategory": "UtilitiesApplication",
+        "offers": [
+            {
+                "@type": "Offer",
+                "price": "30",
+                "priceCurrency": "TWD",
+                "name": "月付方案",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "30",
+                    "priceCurrency": "TWD",
+                    "referenceQuantity": {
+                        "@type": "QuantitativeValue",
+                        "value": "1",
+                        "unitCode": "MON"
+                    }
+                }
+            },
+            {
+                "@type": "Offer",
+                "price": "300",
+                "priceCurrency": "TWD",
+                "name": "年付方案",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "300",
+                    "priceCurrency": "TWD",
+                    "referenceQuantity": {
+                        "@type": "QuantitativeValue",
+                        "value": "1",
+                        "unitCode": "ANN"
+                    }
+                }
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "285"
+        },
+        "description": "專業的威力彩號碼分析工具，提供五大智能算法、號碼頻率統計、規律分析、混合策略、機器學習AI預測等專業功能",
+        "featureList": [
+            "五大智能算法分析",
+            "號碼頻率統計",
+            "號碼規律分析",
+            "混合策略分析",
+            "機器學習AI預測",
+            "隨機森林算法",
+            "梯度提升算法",
+            "支持向量機算法",
+            "神經網絡算法",
+            "K最近鄰算法",
+            "完整歷史數據支援",
+            "無廣告體驗"
+        ]
+    }
+    </script>
+</body>
+</html>
