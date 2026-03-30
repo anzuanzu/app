@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taipei MRT Alarm - Support</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; line-height: 1.6; }
+  .container { max-width: 720px; margin: 0 auto; padding: 20px; }
+  header { text-align: center; padding: 40px 20px; }
+  header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  header p { color: #86868b; font-size: 14px; }
+  .card { background: #fff; border-radius: 16px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .card h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; color: #1d1d1f; }
+  .card h3 { font-size: 16px; font-weight: 600; margin: 16px 0 8px; color: #333; }
+  .card p, .card li { font-size: 15px; color: #424245; margin-bottom: 8px; }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 6px; }
+  .badge { display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 12px; margin-right: 6px; }
+  .badge-blue { background: #e8f0fe; color: #1a73e8; }
+  .badge-green { background: #e6f4ea; color: #137333; }
+  .badge-orange { background: #fef3e0; color: #e37400; }
+  .badge-red { background: #fce8e6; color: #c5221f; }
+  .lang-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .lang-tab { padding: 8px 16px; border-radius: 20px; border: 1px solid #d2d2d7; background: #fff; cursor: pointer; font-size: 14px; font-weight: 500; }
+  .lang-tab.active { background: #007aff; color: #fff; border-color: #007aff; }
+  .lang-content { display: none; }
+  .lang-content.active { display: block; }
+  footer { text-align: center; padding: 30px; color: #86868b; font-size: 13px; }
+  .icon { font-size: 24px; margin-right: 8px; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<header>
+  <h1>Taipei MRT Alarm</h1>
+  <p>Support / User Guide</p>
+  <p style="margin-top:4px; font-size:12px; color:#aaa;">Developer: J-Studio</p>
+</header>
+
+<div class="lang-tabs">
+  <div class="lang-tab active" onclick="switchLang('zh')">繁體中文</div>
+  <div class="lang-tab" onclick="switchLang('en')">English</div>
+  <div class="lang-tab" onclick="switchLang('ja')">日本語</div>
+  <div class="lang-tab" onclick="switchLang('ko')">한국어</div>
+</div>
+
+<!-- ===== 繁體中文 ===== -->
+<div id="lang-zh" class="lang-content active">
+
+<div class="card">
+  <h2>功能介紹</h2>
+  <h3><span class="icon">🚇</span>到站提醒</h3>
+  <p>選擇目的地後，App 會即時追蹤您的位置，在接近目的站時發出震動與聲音提醒，不再坐過站。</p>
+
+  <h3><span class="icon">🗺️</span>路線規劃</h3>
+  <p>自動偵測最近車站或手動選擇起點，規劃最佳路線並顯示轉乘資訊。</p>
+
+  <h3><span class="icon">💰</span>票價計算</h3>
+  <p>顯示起終站之間的票價，支援台北捷運、機場捷運、淡海輕軌、安坑輕軌及貓空纜車。</p>
+
+  <h3><span class="icon">🌐</span>多語言支援</h3>
+  <p>支援繁體中文、英文、日文、韓文，自動偵測裝置語言或手動切換。</p>
+
+  <h3><span class="icon">📍</span>景點餐廳推薦</h3>
+  <p>瀏覽捷運沿線的熱門景點與餐廳，可搜尋並直接設為目的地。</p>
+
+  <h3><span class="icon">⭐</span>最愛路線</h3>
+  <p>儲存常用路線（最多 10 條），一鍵啟動。支援回家、回飯店快捷功能。</p>
+
+  <h3><span class="icon">🔄</span>原路返回</h3>
+  <p>結束路線後，一鍵反向規劃返程路線。</p>
+</div>
+
+<div class="card">
+  <h2>常見問題</h2>
+  <h3>Q: 為什麼定位不準確？</h3>
+  <p>捷運部分路段在地下，GPS 訊號較弱。App 會同時使用 Wi-Fi 及基地台定位來輔助。建議開啟 Wi-Fi 以提高定位精度。</p>
+
+  <h3>Q: 切到背景後還會提醒嗎？</h3>
+  <p>App 會在路線開始時預先排程本地通知，即使切到背景或鎖屏，到站前仍會收到推播通知提醒。</p>
+
+  <h3>Q: 如何更改語言？</h3>
+  <p>點擊右上角的 🌐 按鈕即可切換語言。</p>
+
+  <h3>Q: 票價包含轉乘嗎？</h3>
+  <p>票價為起終站之間的直接票價。若涉及不同系統（如捷運轉輕軌），會分開顯示各系統票價。</p>
+</div>
+
+<div class="card">
+  <h2>系統需求</h2>
+  <ul>
+    <li>iOS 15.2 或以上</li>
+    <li>需開啟定位服務</li>
+    <li>建議開啟 Wi-Fi 以提升地下定位精度</li>
+    <li>需要網路連線以載入景點餐廳資料</li>
+  </ul>
+</div>
+</div>
+
+<!-- ===== English ===== -->
+<div id="lang-en" class="lang-content">
+
+<div class="card">
+  <h2>Features</h2>
+  <h3><span class="icon">🚇</span>Station Alarm</h3>
+  <p>Select your destination and the app will track your location in real-time, alerting you with vibration and sound when approaching your stop.</p>
+
+  <h3><span class="icon">🗺️</span>Route Planning</h3>
+  <p>Auto-detects your nearest station or allows manual selection. Plans optimal routes with transfer information.</p>
+
+  <h3><span class="icon">💰</span>Fare Calculator</h3>
+  <p>Displays fares between stations, supporting Taipei Metro, Airport MRT, Danhai LRT, Ankeng LRT, and Maokong Gondola.</p>
+
+  <h3><span class="icon">🌐</span>Multilingual</h3>
+  <p>Supports Traditional Chinese, English, Japanese, and Korean. Auto-detects device language.</p>
+
+  <h3><span class="icon">📍</span>Attractions & Restaurants</h3>
+  <p>Browse popular spots and restaurants along MRT lines. Search and set any as your destination.</p>
+
+  <h3><span class="icon">⭐</span>Favorite Routes</h3>
+  <p>Save up to 10 frequently used routes. Quick access to Home and Hotel shortcuts.</p>
+
+  <h3><span class="icon">🔄</span>Return Trip</h3>
+  <p>One-tap reverse route planning after completing a trip.</p>
+</div>
+
+<div class="card">
+  <h2>FAQ</h2>
+  <h3>Q: Why is my location inaccurate?</h3>
+  <p>Some MRT sections are underground where GPS is weak. The app uses Wi-Fi and cell tower positioning as backup. Keep Wi-Fi enabled for better accuracy.</p>
+
+  <h3>Q: Will I get alerts in the background?</h3>
+  <p>Yes. The app schedules local notifications when a route starts. You will receive alerts even with the screen off.</p>
+
+  <h3>Q: How do I change the language?</h3>
+  <p>Tap the 🌐 button in the top-right corner.</p>
+</div>
+
+<div class="card">
+  <h2>Requirements</h2>
+  <ul>
+    <li>iOS 15.2 or later</li>
+    <li>Location Services must be enabled</li>
+    <li>Wi-Fi recommended for underground positioning</li>
+    <li>Internet connection for attractions data</li>
+  </ul>
+</div>
+</div>
+
+<!-- ===== 日本語 ===== -->
+<div id="lang-ja" class="lang-content">
+
+<div class="card">
+  <h2>機能紹介</h2>
+  <h3><span class="icon">🚇</span>到着アラーム</h3>
+  <p>目的地を選択すると、リアルタイムで位置を追跡し、目的駅に近づくと振動と音で通知します。</p>
+
+  <h3><span class="icon">🗺️</span>ルート案内</h3>
+  <p>最寄り駅を自動検出、または手動で出発駅を選択。最適ルートと乗り換え情報を表示します。</p>
+
+  <h3><span class="icon">💰</span>運賃計算</h3>
+  <p>台北MRT、桃園空港MRT、淡海ライトレール、安坑ライトレール、猫空ロープウェイの運賃を表示します。</p>
+
+  <h3><span class="icon">🌐</span>多言語対応</h3>
+  <p>繁体中国語、英語、日本語、韓国語に対応。デバイスの言語を自動検出します。</p>
+
+  <h3><span class="icon">📍</span>観光スポット・レストラン</h3>
+  <p>MRT沿線の人気スポットとレストランを検索し、目的地に設定できます。</p>
+
+  <h3><span class="icon">⭐</span>お気に入りルート</h3>
+  <p>よく使うルートを最大10件保存。自宅・ホテルへのショートカット機能もあります。</p>
+</div>
+
+<div class="card">
+  <h2>よくある質問</h2>
+  <h3>Q: 位置情報が不正確です</h3>
+  <p>地下区間ではGPS信号が弱くなります。Wi-Fiと基地局測位を併用しています。Wi-Fiをオンにすると精度が向上します。</p>
+
+  <h3>Q: バックグラウンドでも通知されますか？</h3>
+  <p>はい。ルート開始時にローカル通知を予約するため、画面オフでも通知を受け取れます。</p>
+</div>
+</div>
+
+<!-- ===== 한국어 ===== -->
+<div id="lang-ko" class="lang-content">
+
+<div class="card">
+  <h2>기능 소개</h2>
+  <h3><span class="icon">🚇</span>도착 알림</h3>
+  <p>목적지를 선택하면 실시간으로 위치를 추적하여 목적역에 가까워지면 진동과 소리로 알려줍니다.</p>
+
+  <h3><span class="icon">🗺️</span>경로 안내</h3>
+  <p>가장 가까운 역을 자동 감지하거나 수동으로 출발역을 선택할 수 있습니다. 최적 경로와 환승 정보를 표시합니다.</p>
+
+  <h3><span class="icon">💰</span>요금 계산</h3>
+  <p>타이베이 MRT, 공항철도, 단하이 경전철, 안컹 경전철, 마오콩 곤돌라 요금을 표시합니다.</p>
+
+  <h3><span class="icon">🌐</span>다국어 지원</h3>
+  <p>중국어(번체), 영어, 일본어, 한국어를 지원합니다. 기기 언어를 자동 감지합니다.</p>
+
+  <h3><span class="icon">📍</span>관광지 및 맛집</h3>
+  <p>MRT 연선의 인기 명소와 맛집을 검색하고 목적지로 설정할 수 있습니다.</p>
+
+  <h3><span class="icon">⭐</span>즐겨찾기</h3>
+  <p>자주 사용하는 경로를 최대 10개까지 저장할 수 있습니다. 집과 호텔 바로가기 기능도 있습니다.</p>
+</div>
+
+<div class="card">
+  <h2>자주 묻는 질문</h2>
+  <h3>Q: 위치가 정확하지 않습니다</h3>
+  <p>지하 구간에서는 GPS 신호가 약합니다. Wi-Fi와 기지국 측위를 함께 사용합니다. Wi-Fi를 켜면 정확도가 향상됩니다.</p>
+
+  <h3>Q: 백그라운드에서도 알림을 받을 수 있나요?</h3>
+  <p>네. 경로 시작 시 로컬 알림을 예약하므로 화면이 꺼져 있어도 알림을 받을 수 있습니다.</p>
+</div>
+</div>
+
+<footer>
+  <p>&copy; 2025 J-Studio. All rights reserved.</p>
+</footer>
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('lang-' + lang).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
