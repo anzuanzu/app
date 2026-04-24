@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>電子書模式 — 使用者手冊</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f2ea;
+      color: #1d1d1f;
+      line-height: 1.75;
+    }
+    header {
+      background: #2f3f4f;
+      color: #fff;
+      padding: 50px 24px 38px;
+      text-align: center;
+    }
+    header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+    header p { font-size: 0.95rem; opacity: 0.88; }
+    main {
+      max-width: 820px;
+      margin: 40px auto;
+      padding: 0 24px 60px;
+    }
+    section {
+      background: #fffdf8;
+      border: 1px solid #e9e1d3;
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(70, 55, 35, 0.06);
+    }
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #2f3f4f;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e9e1d3;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 650;
+      color: #1d1d1f;
+      margin: 18px 0 8px;
+    }
+    p { margin-bottom: 12px; font-size: 0.96rem; }
+    ul, ol { margin: 8px 0 12px 22px; }
+    li { font-size: 0.96rem; margin-bottom: 7px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      margin: 12px 0;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    th {
+      background: #efe7d8;
+      text-align: left;
+      padding: 10px 12px;
+      font-weight: 650;
+    }
+    td { padding: 10px 12px; border-top: 1px solid #e9e1d3; vertical-align: top; }
+    .badge {
+      display: inline-block;
+      background: #edf5fb;
+      color: #1e6f9f;
+      border-radius: 7px;
+      padding: 2px 8px;
+      font-size: 0.82rem;
+      font-weight: 650;
+      margin-right: 6px;
+    }
+    .tip {
+      background: #f7f2e8;
+      border-left: 3px solid #8a6a3f;
+      border-radius: 0 8px 8px 0;
+      padding: 11px 14px;
+      margin: 14px 0;
+      font-size: 0.9rem;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.82rem;
+      color: #7d7a74;
+      padding-bottom: 40px;
+    }
+    a { color: #1e6f9f; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>電子書模式</h1>
+  <p>使用者手冊 ｜ User Manual</p>
+  <p style="margin-top:8px; font-size:0.85rem;">版本：1.0 ｜ 最後更新：2026 年 4 月 24 日</p>
+</header>
+
+<main>
+  <section>
+    <h2>App 簡介</h2>
+    <p>「電子書模式」是一款內建瀏覽器的閱讀工具，能將網頁內容整理成更適合長時間閱讀的版面。您可以調整字級、行距、欄寬、字體、主題，也可以啟用電子紙質感與分頁翻閱。</p>
+    <p>本 App 適合閱讀文章、百科資料、部落格、教學文件與其他以文字為主的網頁。</p>
+  </section>
+
+  <section>
+    <h2>快速開始</h2>
+    <ol>
+      <li>開啟 App 後，在上方網址列輸入網址或搜尋關鍵字。</li>
+      <li>按下鍵盤的「前往」後，App 會載入網頁。</li>
+      <li>點選底部工具列的「電子書」即可套用閱讀版面。</li>
+      <li>點選右下方的設定按鈕，可調整主題、字體、電子紙效果與排版。</li>
+    </ol>
+    <div class="tip">若網頁本身沒有明確的文章區塊，App 會盡量整理主要內容；少數高度動態或複雜排版網站可能無法完整轉換。</div>
+  </section>
+
+  <section>
+    <h2>瀏覽器功能</h2>
+    <table>
+      <tr><th>功能</th><th>說明</th></tr>
+      <tr><td>返回 / 前進</td><td>使用上方工具列的箭頭切換瀏覽歷史。</td></tr>
+      <tr><td>網址與搜尋</td><td>可輸入完整網址，也可輸入關鍵字進行網頁搜尋。</td></tr>
+      <tr><td>重新整理</td><td>網頁載入完成後可使用重新整理按鈕更新內容。</td></tr>
+      <tr><td>載入進度</td><td>上方細線會顯示網頁載入進度。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>電子書模式</h2>
+    <p>啟用電子書模式後，App 會嘗試隱藏網站導覽列、側邊欄、廣告區塊與社群分享區，保留主要文章內容並套用閱讀設定。</p>
+    <h3>可調整項目</h3>
+    <ul>
+      <li><span class="badge">主題</span>白、羊皮、暗、夜等閱讀主題。</li>
+      <li><span class="badge">字體</span>宋體、黑體、圓體、等寬字體。</li>
+      <li><span class="badge">字級</span>依閱讀距離與裝置大小調整文字大小。</li>
+      <li><span class="badge">行距</span>增加或減少文字行距，提升長文閱讀舒適度。</li>
+      <li><span class="badge">欄寬</span>限制文章寬度，避免大螢幕文字過長。</li>
+      <li><span class="badge">分頁翻閱</span>將內容改為左右分頁瀏覽。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>電子紙效果</h2>
+    <p>電子紙效果會將頁面轉為更接近電子墨水螢幕的灰階外觀，並加入紙張顆粒與對比設定。</p>
+    <ul>
+      <li>「墨色對比」可控制文字與背景的明暗差異。</li>
+      <li>「紙張顆粒」可調整背景紋理濃度。</li>
+      <li>圖片與影片會套用灰階與柔和對比處理。</li>
+    </ul>
+    <div class="tip">電子紙效果適合長時間文字閱讀；若網頁以圖片、影片或互動內容為主，可暫時關閉電子書模式。</div>
+  </section>
+
+  <section>
+    <h2>Pro 訂閱</h2>
+    <p>「電子書模式 Pro」提供進階閱讀體驗。實際可用功能可能隨版本更新調整，App 內購買畫面會顯示最新內容。</p>
+    <table>
+      <tr><th>方案</th><th>價格</th><th>說明</th></tr>
+      <tr><td>月訂閱</td><td>每月 NT$30</td><td>訂閱後可使用 Pro 功能，自動續訂，可隨時在 App Store 帳號設定中管理或取消。</td></tr>
+      <tr><td>年訂閱</td><td>每年 NT$300</td><td>訂閱後可使用 Pro 功能，自動續訂，可隨時在 App Store 帳號設定中管理或取消。</td></tr>
+    </table>
+    <p>訂閱、續訂、取消、退款與帳務管理皆由 Apple App Store 處理。</p>
+  </section>
+
+  <section>
+    <h2>常見問題</h2>
+    <h3>為什麼有些網頁無法完整轉換？</h3>
+    <p>部分網站使用高度客製化排版、登入牆、動態載入或防嵌入機制，可能導致內容擷取不完整。您仍可關閉電子書模式，以原始網頁閱讀。</p>
+
+    <h3>關閉電子書模式後為什麼網頁會重新載入？</h3>
+    <p>電子書模式會重新整理頁面結構以提升閱讀性。關閉時重新載入能讓網站恢復原本狀態。</p>
+
+    <h3>App 會儲存我閱讀的網頁內容嗎？</h3>
+    <p>App 不會建立雲端閱讀紀錄，也不會將網頁內容上傳到自有伺服器。</p>
+  </section>
+
+  <section>
+    <h2>使用建議</h2>
+    <ul>
+      <li>長文章建議使用「羊皮」或「夜」主題。</li>
+      <li>在 iPad 上可增加欄寬，在 iPhone 上可提高字級與行距。</li>
+      <li>閱讀圖片較多的頁面時，可降低電子紙顆粒或關閉電子紙效果。</li>
+      <li>遇到版面異常時，請先重新整理網頁，再重新啟用電子書模式。</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 電子書模式</p>
+</footer>
+
+</body>
+</html>
