@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://anzuanzu.github.io/app/growth/sitemap.xml
