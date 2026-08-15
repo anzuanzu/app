@@ -1,0 +1,73 @@
+# AN RU YANG App Portfolio
+
+> 公開、靜態的 App discovery site：從真實的台灣交通與生活問題，將高意圖使用者導向既有公開 App Store 頁面。
+
+Canonical site: https://anzuanzu.github.io/app/growth/
+Primary language: zh-Hant (one English Taipei MRT guide is available)
+Last reviewed: 2026-08-15
+
+## Purpose
+
+Use this site as a source map for Taipei parking, YouBike station availability, Taipei MRT route planning, fares, arrival reminders, YouBike 2.0 友愛接力, and 539 result/history/statistics questions. Content is informational and time-sensitive details must be checked against the linked official sources.
+
+## Priority landing pages
+
+- [台北停車 App 指南](https://anzuanzu.github.io/app/growth/parking/app/): 比較即時車位、費率、入口與導航，將高意圖停車需求導向雙北找車位。
+- [台北停車費率指南](https://anzuanzu.github.io/app/growth/parking/fees/): 先核對場站、車種、平假日與收費時段，再比較空位、費率與入口。
+- [台北捷運 App 指南](https://anzuanzu.github.io/app/growth/mrt/app/): 整理路線、轉乘、票價、班距與報站提醒，導向台北捷運報站小幫手。
+- [Taipei MRT App guide](https://anzuanzu.github.io/app/growth/en/taipei-mrt-app/): English route-planning guide for visitors and commuters, with fare, transfer and arrival-reminder checks.
+- [今彩539 App 指南](https://anzuanzu.github.io/app/growth/lottery/539-app/): 用官方歷史資料核對期別，再比較統計圖表與回測限制；不提供中獎保證。
+- [今彩539開獎結果指南](https://anzuanzu.github.io/app/growth/lottery/539-results/): 先核對官方日期、期別與五個號碼，再用工具整理歷史結果。
+- [今彩539冷熱號指南](https://anzuanzu.github.io/app/growth/lottery/539-cold-hot/): 解釋樣本期間、頻率與遺漏值，清楚區分歷史統計與下一期預測。
+- [YouBike 友愛接力指南](https://anzuanzu.github.io/app/growth/youbike/youai-jieli/): 解釋無車可借、無位可還時的站點查詢與鄰站備選流程。
+- [YouBike 友愛接力騎乘券 FAQ](https://anzuanzu.github.io/app/growth/youbike/youai-jieli-reward/): 整理滿站借車、空站還車、跨站條件與隔日騎乘券查看方式。
+
+## Public app pages
+
+- [雙北找車位 功能頁](https://anzuanzu.github.io/app/growth/apps/parking-taipei/): 以地圖、距離、剩餘車位與費率協助使用者找到雙北停車場並規劃路線。 App Store: https://apps.apple.com/tw/app/%E9%9B%99%E5%8C%97%E6%89%BE%E8%BB%8A%E4%BD%8D/id6761965714
+- [YouBike 即時地圖 功能頁](https://anzuanzu.github.io/app/growth/apps/youbike-live-map/): 查看全台 YouBike 站點、可借可還數量、距離與導航資訊。 App Store: https://apps.apple.com/tw/app/youbike-%E5%8D%B3%E6%99%82%E5%9C%B0%E5%9C%96/id6762242408
+- [台北捷運報站小幫手 功能頁](https://anzuanzu.github.io/app/growth/apps/taipei-mrt-alarm/): 規劃台北捷運及周邊路線，查看票價、班距與營運資訊。 App Store: https://apps.apple.com/tw/app/%E5%8F%B0%E5%8C%97%E6%8D%B7%E9%81%8B%E5%A0%B1%E7%AB%99%E5%B0%8F%E5%B9%AB%E6%89%8B/id6761324979
+- [台灣539選號幫手 功能頁](https://anzuanzu.github.io/app/growth/apps/taiwan-539/): 以歷史開獎資料、頻率、關聯與趨勢提供娛樂性選號參考。 App Store: https://apps.apple.com/tw/app/%E5%8F%B0%E7%81%A3539%E9%81%B8%E8%99%9F%E5%B9%AB%E6%89%8B/id6747630476
+- [台灣大樂透選號幫手 功能頁](https://anzuanzu.github.io/app/growth/apps/taiwan-lotto/): 以統計模型、回測與趨勢視覺化整理大樂透資料。 App Store: https://apps.apple.com/tw/app/%E5%8F%B0%E7%81%A3%E5%A4%A7%E6%A8%82%E9%80%8F%E9%81%B8%E8%99%9F%E5%B9%AB%E6%89%8B/id6747036136
+- [台灣威力彩選號幫手 功能頁](https://anzuanzu.github.io/app/growth/apps/taiwan-powerlotto/): 整理威力彩第一區、第二區的歷史資料、模型與回測。 App Store: https://apps.apple.com/tw/app/%E5%8F%B0%E7%81%A3%E5%A8%81%E5%8A%9B%E5%BD%A9%E9%81%B8%E8%99%9F%E5%B9%AB%E6%89%8B/id6747691052
+- [EZ539－有趣好玩的今彩539選號遊戲 功能頁](https://anzuanzu.github.io/app/growth/apps/ez539/): 瀏覽今彩539資料、管理常用號碼並產生趣味選號靈感。 App Store: https://apps.apple.com/tw/app/ez539-%E6%9C%89%E8%B6%A3%E5%A5%BD%E7%8E%A9%E7%9A%84%E4%BB%8A%E5%BD%A9539%E9%81%B8%E8%99%9F%E9%81%8A%E6%88%B2/id6790803175
+- [EZ大樂透 功能頁](https://anzuanzu.github.io/app/growth/apps/ez-lotto/): 以策略、日期、生日與歷史資料產生娛樂性大樂透號碼參考。 App Store: https://apps.apple.com/tw/app/ez%E5%A4%A7%E6%A8%82%E9%80%8F/id6792296774
+- [QRCode Scanner - Scan & Read 功能頁](https://anzuanzu.github.io/app/growth/apps/qr-code-scanner/): 支援多種 QR 與條碼格式，並提供掃描歷史、搜尋、匯出與分享。 App Store: https://apps.apple.com/tw/app/qrcode-scanner-scan-read/id6752492017
+- [集氣539 功能頁](https://anzuanzu.github.io/app/growth/apps/jiqi-539/): 以群眾模擬投注、排行榜與歷史分析提供互動式娛樂體驗。 App Store: https://apps.apple.com/tw/app/%E9%9B%86%E6%B0%A3539/id6759898506
+- [忘不掉－即刻提醒 功能頁](https://anzuanzu.github.io/app/growth/apps/neverforget/): 以日曆視角建立時間、地點與多媒體提醒，資料保留在裝置上。 App Store: https://apps.apple.com/tw/app/%E5%BF%98%E4%B8%8D%E6%8E%89-%E5%8D%B3%E5%88%BB%E6%8F%90%E9%86%92/id6749473011
+- [PureFrequency 功能頁](https://anzuanzu.github.io/app/growth/apps/purefrequency/): 以聲音頻率內容支援睡眠、專注與放鬆情境探索。 App Store: https://apps.apple.com/tw/app/purefrequency/id6753100897
+- [Powerball Data Insight 功能頁](https://anzuanzu.github.io/app/growth/apps/powerball-data-insight/): 以 Powerball 歷史資料、頻率、模式與回測提供教育性分析。 App Store: https://apps.apple.com/tw/app/powerball-data-insight/id6748024915
+
+## Additional Taiwan-first guides
+
+- [台北找停車位：出發前先確認距離、費率與即時空位](https://anzuanzu.github.io/app/growth/parking/taipei/): 整理台北市找停車位時最實用的查找方式，從地圖、距離、費率到導航，一次找到適合自己的停車解法。
+- [新北找停車位：用區域與距離快速縮小選擇](https://anzuanzu.github.io/app/growth/parking/new-taipei/): 新北市停車場分布廣，先依行政區與目的地篩選，再比較距離、車位與費率，減少到現場才繞路。
+- [板橋車站、府中一帶怎麼找車位？先做兩層備選](https://anzuanzu.github.io/app/growth/parking/banqiao/): 板橋市區活動與轉乘需求集中，整理出發前找車位的簡單流程，讓你先有主選與備選方案。
+- [信義區找停車位：把目的地、步行距離與費率一起比較](https://anzuanzu.github.io/app/growth/parking/xinyi/): 信義區活動與商辦密集，從目的地、可接受步行距離與費率三項條件快速找到合適停車場。
+- [內湖科技園區找停車位：把目的地與抵達時段先拆開](https://anzuanzu.github.io/app/growth/parking/neihu/): 內湖通勤與辦公區的停車需求常集中在特定時段，先確認目的地、步行距離與主備選，降低臨時繞路。
+- [台北101 停車怎麼找？先設定步行範圍與備選方案](https://anzuanzu.github.io/app/growth/parking/taipei-101/): 前往台北101前，先把目的地、可接受步行距離、入口與主備選停車場整理好，降低到場後繞路的機率。
+- [台北車站找停車位：先分清目的地、入口與步行路線](https://anzuanzu.github.io/app/growth/parking/taipei-main-station/): 台北車站周邊轉乘與商圈入口複雜，整理一套先找主選、再留備選的停車流程，減少到場後重新繞路。
+- [西門町找停車位：先選主選與備選再走路](https://anzuanzu.github.io/app/growth/parking/ximending/): 前往西門町逛街或用餐時，先以目的地與步行距離縮小停車場，再比較費率和入口，避免只在現場繞找。
+- [台北 YouBike 即時查詢：先看可借與可還，再規劃路線](https://anzuanzu.github.io/app/growth/youbike/taipei/): 台北騎 YouBike 前，先確認起點可借車、終點可還車與距離，降低到了站點才發現無車或無空位的機率。
+- [新北 YouBike 找站點：用城市與服務類型先篩選](https://anzuanzu.github.io/app/growth/youbike/new-taipei/): 新北站點分布廣，依行政區、服務類型與可借可還狀態縮小範圍，出發前先確認一站主選與一站備選。
+- [信義區 YouBike 站點怎麼選？起點與終點要一起看](https://anzuanzu.github.io/app/growth/youbike/xinyi/): 信義區辦公、商場與捷運站點密集，出發前同時確認可借與可還，讓短程移動更順利。
+- [板橋 YouBike 怎麼找？通勤與轉乘先看兩端站點](https://anzuanzu.github.io/app/growth/youbike/banqiao/): 板橋車站、府中與住宅區的騎乘需求不同，先確認起點可借與目的地可還，再決定最適合的站點。
+- [台北車站 YouBike 怎麼找？轉乘前先看起點與終點](https://anzuanzu.github.io/app/growth/youbike/taipei-main-station/): 台北車站周邊出入口多，搭車或轉乘前先確認可借站、可還站與步行路線，讓短程接駁少一次來回。
+- [台北101 YouBike 站點怎麼選？先看可還與步行距離](https://anzuanzu.github.io/app/growth/youbike/taipei-101/): 前往台北101或信義商圈時，先確認起點可借、目的地可還與步行路線，再保留鄰近備選站點。
+- [西門町 YouBike 怎麼查？起點可借、終點可還一起看](https://anzuanzu.github.io/app/growth/youbike/ximending/): 到西門町逛街或轉乘時，先用目的地與出入口找站，再確認起點可借與終點可還，減少臨時改走路線。
+- [台北捷運路線怎麼規劃？先確認起終點與轉乘](https://anzuanzu.github.io/app/growth/mrt/taipei-route/): 整理台北捷運規劃路線時的基本流程：起終點、轉乘、票價、班距與抵達提醒一次確認。
+- [台北旅遊搭捷運：票價、機場捷運與常用路線整理](https://anzuanzu.github.io/app/growth/mrt/taipei-travel/): 給台北旅客的捷運規劃流程，包含起終點、票價、機場捷運與常用路線儲存。
+- [台北捷運通勤提醒：把常用路線與出發時間固定下來](https://anzuanzu.github.io/app/growth/mrt/taipei-commute/): 通勤族可將家到公司的路線、票價與班距整理成固定流程，減少每天重新查詢。
+- [桃園機場到台北車站怎麼搭？先確認轉乘與目的地](https://anzuanzu.github.io/app/growth/mrt/airport-to-taipei/): 從桃園機場前往台北市時，先把機場捷運、台北車站與最後目的地拆開規劃，再確認票價、轉乘與步行。
+- [搭捷運去台北101：先選出口，再安排步行與提醒](https://anzuanzu.github.io/app/growth/mrt/taipei-101/): 前往台北101時，先確認起站、轉乘與目的地出口，再把出站後步行與抵達提醒納入行程。
+- [台北車站轉乘怎麼規劃？把路線、出口與步行拆開看](https://anzuanzu.github.io/app/growth/mrt/taipei-main-station/): 台北車站連接多種交通系統，整理起站、轉乘、出口與步行的檢查順序，降低走錯方向的機會。
+- [今彩539歷史號碼怎麼查？先用官方資料核對期別](https://anzuanzu.github.io/app/growth/lottery/539-history/): 整理今彩539歷史開獎號碼查詢流程：先選遊戲與日期或期別，再核對官方結果，最後將資料交給統計工具閱讀。
+- [今彩539統計怎麼看？頻率、冷熱與回測的正確用法](https://anzuanzu.github.io/app/growth/lottery/539-statistics/): 用簡單流程閱讀今彩539頻率、冷熱、奇偶、區間與回測圖表，分清資料整理與中獎預測的界線。
+
+## Trust and measurement boundaries
+
+- Official sources are linked on each guide; live station, fare, fee, service and reward details can change.
+- App Store destinations are public `apps.apple.com` URLs only.
+- This project never logs in to, reads from, writes to, or operates App Store Connect.
+- Downloads are measured only from owner-supplied aggregate files; website clicks are not treated as downloads.
+- Local measurement events are first-party and capped; no personal data or third-party endpoint is used by default.
