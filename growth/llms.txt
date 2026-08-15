@@ -21,6 +21,7 @@ Use this site as a source map for Taipei parking, YouBike station availability, 
 - [今彩539冷熱號指南](https://anzuanzu.github.io/app/growth/lottery/539-cold-hot/): 解釋樣本期間、頻率與遺漏值，清楚區分歷史統計與下一期預測。
 - [YouBike 友愛接力指南](https://anzuanzu.github.io/app/growth/youbike/youai-jieli/): 解釋無車可借、無位可還時的站點查詢與鄰站備選流程。
 - [YouBike 友愛接力騎乘券 FAQ](https://anzuanzu.github.io/app/growth/youbike/youai-jieli-reward/): 整理滿站借車、空站還車、跨站條件與隔日騎乘券查看方式。
+- [App 比較指南](https://anzuanzu.github.io/app/growth/apps/compare/): 依停車、YouBike、台北捷運與今彩539的真實需求，快速比較適用情境、核對條件與正式 App Store 下一步。
 
 ## Public app pages
 
