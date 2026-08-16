@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SnapTask｜隱私權政策</title>
+  <meta name="description" content="SnapTask 隱私權政策：本機 OCR、iCloud 同步與可選 AI 文字整理的資料處理方式。">
+  <style>
+    :root { color-scheme: light dark; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif; line-height: 1.75; }
+    main { max-width: 880px; margin: auto; padding: 28px 22px 52px; }
+    h1 { font-size: 30px; margin: 10px 0 2px; } h2 { font-size: 21px; margin: 32px 0 10px; }
+    p, li { font-size: 16px; } ul { padding-left: 1.25em; } li { margin: 6px 0; }
+    nav, .notice { padding: 13px 15px; border-radius: 12px; background: color-mix(in srgb, currentColor 9%, transparent); }
+    nav a { margin-right: 16px; } table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+    th, td { padding: 10px; text-align: left; vertical-align: top; border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent); }
+    .muted, footer { opacity: .72; } footer { margin-top: 48px; font-size: 14px; }
+  </style>
+</head>
+<body><main>
+  <nav><a href="snaptask-support.html">支援</a><a href="snaptask-terms.html">服務條款與訂閱</a></nav>
+  <h1>SnapTask 隱私權政策</h1>
+  <p class="muted">最後更新：2026 年 8 月 16 日｜開發者：J-Studio</p>
+  <p>SnapTask 將使用者主動選擇的截圖、相片、文件、文字或網頁連結整理成可確認的待辦、行程與筆記。本政策說明 App 的資料處理方式。</p>
+  <div class="notice"><strong>重點：</strong>一般 OCR 在裝置上以 Apple Vision 處理。App 不顯示廣告、不使用第三方廣告或行為分析 SDK，也不要求建立 SnapTask 帳號。雲端 AI 僅在 Premium 使用者明確啟用或主動使用時傳送文字，絕不傳送原始圖片或 PDF。</div>
+
+  <h2>我們處理哪些資料</h2>
+  <table><thead><tr><th>資料</th><th>用途與位置</th></tr></thead><tbody>
+    <tr><td>項目內容、OCR 文字、圖片與 PDF</td><td>在裝置上建立與保存。若使用者登入 iCloud，SnapTask 項目與使用者選擇保留的圖片／PDF 會同步至該使用者的私人 Apple CloudKit 資料庫，以供其 iPhone、iPad 與 Mac 使用。</td></tr>
+    <tr><td>公開網頁文字</td><td>當使用者主動從 Safari、LINE 或其他 App 分享網頁時，App 可擷取可公開取得的主要文字，供離線閱讀與整理；不保存 Cookie、登入憑證或完整網頁程式碼。</td></tr>
+    <tr><td>AI 文字請求</td><td>僅在使用者啟用 AI 功能時，辨識文字與必要的精簡項目摘要會經 Cloudflare Worker 送至 DeepSeek，用於整理、翻譯、分類、行程判斷、重複建議與附來源問答。</td></tr>
+    <tr><td>匿名安裝識別碼與 IP 位址</td><td>App 產生不含帳號資訊的隨機安裝識別碼；Cloudflare 會接觸 IP 位址。兩者僅用於 Worker 的頻率限制與防止濫用，不用於廣告、跨 App 追蹤或建立使用者檔案。</td></tr>
+  </tbody></table>
+
+  <h2>可選雲端 AI</h2>
+  <p>AI 功能為 Premium 選用工具。使用者可在設定中關閉新匯入的自動 AI 判斷，或僅在確認畫面手動使用。AI 請求可能包含最多 30 筆既有項目的 ID、標題、分類、來源網址、重要標記、到期日期與每筆最多 280 字的摘要；不包含原始圖片與 PDF。</p>
+  <p>我們的 Worker 不會將請求文字寫入 SnapTask 自有資料庫。Cloudflare 與 DeepSeek 仍可能依其安全、營運及法律政策處理請求與連線資料；請同時參閱其適用政策。AI 回覆是建議，不會自動建立提醒事項、行事曆活動或其他外部資料，所有匯出皆須由使用者確認。</p>
+
+  <h2>系統權限與外部匯出</h2>
+  <ul>
+    <li><strong>相機：</strong>拍攝文件或畫面並在裝置上辨識文字。</li>
+    <li><strong>Apple 行事曆與提醒事項：</strong>只有在使用者確認後，將選定內容寫入相應 App。</li>
+    <li><strong>通知：</strong>僅用於使用者手動建立的 SnapTask 本機提醒與行程提示。</li>
+  </ul>
+  <p>匯出至備忘錄、Markdown、CSV、PDF 或其他 App 由 Apple 系統分享面板處理。外部 App 的資料處理受其各自政策規範。</p>
+
+  <h2>刪除、保留與您的選擇</h2>
+  <p>使用者可在 SnapTask 設定中清理封存項目或刪除所有 SnapTask 資料。因使用 CloudKit 私人同步，刪除 SnapTask 項目會同步到登入相同 Apple 帳號的裝置；已匯出至提醒事項、行事曆、備忘錄或其他 App 的內容不會一併刪除。使用者可隨時於 iOS／iPadOS／macOS 系統設定調整權限。</p>
+
+  <h2>兒童與政策更新</h2>
+  <p>SnapTask 並非以 13 歲以下兒童為對象。我們可能因功能、供應商或法規更新本政策，更新將公布於本頁並修訂日期。</p>
+
+  <h2>聯絡我們</h2>
+  <p>若對本政策、資料刪除或支援有疑問，請聯絡 J-Studio：<a href="mailto:jamesyang14@gmail.com">jamesyang14@gmail.com</a>。</p>
+  <footer>© 2026 J-Studio · SnapTask</footer>
+</main></body></html>
